@@ -1,0 +1,16 @@
+.navbar-brand {
+    font-size: 25px;
+}
+
+.navbar-tabs a{
+  text-decoration: none;
+  color: black;
+}
+
+.navbar-tabs a:not(:last-child) {
+    margin-right: 25px;
+}
+
+.navbar-tabs .nav-item {
+    list-style: none;
+}

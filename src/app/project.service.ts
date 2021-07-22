@@ -7,6 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class ProjectService {
 
+  //TODO - przeniesc wiekszosc czesc url do osobnej klasy i potem eskportowac 
   private url = 'http://localhost:8080/api/v1/projects'
   private httpOptions = {
     headers: new HttpHeaders({ 'Content-type': 'application/json' })

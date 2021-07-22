@@ -7,6 +7,7 @@ import { MainComponent } from './main/main.component';
 import { FooterComponent } from './footer/footer.component';
 import { VerticalNavbarComponent } from './vertical-navbar/vertical-navbar.component';
 import { HttpClientModule } from '@angular/common/http';
+import { TableComponent } from './table/table.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { HttpClientModule } from '@angular/common/http';
     NavbarComponent,
     MainComponent,
     FooterComponent,
-    VerticalNavbarComponent
+    VerticalNavbarComponent,
+    TableComponent
   ],
   imports: [
     BrowserModule,

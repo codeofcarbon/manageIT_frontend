@@ -1,15 +1,15 @@
 [{
         "id": 1,
-        "name": "Task1",
+        "name": "Funkcjonalność - zarządzanie projektem(formularz)",
         "description": "this is desc 1",
         "storyPoints": "6",
-        "progress": "TO_DO",
+        "progress": "IN_PROGRESS",
         "priority": "4",
-        "sprintId": 2
+        "sprintId": 1
     },
     {
         "id": 2,
-        "name": "Task2",
+        "name": "Funkcjonalność - zarządzanie sprintem(formularz)",
         "description": "this is desc 2",
         "storyPoints": "1",
         "progress": "TO_DO",
@@ -75,27 +75,27 @@
         "name": "Task9",
         "description": "this is desc 9",
         "storyPoints": "3",
-        "progress": "TO_DO",
+        "progress": "IN_PROGRESS",
         "priority": "1",
-        "sprintId": 5
+        "sprintId": 1
     },
     {
         "id": 10,
-        "name": "Task10",
+        "name": "Dokończyć testy dla metod CRUD w back-endzie",
         "description": "this is desc 10",
         "storyPoints": "1",
-        "progress": "TO_DO",
+        "progress": "IN_PROGRESS",
         "priority": "2",
-        "sprintId": 7
+        "sprintId": 1
     },
     {
         "id": 11,
         "name": "Task11",
         "description": "this is desc 11",
         "storyPoints": "2",
-        "progress": "TO_DO",
+        "progress": "DONE",
         "priority": "4",
-        "sprintId": 13
+        "sprintId": 1
     },
     {
         "id": 12,
@@ -108,12 +108,12 @@
     },
     {
         "id": 13,
-        "name": "Task13",
+        "name": "Funkcjonalność - ściana z zadaniami i zarządzanie",
         "description": "this is desc 13",
         "storyPoints": "4",
-        "progress": "TO_DO",
+        "progress": "IN_PROGRESS",
         "priority": "3",
-        "sprintId": 13
+        "sprintId": 1
     },
     {
         "id": 14,
@@ -135,7 +135,7 @@
     },
     {
         "id": 16,
-        "name": "Task16",
+        "name": "Stworzyć mock-server aby miec tymczasowe przygotowane dane do tworzenia wyglądu stronu",
         "description": "this is desc 16",
         "storyPoints": "5",
         "progress": "TO_DO",
@@ -171,12 +171,12 @@
     },
     {
         "id": 20,
-        "name": "Task20",
+        "name": "Zrobić nowe repozytorium dla front-endu",
         "description": "this is desc 20",
         "storyPoints": "1",
-        "progress": "TO_DO",
+        "progress": "DONE",
         "priority": "2",
-        "sprintId": 5
+        "sprintId": 1
     }
 ]
     

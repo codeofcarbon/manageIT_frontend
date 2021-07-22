@@ -1,5 +1,5 @@
 .navbar-brand {
-    font-size: 25px;
+    font-size: 1.7rem;
 }
 
 .navbar-tabs a{
@@ -7,8 +7,12 @@
   color: black;
 }
 
-.navbar-tabs a:not(:last-child) {
-    margin-right: 25px;
+.navbar li:first-child {
+    margin-left: 1.5rem;
+}
+
+.navbar li:not(:last-child) {
+    margin-right: 1.6rem;
 }
 
 .navbar-tabs .nav-item {

@@ -7,7 +7,6 @@ h2 {
 }
 
 .task-wrapper .task-space:not(:last-child){
-    /* justify-content: space-around; */
     margin-right: 2rem;
 }
 
@@ -15,7 +14,6 @@ h2 {
     width: 280px;
     min-height: 300px;
     border-radius: 5px;
-    /* border: solid black 1px; */
     background-color: whitesmoke;
 }
 
@@ -36,7 +34,7 @@ h2 {
 }
 
 .data-section .data:hover {
-    background-color: rgb(247, 247, 247);
+    background-color: whitesmoke;
 }
 
 .data-section .data:hover .btn{
@@ -68,5 +66,9 @@ h2 {
 
 span {
     width: 230px;
+}
+
+.task-svg {
+    margin-left: 205px;
 }
 

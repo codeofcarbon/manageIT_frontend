@@ -1,0 +1,12 @@
+.modal-content {
+    height: 450px;
+    width: 800px;
+}
+
+.form-section {
+    justify-content: space-around;
+}
+
+.form-section label {
+ width: 80px;
+}

@@ -8,6 +8,8 @@ import { FooterComponent } from './footer/footer.component';
 import { VerticalNavbarComponent } from './vertical-navbar/vertical-navbar.component';
 import { HttpClientModule } from '@angular/common/http';
 import { TableComponent } from './table/table.component';
+import { TaskFormComponent } from './task-form/task-form.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -16,11 +18,13 @@ import { TableComponent } from './table/table.component';
     MainComponent,
     FooterComponent,
     VerticalNavbarComponent,
-    TableComponent
+    TableComponent,
+    TaskFormComponent
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

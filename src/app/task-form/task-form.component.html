@@ -1,0 +1,58 @@
+<div class="modal-content">
+  <div class="modal-header">
+    <h5 class="modal-title" id="exampleModalLabel">Edit Task</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+  </div>
+  <div class="modal-body">
+    <form id="taskForm" method="POST" [formGroup]="taskForm">
+      <section class="form-section d-flex">
+
+        <section class="left-section">
+
+          <div>
+            <label for="name">Name</label>
+            <input type="text" name="name" id="name" formControlName="name">
+          </div>
+          <div>
+            <label for="description">description</label>
+            <input type="text" name="description" id="description" formControlName="description">
+          </div>
+
+        </section>
+        <section class="right-section">
+
+          <div class="up">
+
+            <label for="storyPoints">storyPoints</label>
+            <input type="number" name="storyPoints" id="storyPoints" formControlName="storyPoints">
+
+          </div>
+
+          <div class="middle">
+
+            <label for="progress">progress</label>
+            <select formControlName="progress" id="progress">
+              <option [ngValue]="'To do'">To do</option>
+              <option [ngValue]="'In progress'">In progress</option>
+              <option [ngValue]="'Done'">Done</option>
+            </select>
+
+          </div>
+
+          <div class="down">
+
+            <label for="priority">priority</label>
+            <input type="number" name="priority" id="priority" formControlName="priority">
+
+          </div>
+
+        </section>
+
+      </section>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+    <button type="submit" (click)="show()" form="taskForm" class="btn btn-primary">Save changes</button>
+  </div>
+</div>

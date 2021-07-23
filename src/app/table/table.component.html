@@ -8,23 +8,25 @@
     <section class="task-space">
         <section class="header-section">TO DO {{toDo.length}}</section>
         <section class="data-section">
-            <div class="data" *ngFor="let task of toDo">
-                <div class="upper-data d-flex">
-                    <span>
-                        {{task.name}}
-                    </span>
-                    <button class="btn btn-dark"><img src="../../assets/icons/list.svg"/></button>
+            
+                <div class="data" data-bs-toggle="modal" data-bs-target="#editTaskModal" *ngFor="let task of toDo">
+                    <div class="upper-data d-flex">
+                        <span>
+                            {{task.name}}
+                        </span>
+                        <button class="btn btn-dark"><img src="../../assets/icons/list.svg"/></button>
+                    </div>
+                    <div class="lower-data">
+                        MIT-{{counter + 1}}
+                    </div>
                 </div>
-                <div class="lower-data">
-                    MIT-{{counter + 1}}
-                </div>
-            </div>
+           
         </section>
     </section>
     <section class="task-space">
         <section class="header-section">IN PROGRESS {{inProgress.length}}</section>
         <section class="data-section">
-            <div class="data" *ngFor="let task of inProgress">
+            <div class="data" data-bs-toggle="modal" data-bs-target="#editTaskModal" *ngFor="let task of inProgress">
                 <div class="upper-data d-flex">
                     <span>
                         {{task.name}}
@@ -38,9 +40,9 @@
         </section>
     </section>
     <section class="task-space">
-        <section class="header-section">DONE {{done.length}}</section>
+        <section class="header-section">DONE {{done.length}} <img src="../../assets/icons/check2.svg"/></section>
         <section class="data-section">
-            <div class="data" *ngFor="let task of done">
+            <div class="data" data-bs-toggle="modal" data-bs-target="#editTaskModal" *ngFor="let task of done">
                 <div class="upper-data d-flex">
                     <span>
                         {{task.name}}
@@ -48,9 +50,15 @@
                     <button class="btn btn-dark"><img src="../../assets/icons/list.svg"/></button>
                 </div>
                 <div class="lower-data">
-                    MIT-{{counter + 1}}
+                    <span>
+                        MIT-{{counter + 1}}
+                    </span>
+                     <img class="task-svg" src="../../assets/icons/check2.svg"/>
                 </div>
             </div>
         </section>
     </section>
 </div>
+
+
+

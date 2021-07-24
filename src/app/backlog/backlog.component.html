@@ -21,12 +21,14 @@
         </section>
         <section class="middle-section mx-2 my-2">
 
-            <div *ngFor="let task of tasks">
+            <div class="task-loop" *ngFor="let task of tasks">
 
                 <div *ngFor="let taskId of sprint.tasksIds">
                       
-                    <div *ngIf="task.id === taskId">
-                       {{sprint.name}} ---------  {{task.name}}
+                    <div class="task-space" *ngIf="task.id === taskId" [routerLink]="['/backlog', 'edit', task.id]" data-bs-toggle="modal" data-bs-target="#editTaskModal">
+                        
+                            {{sprint.name}} ---------  {{task.name}}
+                        
                     </div>
 
                 </div>
@@ -44,3 +46,10 @@
         <button class="btn btn-primary">Utwórz sprint</button>
     </div>
 </section>
+
+<!-- EDIT MODAL -->
+<div class="modal fade" id="editTaskModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+                <router-outlet></router-outlet>
+    </div>
+</div>

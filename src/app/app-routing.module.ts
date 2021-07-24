@@ -10,7 +10,9 @@ const routes: Routes = [
   {path: 'table', component: TableComponent, children: [
     {path: 'edit/:id', component: TaskFormComponent}
   ]},
-  {path: 'backlog', component: BacklogComponent}
+  {path: 'backlog', component: BacklogComponent, children: [
+    {path: 'edit/:id', component: TaskFormComponent}
+  ]}
 ]
 
 

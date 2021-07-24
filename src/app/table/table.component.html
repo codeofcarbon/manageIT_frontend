@@ -9,8 +9,8 @@
         <section class="header-section">TO DO {{toDo.length}}</section>
         <section class="data-section">
 
-            <div class="data" [routerLink]="['/table', 'edit', task.id]"  data-bs-toggle="modal" data-bs-target="#editTaskModal"
-                *ngFor="let task of toDo">
+            <div class="data" [routerLink]="['/table', 'edit', task.id]" data-bs-toggle="modal"
+                data-bs-target="#editTaskModal" *ngFor="let task of toDo">
                 <div class="upper-data d-flex">
                     <span>
                         {{task.name}}
@@ -27,8 +27,8 @@
     <section class="task-space">
         <section class="header-section">IN PROGRESS {{inProgress.length}}</section>
         <section class="data-section">
-            <div class="data" [routerLink]="['/table', 'edit', task.id]" data-bs-toggle="modal" data-bs-target="#editTaskModal"
-                *ngFor="let task of inProgress">
+            <div class="data" [routerLink]="['/table', 'edit', task.id]" data-bs-toggle="modal"
+                data-bs-target="#editTaskModal" *ngFor="let task of inProgress">
                 <div class="upper-data d-flex">
                     <span>
                         {{task.name}}
@@ -44,8 +44,8 @@
     <section class="task-space">
         <section class="header-section">DONE {{done.length}} <img src="../../assets/icons/check2.svg" /></section>
         <section class="data-section">
-            <div class="data" [routerLink]="['/table', 'edit', task.id]" data-bs-toggle="modal" data-bs-target="#editTaskModal"
-                *ngFor="let task of done">
+            <div class="data" [routerLink]="['/table', 'edit', task.id]" data-bs-toggle="modal"
+                data-bs-target="#editTaskModal" *ngFor="let task of done">
                 <div class="upper-data d-flex">
                     <span>
                         {{task.name}}
@@ -66,7 +66,6 @@
 <!-- EDIT MODAL -->
 <div class="modal fade" id="editTaskModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
-        <!-- <app-task-form [task]="selectedTask"></app-task-form> -->
-        <router-outlet></router-outlet>
+                <router-outlet></router-outlet>
     </div>
 </div>

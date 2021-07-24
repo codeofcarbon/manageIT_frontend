@@ -55,8 +55,27 @@ img {
     background-color: rgb(209, 207, 207);
 }
 
+.task-space {
+    padding-left: 3px;
+    margin: 3px 5px;
+    border-bottom: 0.25px solid transparent;
+}
+
+.task-loop .task-space:hover {
+    background-color: whitesmoke;
+    border-radius: 5px;
+    border-bottom: 0.25px solid rgb(209, 207, 207) ;
+}
+
 .form-space {
     text-align: right;
     padding-right: 40px;
 }
+
+.modal-dialog {
+    margin-top: 50px;
+    margin-right: 670px;
+ }
+
+
 

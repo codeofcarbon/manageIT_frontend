@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
+import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { Sprint, SprintService } from '../services/sprint.service';
 import { Task, TaskService } from '../services/task.service';
 
@@ -15,7 +15,7 @@ export class TableComponent implements OnInit, OnChanges {
     startDate: '3012983',
     endDate: '23204823',
     storyPointsToSpend: '34',
-    tasks: []
+    tasksIds: []
   };
     
   public selectedTask 
@@ -27,12 +27,7 @@ export class TableComponent implements OnInit, OnChanges {
 
   constructor(private taskService: TaskService, private sprintService: SprintService) { }
   ngOnChanges(changes: SimpleChanges): void {
-    throw new Error('Method not implemented.');
-  }
-
-
-  selectTask(task: Task) {
-    this.selectedTask = task
+    console.log('ZMIANY W TABLE TABLE')
   }
 
   checkProgress(task: Task) {
@@ -70,6 +65,7 @@ export class TableComponent implements OnInit, OnChanges {
   ngOnInit(): void {
     this.getAllSprints()
     this.getAllTasks()
+    console.log('HEJ TABLE')
   }
 
 }

@@ -4,23 +4,40 @@
     <div class="sprint-space" *ngFor="let sprint of sprints">
         <section class="upper-section d-flex">
             <div>
-                <span>{{sprint.name}} -></span>
+                <span>{{sprint.name}} -> </span>
                 <span>{{sprint.startDate}}-{{sprint.endDate}}</span>
             </div>
             <div>
                 <span>Story points: {{sprint.storyPointsToSpend}}</span>
                 <button class="button">Ukończ sprint</button>
-                    <button class="button" type="button" id="dropdownMenu1" data-bs-toggle="dropdown" aria-expanded="false">
-                        <img src="../../assets/icons/list.svg">
-                    </button>
-                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                      <li><button class="dropdown-item" type="button">Edytuj sprint</button></li>
-                      <li><button class="dropdown-item" type="button">Usuń sprint</button></li>
-                    </ul>
+                <button class="button" type="button" id="dropdownMenu1" data-bs-toggle="dropdown" aria-expanded="false">
+                    <img src="../../assets/icons/list.svg">
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                    <li><button class="dropdown-item" type="button">Edytuj sprint</button></li>
+                    <li><button class="dropdown-item" type="button">Usuń sprint</button></li>
+                </ul>
             </div>
         </section>
-        <section class="lower-section d-flex">
-              <span><b>Utwórz zadanie</b></span>
+        <section class="middle-section mx-2 my-2">
+
+            <div *ngFor="let task of tasks">
+
+                <div *ngFor="let taskId of sprint.tasksIds">
+                      
+                    <div *ngIf="task.id === taskId">
+                       {{sprint.name}} ---------  {{task.name}}
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+        <section class="lower-section">
+            <div class="create-task-button mx-2 my-2">
+                <img src="../../assets/icons/plus (1).svg" alt=""><b>Utwórz zadanie</b>
+            </div>
         </section>
     </div>
     <div class="form-space">

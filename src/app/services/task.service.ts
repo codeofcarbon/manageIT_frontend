@@ -15,7 +15,7 @@ export class TaskService {
   constructor(private http: HttpClient) { }
 
   getAllTasks(): Observable<Task[]> {
-    return this.http.get<Task[]>(this.url)
+    return this.http.get<Task[]>(`http://localhost:8000/api/v1/tasks`)
   }
 
   getTaskById(id: number): Observable<Task> {
@@ -31,7 +31,7 @@ export class TaskService {
   }
 
   updateTask(task: Task): Observable<Task> {
-    return this.http.put<Task>(this.url, task, this.httpOptions)
+    return this.http.put<Task>('http://localhost:8080/api/v1/tasks/1', task, this.httpOptions)
   }
 }
 

@@ -8,7 +8,6 @@ h2 {
 
 .sprint-space {
     margin: 50px 40px;
-    height: 90px;
     border: 1px solid lightgrey;
     border-radius: 5px;
     background-color: whitesmoke;
@@ -17,6 +16,12 @@ h2 {
 .sprint-space .upper-section {
     margin: 5px 10px;
     justify-content: space-between;
+}
+
+.sprint-space .middle-section {
+    background-color: white;
+    border-radius: 5px;
+    border: 1px solid rgb(209, 207, 207);
 }
 
 .button {
@@ -38,6 +43,16 @@ h2 {
 
 img {
     margin-bottom: 4px;
+}
+
+.create-task-button {
+    border-radius: 5px;
+    border: 1px solid whitesmoke;
+}
+
+.create-task-button:hover {
+    border: 1px solid rgb(209, 207, 207);
+    background-color: rgb(209, 207, 207);
 }
 
 .form-space {

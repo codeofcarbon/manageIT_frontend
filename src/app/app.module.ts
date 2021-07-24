@@ -10,6 +10,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { TableComponent } from './table/table.component';
 import { TaskFormComponent } from './task-form/task-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AppRoutingModule } from './app-routing.module';
+import { BacklogComponent } from './backlog/backlog.component';
 
 @NgModule({
   declarations: [
@@ -19,12 +21,14 @@ import { ReactiveFormsModule } from '@angular/forms';
     FooterComponent,
     VerticalNavbarComponent,
     TableComponent,
-    TaskFormComponent
+    TaskFormComponent,
+    BacklogComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

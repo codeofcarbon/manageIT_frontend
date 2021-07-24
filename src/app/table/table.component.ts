@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { Sprint, SprintService } from '../services/sprint.service';
 import { Task, TaskService } from '../services/task.service';
 
@@ -7,10 +7,18 @@ import { Task, TaskService } from '../services/task.service';
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.css']
 })
-export class TableComponent implements OnInit {
+export class TableComponent implements OnInit, OnChanges {
 
-  public sprint: Sprint;
+  public sprint: Sprint =  {
+    id: 1,
+    name: 'spritn1',
+    startDate: '3012983',
+    endDate: '23204823',
+    storyPointsToSpend: '34',
+    tasks: []
+  };
     
+  public selectedTask 
   public tasksInSprint: Task[]
   public toDo: Task[] = []
   public inProgress: Task[] = []
@@ -18,10 +26,18 @@ export class TableComponent implements OnInit {
   public counter = 0;
 
   constructor(private taskService: TaskService, private sprintService: SprintService) { }
+  ngOnChanges(changes: SimpleChanges): void {
+    throw new Error('Method not implemented.');
+  }
+
+
+  selectTask(task: Task) {
+    this.selectedTask = task
+  }
 
   checkProgress(task: Task) {
 
-    console.log(task)
+    // console.log(task)
      
     if(task.progress === 'TO_DO') {
       this.toDo.push(task)

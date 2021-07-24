@@ -4,7 +4,7 @@
         "startDate": "1 July 2021, 3:30 PM",
         "endDate": "8 July 2021, 3:30 PM",
         "storyPointsToSpend": "21",
-        "tasksIds": []
+        "tasksIds": [1, 2, 3, 4, 5, 6]
     },
     {
         "id": 2,
@@ -12,7 +12,7 @@
         "startDate": "2 July 2021, 3:30 PM",
         "endDate": "9 July 2021, 3:30 PM",
         "storyPointsToSpend": "22",
-        "tasksIds": []
+        "tasksIds": [1, 2]
     },
     {
         "id": 3,
@@ -20,110 +20,6 @@
         "startDate": "3 July 2021, 3:30 PM",
         "endDate": "10 July 2021, 3:30 PM",
         "storyPointsToSpend": "23",
-        "tasksIds": []
-    },
-    {
-        "id": 4,
-        "name": "Sprint4",
-        "startDate": "4 July 2021, 3:30 PM",
-        "endDate": "11 July 2021, 3:30 PM",
-        "storyPointsToSpend": "24",
-        "tasksIds": []
-    },
-    {
-        "id": 5,
-        "name": "Sprint5",
-        "startDate": "5 July 2021, 3:30 PM",
-        "endDate": "12 July 2021, 3:30 PM",
-        "storyPointsToSpend": "25",
-        "tasksIds": []
-    },
-    {
-        "id": 6,
-        "name": "Sprint6",
-        "startDate": "6 July 2021, 3:30 PM",
-        "endDate": "13 July 2021, 3:30 PM",
-        "storyPointsToSpend": "26",
-        "tasksIds": []
-    },
-    {
-        "id": 7,
-        "name": "Sprint7",
-        "startDate": "7 July 2021, 3:30 PM",
-        "endDate": "14 July 2021, 3:30 PM",
-        "storyPointsToSpend": "27",
-        "tasksIds": []
-    },
-    {
-        "id": 8,
-        "name": "Sprint8",
-        "startDate": "8 July 2021, 3:30 PM",
-        "endDate": "15 July 2021, 3:30 PM",
-        "storyPointsToSpend": "28",
-        "tasksIds": []
-    },
-    {
-        "id": 9,
-        "name": "Sprint9",
-        "startDate": "9 July 2021, 3:30 PM",
-        "endDate": "16 July 2021, 3:30 PM",
-        "storyPointsToSpend": "29",
-        "tasksIds": []
-    },
-    {
-        "id": 10,
-        "name": "Sprint10",
-        "startDate": "10 July 2021, 3:30 PM",
-        "endDate": "17 July 2021, 3:30 PM",
-        "storyPointsToSpend": "30",
-        "tasksIds": []
-    },
-    {
-        "id": 11,
-        "name": "Sprint11",
-        "startDate": "11 July 2021, 3:30 PM",
-        "endDate": "18 July 2021, 3:30 PM",
-        "storyPointsToSpend": "31",
-        "tasksIds": []
-    },
-    {
-        "id": 12,
-        "name": "Sprint12",
-        "startDate": "12 July 2021, 3:30 PM",
-        "endDate": "19 July 2021, 3:30 PM",
-        "storyPointsToSpend": "32",
-        "tasksIds": []
-    },
-    {
-        "id": 13,
-        "name": "Sprint13",
-        "startDate": "13 July 2021, 3:30 PM",
-        "endDate": "20 July 2021, 3:30 PM",
-        "storyPointsToSpend": "33",
-        "tasksIds": []
-    },
-    {
-        "id": 14,
-        "name": "Sprint14",
-        "startDate": "14 July 2021, 3:30 PM",
-        "endDate": "21 July 2021, 3:30 PM",
-        "storyPointsToSpend": "34",
-        "tasksIds": []
-    },
-    {
-        "id": 15,
-        "name": "Sprint15",
-        "startDate": "15 July 2021, 3:30 PM",
-        "endDate": "22 July 2021, 3:30 PM",
-        "storyPointsToSpend": "35",
-        "tasksIds": []
-    },
-    {
-        "id": 16,
-        "name": "Sprint16",
-        "startDate": "16 July 2021, 3:30 PM",
-        "endDate": "23 July 2021, 3:30 PM",
-        "storyPointsToSpend": "36",
         "tasksIds": []
     }
 ] 

@@ -8,5 +8,6 @@
 }
 
 .form-section label {
- width: 80px;
+ width: 100px;
+ /* padding: 5px 10px; */
 }

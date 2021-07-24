@@ -1,0 +1,47 @@
+h2 {
+    padding: 10px 0px 0px 10px;
+}
+
+.wrapper {
+    margin-top: 100px;
+}
+
+.sprint-space {
+    margin: 50px 40px;
+    height: 90px;
+    border: 1px solid lightgrey;
+    border-radius: 5px;
+    background-color: whitesmoke;
+}
+
+.sprint-space .upper-section {
+    margin: 5px 10px;
+    justify-content: space-between;
+}
+
+.button {
+    color: black;
+    margin-left: 10px;
+    padding: 3px 6px;
+    border: 1px solid rgb(224, 223, 223);
+    border-radius: 5px;
+    background-color: rgb(224, 223, 223);
+}
+
+.button:hover {
+    color: black;
+    margin-left: 10px;
+    padding: 3px 6px;
+    border: 1px solid rgb(209, 207, 207);
+    background-color: rgb(209, 207, 207);
+}
+
+img {
+    margin-bottom: 4px;
+}
+
+.form-space {
+    text-align: right;
+    padding-right: 40px;
+}
+

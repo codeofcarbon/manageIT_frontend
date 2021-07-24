@@ -1,17 +1,36 @@
 <div class="wrapper">
-    <app-navbar></app-navbar>
-    <div class="d-flex">
-        <app-vertical-navbar></app-vertical-navbar> 
-        <div class="borderr" style="border-left: 0px black solid;">
-            <app-table></app-table>
-        </div>
-    </div>
-    <app-footer></app-footer>
+  <app-navbar></app-navbar>
+  <div class="d-flex">
+    <app-vertical-navbar></app-vertical-navbar>
+    <div class="borderr" style="border-left: 0px black solid;">
 
-    <!-- EDIT MODAL -->
-<div class="modal fade" id="editTaskModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <app-task-form></app-task-form>
+      <router-outlet ></router-outlet>
+
+    </div>
+  </div>
+  <app-footer></app-footer>
+</div>
+
+<div class="modal fade" id="addProjectModal" tabindex="-1" aria-labelledby="projectModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add Project</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+       <form method="post">
+         <label for="name">Name</label>
+         <input type="text" name="name" id="name">
+         <br>
+         <label for="description">Description</label>
+         <input type="text" name="description" id="description">
+       </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
     </div>
   </div>
 </div>

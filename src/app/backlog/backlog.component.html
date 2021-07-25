@@ -45,7 +45,8 @@
 
         </section>
         <section class="lower-section">
-            <div class="create-task-button mx-2 my-2">
+            <div class="create-task-button mx-2 my-2" [routerLink]="['/backlog', 'task', 'add', sprint.id]" data-bs-toggle="modal"
+            data-bs-target="#editTaskModal" >
                 <img src="../../assets/icons/plus (1).svg" alt=""><b>Utwórz zadanie</b>
             </div>
         </section>

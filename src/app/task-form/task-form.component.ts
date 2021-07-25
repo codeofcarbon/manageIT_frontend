@@ -5,8 +5,8 @@ import { Task, TaskService } from '../services/task.service';
 
 @Component({
   selector: 'app-task-form',
-  templateUrl: './task-form.component.html',
-  styleUrls: ['./task-form.component.css']
+  templateUrl: '../add-task-form/add-task-form.component.html',
+  styleUrls: ['../add-task-form/add-task-form.component.css']
 })
 export class TaskFormComponent implements OnInit {
 

@@ -1,0 +1,30 @@
+.modal-body {
+    margin-top: 50px;
+    height: 250px;
+}
+
+.modal-footer {
+    margin-top: 20px;
+}
+
+.input-space {
+    background-color: rgba(245, 245, 245, 0.452);
+    border: 2px solid rgba(122, 122, 122, 0.568);
+    border-radius: 5px;
+    padding: 3px 5px;
+    margin-bottom: 5px;
+}
+
+.input-space:hover {
+    background-color: rgba(231, 227, 227, 0.452);
+}
+
+.input-space:focus {
+    outline: none;
+    border: 2px solid #0275d8;
+}
+
+#description {
+    width: 333px;
+    height: 100px;
+}

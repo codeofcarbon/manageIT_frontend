@@ -35,12 +35,12 @@ export class AddTaskFormComponent implements OnInit {
 
   getSprintId() {
     this.taskForm.setValue({
-      id: '',
-      name: '',
-      description: '',
-      storyPoints: '',
-      progress: '',
-      priority: '',
+      id: null,
+      name: null,
+      description: null,
+      storyPoints: 0,
+      progress: 'TO_DO',
+      priority: null,
       sprint: {
         id: this.params.id
       },

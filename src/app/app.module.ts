@@ -14,6 +14,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { BacklogComponent } from './backlog/backlog.component';
 import { SprintFormComponent } from './sprint-form/sprint-form.component';
 import { AddTaskFormComponent } from './add-task-form/add-task-form.component';
+import { AddProjectFormComponent } from './add-project-form/add-project-form.component';
+import { ProjectSettingsComponent } from './project-settings/project-settings.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { AddTaskFormComponent } from './add-task-form/add-task-form.component';
     TaskFormComponent,
     BacklogComponent,
     SprintFormComponent,
-    AddTaskFormComponent
+    AddTaskFormComponent,
+    AddProjectFormComponent,
+    ProjectSettingsComponent
   ],
   imports: [
     BrowserModule,

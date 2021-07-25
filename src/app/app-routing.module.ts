@@ -5,6 +5,7 @@ import { BacklogComponent } from './backlog/backlog.component';
 import { TaskFormComponent } from './task-form/task-form.component';
 import { SprintFormComponent } from './sprint-form/sprint-form.component';
 import { AddTaskFormComponent } from './add-task-form/add-task-form.component';
+import { ProjectSettingsComponent } from './project-settings/project-settings.component';
 
 
 const routes: Routes = [
@@ -16,7 +17,8 @@ const routes: Routes = [
     {path: 'sprint/edit/:id', component: SprintFormComponent},
     {path: 'task/edit/:id', component: TaskFormComponent},
     {path: 'task/add/:id', component: AddTaskFormComponent}
-  ]}
+  ]}, 
+  {path: 'project/settings', component: ProjectSettingsComponent}
 ]
 
 

@@ -31,12 +31,12 @@ export class TaskService {
   }
 
   updateTask(task: Task): Observable<Task> {
-    return this.http.put<Task>('http://localhost:8080/api/v1/tasks/1', task, this.httpOptions)
+    return this.http.put<Task>('http://localhost:8000/api/v1/tasks/1', task, this.httpOptions)
   }
 }
 
 export interface Task {
-  id: number
+  id?: number
   name: string
   description: string
   storyPoints: string

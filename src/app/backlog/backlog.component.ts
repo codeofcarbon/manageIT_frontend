@@ -9,6 +9,7 @@ import { Task, TaskService } from '../services/task.service';
 })
 export class BacklogComponent implements OnInit {
 
+  private counter = null;
   sprints: Sprint[] = []
   tasks: Task[] = []
 
@@ -17,13 +18,39 @@ export class BacklogComponent implements OnInit {
   getAllSprints() {
     this.sprintService.getAllSprints().subscribe(val => {
       this.sprints = val
-      this.sprints.forEach(e => console.log(e))
+      this.counter = this.sprints.length + 1
+      console.log(this.counter)
     })
   }
 
   getAllTasks() {
     this.taskService.getAllTasks().subscribe(val => {
       this.tasks = val
+    })
+  }
+
+  createNewSprint() {
+    const basicSprint: Sprint = {
+      name: `Sprint ${this.counter++}`,
+      startDate: null,
+      endDate: null,
+      storyPointsToSpend: '0',
+      tasksIds: []
+    }
+
+    this.sprintService.addSprint(basicSprint).subscribe(val => {
+      console.log('Dodano nowy Sprint --')
+      console.log(val)
+      this.getAllSprints()
+      this.getAllTasks()
+    })
+  }
+  
+  deleteSprint(id: number) {
+    this.sprintService.deleteSprint(id).subscribe(() => {
+      console.log('Sprint deleted')
+      this.getAllSprints()
+      this.getAllTasks()
     })
   }
 

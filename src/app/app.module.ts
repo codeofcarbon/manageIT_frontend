@@ -12,6 +12,7 @@ import { TaskFormComponent } from './task-form/task-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { BacklogComponent } from './backlog/backlog.component';
+import { SprintFormComponent } from './sprint-form/sprint-form.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { BacklogComponent } from './backlog/backlog.component';
     VerticalNavbarComponent,
     TableComponent,
     TaskFormComponent,
-    BacklogComponent
+    BacklogComponent,
+    SprintFormComponent
   ],
   imports: [
     BrowserModule,

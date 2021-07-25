@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class SprintService {
 
-  private url = 'http://localhost:8080/api/v1/sprints'
+  private url = 'http://localhost:8000/api/v1/sprints'
   private httpOptions = {
     headers: new HttpHeaders({ 'Content-type': 'application/json' })
   }
@@ -36,7 +36,7 @@ export class SprintService {
 }
 
 export interface Sprint {
-  id: number
+  id?: number
   name: string
   startDate: string
   endDate: string

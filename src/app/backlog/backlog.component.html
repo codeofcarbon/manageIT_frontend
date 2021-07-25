@@ -14,8 +14,14 @@
                     <img src="../../assets/icons/list.svg">
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                    <li><button class="dropdown-item" type="button">Edytuj sprint</button></li>
-                    <li><button class="dropdown-item" type="button">Usuń sprint</button></li>
+                    <li>
+                        <div [routerLink]="['/backlog', 'sprint', 'edit', sprint.id]"  data-bs-toggle="modal"
+                        data-bs-target="#editTaskModal" >
+                            <button class="dropdown-item" type="button">Edytuj sprint</button>
+                        </div>
+                    </li>
+                    <li><button class="dropdown-item" type="button" (click)="deleteSprint(sprint.id)">Usuń
+                            sprint</button></li>
                 </ul>
             </div>
         </section>
@@ -24,11 +30,13 @@
             <div class="task-loop" *ngFor="let task of tasks">
 
                 <div *ngFor="let taskId of sprint.tasksIds">
-                      
-                    <div class="task-space" *ngIf="task.id === taskId" [routerLink]="['/backlog', 'edit', task.id]" data-bs-toggle="modal" data-bs-target="#editTaskModal">
-                        
-                            {{sprint.name}} ---------  {{task.name}}
-                        
+
+                    <div class="task-space" *ngIf="task.id === taskId"
+                        [routerLink]="['/backlog', 'task', 'edit', task.id]" data-bs-toggle="modal"
+                        data-bs-target="#editTaskModal">
+
+                        - {{task.name}}
+
                     </div>
 
                 </div>
@@ -43,13 +51,20 @@
         </section>
     </div>
     <div class="form-space">
-        <button class="btn btn-primary">Utwórz sprint</button>
+        <button class="btn btn-primary" (click)="createNewSprint()">Utwórz sprint</button>
     </div>
 </section>
 
-<!-- EDIT MODAL -->
+<!-- EDIT TASK MODAL -->
 <div class="modal fade" id="editTaskModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-                <router-outlet></router-outlet>
+    <div class="modal-dialog sample">
+        <router-outlet></router-outlet>
     </div>
 </div>
+
+<!-- EDIT Sprint MODAL -->
+<!-- <div class="modal fade" id="editSprintModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <router-outlet></router-outlet>
+    </div>
+</div> -->

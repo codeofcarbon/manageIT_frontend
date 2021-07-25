@@ -1,8 +1,7 @@
-import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import { SprintService } from '../services/sprint.service';
+import { Task, TaskService } from '../services/task.service';
 
 @Component({
   selector: 'app-add-task-form',
@@ -13,7 +12,7 @@ export class AddTaskFormComponent implements OnInit {
 
   params;
   taskForm: FormGroup = new FormGroup({
-    id: new FormControl('', { validators: [Validators.required], updateOn: 'change' }),
+    id: new FormControl('', { validators: [], updateOn: 'change' }),
     name: new FormControl('', { validators: [Validators.required, Validators.minLength(3), Validators.maxLength(55)], updateOn: "change" }),
     description: new FormControl('', { validators: [Validators.required, Validators.minLength(3), Validators.maxLength(255)], updateOn: "change" }),
     storyPoints: new FormControl('', { validators: [Validators.max(10)], updateOn: "change" }),
@@ -25,12 +24,21 @@ export class AddTaskFormComponent implements OnInit {
   }
   )
 
-  constructor(public sprintService: SprintService, public route: ActivatedRoute) {
+  constructor(private taskService: TaskService, private route: ActivatedRoute) {
     this.route.params.subscribe(params => {
       this.params = params
       this.getSprintId()
     }
     )
+  }
+
+  saveTask(task: Task) {
+          this.taskService.addTask(task).subscribe(val => {
+            console.log('---- New task added ----')
+            console.log(val)
+            document.getElementById('close-button').click()
+            window.location.reload()
+          })
   }
 
   getSprintId() {

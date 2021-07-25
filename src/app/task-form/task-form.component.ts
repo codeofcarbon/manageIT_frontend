@@ -33,7 +33,7 @@ export class TaskFormComponent implements OnInit {
     })
    }
 
-  updateTask(task: Task) {
+  saveTask(task: Task) {
     this.taskService.updateTask(task).subscribe(val => {
       this.task = val
       document.getElementById('close-button').click()

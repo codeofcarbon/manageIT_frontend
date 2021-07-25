@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import * as moment from 'moment';
-import { Sprint, SprintService } from '../services/sprint.service';
+import { Sprint, SprintService } from '../../services/sprint.service';
 
 @Component({
   selector: 'app-sprint-form',

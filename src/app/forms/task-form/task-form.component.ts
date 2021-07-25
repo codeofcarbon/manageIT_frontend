@@ -1,7 +1,7 @@
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import { Task, TaskService } from '../services/task.service';
+import { Task, TaskService } from '../../services/task.service';
 
 @Component({
   selector: 'app-task-form',

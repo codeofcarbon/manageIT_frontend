@@ -31,7 +31,7 @@ export class SprintService {
   }
 
   updateSprint(sprint: Sprint): Observable<Sprint> {
-    return this.http.put<Sprint>(this.url, sprint, this.httpOptions)
+    return this.http.put<Sprint>(`${this.url}/1`, sprint, this.httpOptions)
   }
 }
 

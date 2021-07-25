@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Sprint, SprintService } from '../services/sprint.service';
-import { Task, TaskService } from '../services/task.service';
+import { Sprint, SprintService } from '../../services/sprint.service';
+import { Task, TaskService } from '../../services/task.service';
 
 @Component({
   selector: 'app-backlog',

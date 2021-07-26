@@ -1,0 +1,26 @@
+[{
+        "id": 1,
+        "name": "Sprint1",
+        "startDate": "1 July 2021, 3:30 PM",
+        "endDate": "8 July 2021, 3:30 PM",
+        "storyPointsToSpend": "21",
+        "tasksIds": [1, 2, 3, 4, 5, 6]
+    },
+    {
+        "id": 2,
+        "name": "Sprint2",
+        "startDate": "2 July 2021, 3:30 PM",
+        "endDate": "9 July 2021, 3:30 PM",
+        "storyPointsToSpend": "22",
+        "tasksIds": [11, 12]
+    },
+    {
+        "id": 3,
+        "name": "Sprint3",
+        "startDate": "3 July 2021, 3:30 PM",
+        "endDate": "10 July 2021, 3:30 PM",
+        "storyPointsToSpend": "23",
+        "tasksIds": [8,9]
+    }
+] 
+    

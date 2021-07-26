@@ -1,0 +1,79 @@
+h2 {
+    padding: 10px 0px 0px 10px;
+}
+
+.task-wrapper .task-space:first-child {
+    margin-left: 2rem;
+}
+
+.task-wrapper .task-space:not(:last-child){
+    margin-right: 2rem;
+}
+
+.task-wrapper .task-space {
+    width: 280px;
+    min-height: 300px;
+    border-radius: 5px;
+    background-color: whitesmoke;
+}
+
+.header-section {
+    padding: 10px 0px 0px 10px;
+    /* border-bottom: solid black 1px; */
+    height: 4rem;
+}
+
+.data-section .data{
+    margin: 5px 5px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    border-radius: 5px;
+    background-color: white;
+}
+.data-section .data .btn{
+    visibility: hidden;
+}
+
+.data-section .data:hover {
+    background-color: whitesmoke;
+}
+
+.data-section .data:hover .btn{
+    visibility: visible;
+    background-color: lightgrey;
+    border: 1px solid lightgrey; 
+}
+
+.upper-data {
+    /* margin: 5px 5px 0px 5px;  */
+    /* margin: 5px 5px; */
+    padding: 5px 5px;
+    justify-content: space-between;
+}
+
+.lower-data {
+    /* margin: 3px 0px 3px 20px; */
+    padding: 1px 0px 5px 10px;
+    /* padding-bottom: 5px; */
+    font-size: 0.7rem;
+}
+
+.btn {
+    width: 30px;
+    height: 30px;
+    padding: 3px 3px;
+    font-size: 0.7rem;
+}
+
+span {
+    width: 230px;
+}
+
+.task-svg {
+    margin-left: 205px;
+}
+
+.modal-dialog {
+    margin-top: 50px;
+    /* margin-right: 670px; */
+ }
+

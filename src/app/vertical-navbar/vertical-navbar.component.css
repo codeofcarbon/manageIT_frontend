@@ -1,0 +1,11 @@
+.nav .nav-item a {
+    color: black;
+}
+
+.nav .nav-item a span {
+    padding-right: 5px;
+}
+
+.nav .nav-item a:hover {
+    background-color: whitesmoke;
+}

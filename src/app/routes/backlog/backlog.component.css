@@ -1,0 +1,81 @@
+h2 {
+    padding: 10px 0px 0px 10px;
+}
+
+.wrapper {
+    margin-top: 100px;
+}
+
+.sprint-space {
+    margin: 50px 40px;
+    border: 1px solid lightgrey;
+    border-radius: 5px;
+    background-color: whitesmoke;
+}
+
+.sprint-space .upper-section {
+    margin: 5px 10px;
+    justify-content: space-between;
+}
+
+.sprint-space .middle-section {
+    background-color: white;
+    border-radius: 5px;
+    border: 1px solid rgb(209, 207, 207);
+}
+
+.button {
+    color: black;
+    margin-left: 10px;
+    padding: 3px 6px;
+    border: 1px solid rgb(224, 223, 223);
+    border-radius: 5px;
+    background-color: rgb(224, 223, 223);
+}
+
+.button:hover {
+    color: black;
+    margin-left: 10px;
+    padding: 3px 6px;
+    border: 1px solid rgb(209, 207, 207);
+    background-color: rgb(209, 207, 207);
+}
+
+img {
+    margin-bottom: 4px;
+}
+
+.create-task-button {
+    border-radius: 5px;
+    border: 1px solid whitesmoke;
+}
+
+.create-task-button:hover {
+    border: 1px solid rgb(209, 207, 207);
+    background-color: rgb(209, 207, 207);
+}
+
+.task-space {
+    padding-left: 3px;
+    margin: 3px 5px;
+    border-bottom: 0.25px solid transparent;
+}
+
+.task-loop .task-space:hover {
+    background-color: whitesmoke;
+    border-radius: 5px;
+    border-bottom: 0.25px solid rgb(209, 207, 207) ;
+}
+
+.form-space {
+    text-align: right;
+    padding-right: 40px;
+}
+
+.modal-dialog {
+    margin-top: 50px; 
+     /* margin-right: 670px; */
+ }
+
+
+

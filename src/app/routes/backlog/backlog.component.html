@@ -1,0 +1,71 @@
+<h2>Backlog</h2>
+
+<section class="wrapper">
+    <div class="sprint-space" *ngFor="let sprint of sprints">
+        <section class="upper-section d-flex">
+            <div>
+                <span>{{sprint.name}} -> </span>
+                <span>{{sprint.startDate}}-{{sprint.endDate}}</span>
+            </div>
+            <div>
+                <span>Story points: {{sprint.storyPointsToSpend}}</span>
+                <button class="button">Ukończ sprint</button>
+                <button class="button" type="button" id="dropdownMenu1" data-bs-toggle="dropdown" aria-expanded="false">
+                    <img src="../../assets/icons/list.svg">
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                    <li>
+                        <div [routerLink]="['/backlog', 'sprint', 'edit', sprint.id]"  data-bs-toggle="modal"
+                        data-bs-target="#editTaskModal" >
+                            <button class="dropdown-item" type="button">Edytuj sprint</button>
+                        </div>
+                    </li>
+                    <li><button class="dropdown-item" type="button" (click)="deleteSprint(sprint.id)">Usuń
+                            sprint</button></li>
+                </ul>
+            </div>
+        </section>
+        <section class="middle-section mx-2 my-2">
+
+            <div class="task-loop" *ngFor="let task of tasks">
+
+                <div *ngFor="let taskId of sprint.tasksIds">
+
+                    <div class="task-space" *ngIf="task.id === taskId"
+                        [routerLink]="['/backlog', 'task', 'edit', task.id]" data-bs-toggle="modal"
+                        data-bs-target="#editTaskModal">
+
+                        - {{task.name}}
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+        <section class="lower-section">
+            <div class="create-task-button mx-2 my-2" [routerLink]="['/backlog', 'task', 'add', sprint.id]" data-bs-toggle="modal"
+            data-bs-target="#editTaskModal" >
+                <img src="../../assets/icons/plus (1).svg" alt=""><b>Utwórz zadanie</b>
+            </div>
+        </section>
+    </div>
+    <div class="form-space">
+        <button class="btn btn-primary" (click)="createNewSprint()">Utwórz sprint</button>
+    </div>
+</section>
+
+<!-- EDIT TASK MODAL -->
+<div class="modal fade" id="editTaskModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog sample">
+        <router-outlet></router-outlet>
+    </div>
+</div>
+
+<!-- EDIT Sprint MODAL -->
+<!-- <div class="modal fade" id="editSprintModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <router-outlet></router-outlet>
+    </div>
+</div> -->

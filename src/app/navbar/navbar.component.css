@@ -1,0 +1,24 @@
+.navbar {
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+.navbar-brand {
+    font-size: 1.7rem;
+}
+
+.navbar-tabs a{
+  text-decoration: none;
+  color: black;
+}
+
+.navbar li:first-child {
+    margin-left: 1.5rem;
+}
+
+.navbar li:not(:last-child) {
+    margin-right: 1.6rem;
+}
+
+.navbar-tabs .nav-item {
+    list-style: none;
+}

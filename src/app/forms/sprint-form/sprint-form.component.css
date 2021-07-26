@@ -1,0 +1,20 @@
+.form-section .label-div {
+    padding: 3px 5px;
+}
+
+.form-section input {
+    background-color: rgba(245, 245, 245, 0.452);
+    border: 2px solid rgba(122, 122, 122, 0.568);
+    border-radius: 5px;
+    padding: 3px 5px;
+    margin-bottom: 5px;
+}
+
+.form-section input:hover {
+    background-color: rgba(231, 227, 227, 0.452);
+}
+
+.form-section input:focus {
+    outline: none;
+    border: 2px solid #0275d8;
+}

@@ -1,0 +1,71 @@
+<h2>
+    {{sprint.name}}
+</h2>
+
+<br />
+
+<div class="task-wrapper d-flex">
+    <section class="task-space">
+        <section class="header-section">TO DO {{toDo.length}}</section>
+        <section class="data-section">
+
+            <div class="data" [routerLink]="['/table', 'edit', task.id]" data-bs-toggle="modal"
+                data-bs-target="#editTaskModal" *ngFor="let task of toDo">
+                <div class="upper-data d-flex">
+                    <span>
+                        {{task.name}}
+                    </span>
+                    <button class="btn btn-dark"><img src="../../assets/icons/list.svg" /></button>
+                </div>
+                <div class="lower-data">
+                    MIT-{{counter + 1}}
+                </div>
+            </div>
+
+        </section>
+    </section>
+    <section class="task-space">
+        <section class="header-section">IN PROGRESS {{inProgress.length}}</section>
+        <section class="data-section">
+            <div class="data" [routerLink]="['/table', 'edit', task.id]" data-bs-toggle="modal"
+                data-bs-target="#editTaskModal" *ngFor="let task of inProgress">
+                <div class="upper-data d-flex">
+                    <span>
+                        {{task.name}}
+                    </span>
+                    <button class="btn btn-dark"><img src="../../assets/icons/list.svg" /></button>
+                </div>
+                <div class="lower-data">
+                    MIT-{{counter + 1}}
+                </div>
+            </div>
+        </section>
+    </section>
+    <section class="task-space">
+        <section class="header-section">DONE {{done.length}} <img src="../../assets/icons/check2.svg" /></section>
+        <section class="data-section">
+            <div class="data" [routerLink]="['/table', 'edit', task.id]" data-bs-toggle="modal"
+                data-bs-target="#editTaskModal" *ngFor="let task of done">
+                <div class="upper-data d-flex">
+                    <span>
+                        {{task.name}}
+                    </span>
+                    <button class="btn btn-dark"><img src="../../assets/icons/list.svg" /></button>
+                </div>
+                <div class="lower-data">
+                    <span>
+                        MIT-{{counter + 1}}
+                    </span>
+                    <img class="task-svg" src="../../assets/icons/check2.svg" />
+                </div>
+            </div>
+        </section>
+    </section>
+</div>
+
+<!-- EDIT MODAL -->
+<div class="modal fade" id="editTaskModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <router-outlet></router-outlet>
+    </div>
+</div>

@@ -1,13 +1,5 @@
-h2 {
-    padding: 10px 0px 0px 10px;
-}
-
-.wrapper {
-    margin-top: 100px;
-}
-
 .sprint-space {
-    margin: 50px 40px;
+    margin: 25px 40px;
     border: 1px solid lightgrey;
     border-radius: 5px;
     background-color: whitesmoke;

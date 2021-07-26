@@ -33,7 +33,7 @@ export class TableComponent implements OnInit, OnChanges {
   checkProgress(task: Task) {
 
     // console.log(task)
-     
+  
     if(task.progress === 'TO_DO') {
       this.toDo.push(task)
       return
@@ -54,6 +54,9 @@ export class TableComponent implements OnInit, OnChanges {
       this.taskService.getAllTasks().subscribe(val => {
         this.tasksInSprint = val
         this.tasksInSprint = this.tasksInSprint.filter( e => e.sprintId == this.sprint.id)
+        this.toDo = []
+        this.inProgress = []
+        this.done = []
         this.tasksInSprint.forEach(e => this.checkProgress(e))
       })
   }

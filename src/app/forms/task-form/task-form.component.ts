@@ -1,6 +1,7 @@
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { TableComponent } from 'src/app/routes/table/table.component';
 import { Task, TaskService } from '../../services/task.service';
 
 @Component({
@@ -25,7 +26,7 @@ export class TaskFormComponent implements OnInit {
   }
   )
 
-  constructor(private taskService: TaskService, public route: ActivatedRoute) {
+  constructor(private tableComp: TableComponent,private taskService: TaskService, public route: ActivatedRoute) {
     this.route.params.subscribe( params => {
       this.params = params
       console.log(params)
@@ -37,7 +38,9 @@ export class TaskFormComponent implements OnInit {
     this.taskService.updateTask(task).subscribe(val => {
       this.task = val
       document.getElementById('close-button').click()
-      window.location.reload()
+      // window.location.reload()
+      this.tableComp.getAllSprints()
+      this.tableComp.getAllTasks()
     })
   }
 

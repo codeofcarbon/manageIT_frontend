@@ -7,7 +7,7 @@ import { Task, TaskService } from '../../services/task.service';
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.css']
 })
-export class TableComponent implements OnInit, OnChanges {
+export class TableComponent implements OnInit {
 
   public sprint: Sprint =  {
     id: 1,
@@ -26,10 +26,7 @@ export class TableComponent implements OnInit, OnChanges {
   public counter = 0;
 
   constructor(private taskService: TaskService, private sprintService: SprintService) { }
-  ngOnChanges(changes: SimpleChanges): void {
-    console.log('ZMIANY W TABLE TABLE')
-  }
-
+  
   checkProgress(task: Task) {
 
     // console.log(task)

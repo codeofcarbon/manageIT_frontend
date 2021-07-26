@@ -9,7 +9,7 @@
                     Projekty
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <li><a class="dropdown-item" href="#">Action</a></li>
+                    <li *ngFor="let project of projects"><a class="dropdown-item" href="#">{{project.name}}</a></li>
                 </ul>
             </li>
             <li class="nav-item dropdown">

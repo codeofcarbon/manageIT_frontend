@@ -34,7 +34,10 @@ export class AddProjectFormComponent implements OnInit {
 
   getProject() {
     this.projectService.getProjectById(this.params.id).subscribe(val => {
-      this.projectForm.setControl('id', this.fb.control(`${val.id}`))
+      this.project = val
+      this.projectForm.setControl('id', this.fb.control(`${this.project.id}`))
+      this.projectForm.setControl('name', this.fb.control(`${this.project.name}`))
+      this.projectForm.setControl('description', this.fb.control(`${this.project.description}`))
     })
   }
 

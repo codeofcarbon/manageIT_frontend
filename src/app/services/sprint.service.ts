@@ -41,5 +41,6 @@ export interface Sprint {
   startDate: string
   endDate: string
   storyPointsToSpend: string,
-  tasksIds: number[]
+  tasksIds: number[],
+  active: boolean
 }

@@ -15,7 +15,8 @@ export class TableComponent implements OnInit {
     startDate: '3012983',
     endDate: '23204823',
     storyPointsToSpend: '34',
-    tasksIds: []
+    tasksIds: [],
+    active: false
   };
     
   public selectedTask 
@@ -59,7 +60,14 @@ export class TableComponent implements OnInit {
   }
 
   getAllSprints() {
-      this.sprintService.getAllSprints().subscribe((val => this.sprint = val[0]))
+      this.sprintService.getAllSprints().subscribe((val => {
+        val.forEach(e => {
+          if(e.active) {
+            this.sprint = e
+            return
+          }
+        })
+      }))
   }
 
   ngOnInit(): void {

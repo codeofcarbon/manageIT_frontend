@@ -11,14 +11,21 @@
   color: black;
 }
 
-.navbar li:first-child {
-    margin-left: 1.5rem;
-}
-
 .navbar li:not(:last-child) {
     margin-right: 1.6rem;
 }
 
 .navbar-tabs .nav-item {
     list-style: none;
+}
+
+.nav-item {
+    margin: 0px;
+}
+
+.dropdown-menu .dropdown-item {
+    margin-left: 20px;
+    width: 300px;
+    /* border: 1px solid black; */
+    border-radius: 5px;
 }

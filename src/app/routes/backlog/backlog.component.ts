@@ -57,6 +57,14 @@ export class BacklogComponent implements OnInit {
       this.getAllTasks()
     })
   }
+  
+  deleteTask(id: number) {
+    this.taskService.deleteTask(id).subscribe( () => {
+      console.log('---- Task Deleted ----')
+      this.getAllSprints()
+      this.getAllTasks()
+    })
+  }
 
   public searchSprints(key: string): void {
     console.log(key);

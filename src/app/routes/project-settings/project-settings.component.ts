@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-project-settings',
@@ -7,7 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProjectSettingsComponent implements OnInit {
 
-  constructor() { }
+  params = null;
+
+  constructor(private route: ActivatedRoute) {
+    this.route.params.subscribe(params => this.params = params)
+  }
 
   ngOnInit(): void {
   }

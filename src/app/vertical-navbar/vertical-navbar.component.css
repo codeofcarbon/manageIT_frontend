@@ -1,5 +1,7 @@
 .nav .nav-item a {
+    margin: 5px 10px;
     color: black;
+    border-radius: 5px;
 }
 
 .nav .nav-item a span {
@@ -8,4 +10,9 @@
 
 .nav .nav-item a:hover {
     background-color: whitesmoke;
+}
+
+.nav .nav-item a:focus {
+    background-color: whitesmoke;
+    color: #0275d8;
 }

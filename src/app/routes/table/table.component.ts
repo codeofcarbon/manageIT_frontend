@@ -1,4 +1,5 @@
 import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { Sprint, SprintService } from '../../services/sprint.service';
 import { Task, TaskService } from '../../services/task.service';
 
@@ -9,17 +10,8 @@ import { Task, TaskService } from '../../services/task.service';
 })
 export class TableComponent implements OnInit {
 
-  public sprint: Sprint =  {
-    id: 1,
-    name: 'spritn1',
-    startDate: '3012983',
-    endDate: '23204823',
-    storyPointsToSpend: '34',
-    tasksIds: [],
-    active: false
-  };
-    
-  public selectedTask 
+  public sprint: Sprint;
+  public searchKey: FormControl = new FormControl('')
   public tasksInSprint: Task[]
   public toDo: Task[] = []
   public inProgress: Task[] = []
@@ -46,6 +38,23 @@ export class TableComponent implements OnInit {
       this.done.push(task)
       return
     }
+  }
+
+  public searchTasks(key: string): void {
+    console.log(key);
+    let results: Task[] = [];
+    for (const task of this.tasksInSprint) {
+      if (task.name.toLowerCase().indexOf(key.toLowerCase()) !== -1) {
+        results.push(task);
+      }
+    }
+
+    console.log(results)
+
+    this.toDo = []
+    this.inProgress = []
+    this.done = []
+    results.forEach(e => this.checkProgress(e))
   }
 
   getAllTasks() {

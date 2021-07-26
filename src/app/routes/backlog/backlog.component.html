@@ -8,6 +8,10 @@
     <h2>
         Backlog
     </h2>
+    <form style="width: 200px;">
+        <input type="search" name="key" id="search-task"
+          class="form-control" (ngModelChange)="searchSprints(searchKey.value)" [formControl]="searchKey" placeholder="Search from all sprints..." required autocomplete="off">
+      </form>
 </section>
 
 <section class="wrapper">

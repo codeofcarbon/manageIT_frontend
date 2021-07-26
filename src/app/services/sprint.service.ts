@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class SprintService {
 
-  private url = 'http://localhost:8000/api/v1/sprints'
+  private url = 'http://localhost:8080/api/v1/sprints'
   private httpOptions = {
     headers: new HttpHeaders({ 'Content-type': 'application/json' })
   }
@@ -31,7 +31,7 @@ export class SprintService {
   }
 
   updateSprint(sprint: Sprint): Observable<Sprint> {
-    return this.http.put<Sprint>(`${this.url}/1`, sprint, this.httpOptions)
+    return this.http.put<Sprint>(`${this.url}`, sprint, this.httpOptions)
   }
 }
 

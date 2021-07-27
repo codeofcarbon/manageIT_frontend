@@ -12,9 +12,9 @@ import { Task, TaskService } from '../../services/task.service';
 })
 export class AddTaskFormComponent implements OnInit {
 
-  params;
+  params
   taskForm: FormGroup = new FormGroup({
-    id: new FormControl('', { validators: [], updateOn: 'change' }),
+    id: new FormControl(null, { validators: [], updateOn: 'change' }),
     name: new FormControl('', { validators: [Validators.required, Validators.minLength(3), Validators.maxLength(55)], updateOn: "change" }),
     description: new FormControl('', { validators: [Validators.required, Validators.minLength(3), Validators.maxLength(255)], updateOn: "change" }),
     storyPoints: new FormControl('', { validators: [Validators.max(10)], updateOn: "change" }),
@@ -58,7 +58,6 @@ export class AddTaskFormComponent implements OnInit {
         id: this.params.id
       },
     })
-
   }
 
   ngOnInit(): void {

@@ -24,7 +24,6 @@
     border: 2px solid #0275d8;
 }
 
-#description {
-    width: 333px;
-    height: 100px;
+textarea {
+    resize: none;
 }

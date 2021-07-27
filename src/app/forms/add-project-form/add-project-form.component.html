@@ -1,6 +1,7 @@
 <section class="wrapper">
     <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Add Project</h5>
+        <h5 class="modal-title" [hidden]="params != null" id="exampleModalLabel">Add Project</h5>
+        <h5 class="modal-title" [hidden]="params == null" id="exampleModalLabel">Edit Project</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
     </div>
     <div class="modal-body">
@@ -9,7 +10,8 @@
             <input class="input-space" type="text" name="name" id="name"  formControlName="name" autocomplete="off">
             <br>
             <div for="description">Description</div>
-            <input class="input-space" type="text" name="description" id="description" formControlName="description" autocomplete="off">
+            <textarea class="input-space" type="text" rows="5" cols="40" name="description" formControlName="description" autocomplete="off">
+                </textarea>
         </form>
     </div>
     <div class="modal-footer">

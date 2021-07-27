@@ -16,11 +16,15 @@ export class AddProjectFormComponent implements OnInit {
     name: this.fb.control('', { validators: [Validators.required, Validators.minLength(3), Validators.maxLength(55)], updateOn: 'change'}), description: this.fb.control('', { validators: [Validators.required, Validators.minLength(3), Validators.maxLength(255)], updateOn: 'change' })
   })
 
+  // Po ukończeniu podstawowych funkcjonalności zastanowić sie nad przerobieniem add-task-form i task-form na 
+  // bardziej podobne do AddProjectComponent
   constructor(private projectService: ProjectService, private fb: FormBuilder) { }
 
   addNewProject(project: Project) {
     this.projectService.addProject(project).subscribe(val => {
       console.log('---- Added new Project ----')
+      document.getElementById('close-button').click()
+      window.location.reload()
       console.log(val)
     })
   }

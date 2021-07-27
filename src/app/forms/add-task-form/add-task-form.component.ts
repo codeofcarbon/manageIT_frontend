@@ -1,3 +1,4 @@
+import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
@@ -25,7 +26,7 @@ export class AddTaskFormComponent implements OnInit {
   }
   )
 
-  constructor(private backlogComp: BacklogComponent,private taskService: TaskService, private route: ActivatedRoute) {
+  constructor(private backlogComp: BacklogComponent,private taskService: TaskService, private route: ActivatedRoute, private location: Location) {
     this.route.params.subscribe(params => {
       this.params = params
       this.getSprintId()
@@ -39,6 +40,7 @@ export class AddTaskFormComponent implements OnInit {
             console.log(val)
             document.getElementById('close-button').click()
             // window.location.reload()
+            this.location.go('/backlog')
             this.backlogComp.getAllSprints()
             this.backlogComp.getAllTasks()
           })

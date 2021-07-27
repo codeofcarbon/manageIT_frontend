@@ -16,7 +16,6 @@
     </div>
     <div class="modal-footer">
         <button type="button" id="close-button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        {{form.value | json}}
         <button type="button" [disabled]="!form.valid" [hidden]="params != null" class="btn btn-primary" (click)="addNewProject(form.value)" >Create new</button>
         <button type="button" [disabled]="!form.valid" [hidden]="params == null" class="btn btn-primary" (click)="updateProject(form.value)" >Save changes</button>
     </div>

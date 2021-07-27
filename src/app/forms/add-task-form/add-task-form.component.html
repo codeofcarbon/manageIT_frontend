@@ -23,13 +23,14 @@
           <div class="up">
 
             <label for="storyPoints">Story points</label>
+            <br>
             <input type="number" name="storyPoints" id="storyPoints" formControlName="storyPoints" min="0" max="10">
 
           </div>
 
           <div class="middle">
 
-            <div for="progress">progress</div>
+            <div for="progress">Progress</div>
             <select style="color: #000059;" formControlName="progress" id="progress">
               <option [ngValue]="'TO_DO'">To do</option>
               <option [ngValue]="'IN_PROGRESS'">In progress</option>
@@ -40,8 +41,14 @@
 
           <div class="down">
 
-            <label for="priority">priority</label>
-            <input type="number" name="priority" id="priority" formControlName="priority">
+            <label for="priority">Priority</label>
+            <select style="color: #000059;" formControlName="priority" id="priority">
+              <option [ngValue]="'0'">Not at all</option>
+              <option [ngValue]="'1'">Kinda important</option>
+              <option [ngValue]="'2'">Important</option>
+              <option [ngValue]="'3'">Very important</option>
+              <option [ngValue]="'4'">ASAP</option>
+            </select>
 
           </div>
 

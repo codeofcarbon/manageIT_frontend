@@ -9,9 +9,10 @@
         Backlog
     </h2>
     <form style="width: 200px;">
-        <input type="search" name="key" id="search-task"
-          class="form-control" (ngModelChange)="searchSprints(searchKey.value)" [formControl]="searchKey" placeholder="Search from all sprints..." required autocomplete="off">
-      </form>
+        <input type="search" name="key" id="search-task" class="form-control"
+            (ngModelChange)="searchSprints(searchKey.value)" [formControl]="searchKey"
+            placeholder="Search from all sprints..." required autocomplete="off">
+    </form>
 </section>
 
 <section class="wrapper">
@@ -29,8 +30,8 @@
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
                     <li>
-                        <div [routerLink]="['/backlog', 'sprint', 'edit', sprint.id]"  data-bs-toggle="modal"
-                        data-bs-target="#editTaskModal" >
+                        <div [routerLink]="['/backlog', 'sprint', 'edit', sprint.id]" data-bs-toggle="modal"
+                            data-bs-target="#editTaskModal">
                             <button class="dropdown-item" type="button">Edytuj sprint</button>
                         </div>
                     </li>
@@ -45,12 +46,14 @@
 
                 <div *ngFor="let taskId of sprint.tasksIds">
 
-                    <div class="task-space" *ngIf="task.id === taskId"
-                        [routerLink]="['/backlog', 'task', 'edit', task.id]" data-bs-toggle="modal"
-                        data-bs-target="#editTaskModal">
-
-                        - {{task.name}}
-
+                    <div class="task-space d-flex" *ngIf="task.id === taskId">
+                        <div class="edit-link-div" [routerLink]="['/backlog', 'task', 'edit', task.id]"
+                            data-bs-toggle="modal" data-bs-target="#editTaskModal">
+                            - {{task.name}}
+                        </div>
+                        <div>
+                            <button class="delete-task-button" (click)="deleteTask(task.id)">DELETE</button>
+                        </div>
                     </div>
 
                 </div>
@@ -59,8 +62,8 @@
 
         </section>
         <section class="lower-section">
-            <div class="create-task-button mx-2 my-2" [routerLink]="['/backlog', 'task', 'add', sprint.id]" data-bs-toggle="modal"
-            data-bs-target="#editTaskModal" >
+            <div class="create-task-button mx-2 my-2" [routerLink]="['/backlog', 'task', 'add', sprint.id]"
+                data-bs-toggle="modal" data-bs-target="#editTaskModal">
                 <img src="../../assets/icons/plus (1).svg" alt=""><b>Utwórz zadanie</b>
             </div>
         </section>

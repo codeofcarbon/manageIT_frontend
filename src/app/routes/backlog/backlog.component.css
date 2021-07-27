@@ -54,6 +54,9 @@ img {
     border-bottom: 0.25px solid transparent;
 }
 
+.task-space .edit-link-div {
+    width: 90%;
+}
 
 .delete-task-button {
     visibility: hidden;

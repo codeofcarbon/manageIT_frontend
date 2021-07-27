@@ -41,6 +41,9 @@ export class TableComponent implements OnInit {
   }
 
   public searchTasks(key: string): void {
+    if(this.sprint == null) {
+      return
+    }
     console.log(key);
     let results: Task[] = [];
     for (const task of this.tasksInSprint) {

@@ -30,7 +30,7 @@ export class AddProjectFormComponent implements OnInit {
   }
 
   updateProject(project: Project) {
-    this.projectService.addProject(project).subscribe(val => {
+    this.projectService.updateProject(project).subscribe(val => {
       console.log('---- Project updated ----')
       console.log(val)
     })

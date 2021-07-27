@@ -16,6 +16,10 @@
     border: 1px solid rgb(209, 207, 207);
 }
 
+.dropdown-item {
+    color: #000059;
+}
+
 .button {
     color: #000059;
     margin-left: 10px;

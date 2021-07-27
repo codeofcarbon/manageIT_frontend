@@ -15,6 +15,7 @@ export class BacklogComponent implements OnInit {
   private counter = null;
   sprints: Sprint[] = []
   tasks: Task[] = []
+  selectedSprint: Sprint
 
   constructor(private sprintService: SprintService, private taskService: TaskService) { }
 
@@ -52,6 +53,7 @@ export class BacklogComponent implements OnInit {
   
   deleteSprint(id: number) {
     this.sprintService.deleteSprint(id).subscribe(() => {
+      document.getElementById('close-button').click()
       console.log('Sprint deleted')
       this.getAllSprints()
       this.getAllTasks()
@@ -64,6 +66,10 @@ export class BacklogComponent implements OnInit {
       this.getAllSprints()
       this.getAllTasks()
     })
+  }
+
+  selectSprint(sprint: Sprint) {
+          this.selectedSprint = sprint;
   }
 
   public searchSprints(key: string): void {

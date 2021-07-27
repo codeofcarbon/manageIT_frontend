@@ -35,27 +35,29 @@
                             <button class="dropdown-item" type="button">Edytuj sprint</button>
                         </div>
                     </li>
-                    <li><button class="dropdown-item" type="button" (click)="deleteSprint(sprint.id)">Usuń
-                            sprint</button></li>
-                </ul>
+                    <li>
+                        <button class="dropdown-item" type="button" (click)="selectSprint(sprint)" data-bs-toggle="modal"
+                            data-bs-target="#deleteSprintModal">Usuń
+                            sprint</button>
+                    </li>
+                </ul>     
             </div>
         </section>
         <section class="middle-section mx-2 my-2">
-
+            
             <div class="task-loop" *ngFor="let task of tasks">
 
                 <div *ngFor="let taskId of sprint.tasksIds">
 
                     <div class="task-space d-flex" *ngIf="task.id === taskId">
                         <div class="edit-link-div" [routerLink]="['/backlog', 'task', 'edit', task.id]"
-                            data-bs-toggle="modal" data-bs-target="#editTaskModal">
+                        data-bs-toggle="modal" data-bs-target="#editTaskModal">
                             - {{task.name}}
                         </div>
                         <div>
-                            <button class="delete-task-button" (click)="deleteTask(task.id)">DELETE</button>
+                            <button class="delete-task-button" (click)="deleteTask(task.id)">Delete</button>
                         </div>
                     </div>
-
                 </div>
 
             </div>
@@ -80,9 +82,22 @@
     </div>
 </div>
 
-<!-- EDIT Sprint MODAL -->
-<!-- <div class="modal fade" id="editSprintModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<!-- DELETE SPRINT MODAL -->
+<div class="modal fade" id="deleteSprintModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
     <div class="modal-dialog">
-        <router-outlet></router-outlet>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Delete Sprint</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                Are you sure you want to delete this sprint and all tasks it contains?
+              </div>
+              <div class="modal-footer">
+                <button type="button" id="close-button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-danger" (click)="deleteSprint(selectedSprint.id)">Delete</button>
+              </div>
+        </div>
     </div>
-</div> -->
+</div>

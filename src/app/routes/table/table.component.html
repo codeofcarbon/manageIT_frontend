@@ -6,20 +6,47 @@
         </ol>
     </nav>
     <h2>
-        {{sprint.name}}
+        {{sprint?.name}}
     </h2>
     <form style="width: 200px;">
-        <input type="search" name="key" id="search-task"
-          class="form-control" (ngModelChange)="searchTasks(searchKey.value)" [formControl]="searchKey" placeholder="Search from all tasks..." required autocomplete="off">
-      </form>
+        <input type="search" name="key" id="search-task" class="form-control"
+            (ngModelChange)="searchTasks(searchKey.value)" [formControl]="searchKey"
+            placeholder="Search from all tasks..." required autocomplete="off">
+    </form>
 </section>
 
 <br />
 
 <div class="task-wrapper d-flex">
     <section class="task-space">
-        <section class="header-section">TO DO {{toDo.length}}</section>
+        <section class="header-section d-flex">
+            <div>
+                TO DO <img src="../../../assets/icons/arrow-right-short.svg">
+            </div>
+            <div>
+                {{toDo.length}}
+            </div>
+        </section>
         <section class="data-section">
+
+
+            <div class="no-sprint-log d-flex" *ngIf="sprint == null">
+                
+                <svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" fill="currentColor" class="bi bi-arrow-repeat" viewBox="0 2 16 16">
+                    <path d="M11.534 7h3.932a.25.25 0 0 1 .192.41l-1.966 2.36a.25.25 0 0 1-.384 0l-1.966-2.36a.25.25 0 0 1 .192-.41zm-11 2h3.932a.25.25 0 0 0 .192-.41L2.692 6.23a.25.25 0 0 0-.384 0L.342 8.59A.25.25 0 0 0 .534 9z"/>
+                    <path fill-rule="evenodd" d="M8 3c-1.552 0-2.94.707-3.857 1.818a.5.5 0 1 1-.771-.636A6.002 6.002 0 0 1 13.917 7H12.9A5.002 5.002 0 0 0 8 3zM3.1 9a5.002 5.002 0 0 0 8.757 2.182.5.5 0 1 1 .771.636A6.002 6.002 0 0 1 2.083 9H3.1z"/>
+                  </svg>
+                <p>
+                    <b>
+                        No sprint is active
+                    </b>
+                </p>
+                <p class="extended-message">
+                    You cannot do anything on your board because no sprint has started. Go to the backlog to plan and
+                    start your sprint
+                </p>
+                <button class="to-backlog-button" [routerLink]="'/backlog'">To Backlog</button>
+            </div>
 
             <div class="data" [routerLink]="['/table', 'edit', task.id]" data-bs-toggle="modal"
                 data-bs-target="#editTaskModal" *ngFor="let task of toDo">
@@ -37,7 +64,14 @@
         </section>
     </section>
     <section class="task-space">
-        <section class="header-section">IN PROGRESS {{inProgress.length}}</section>
+        <section class="header-section d-flex">
+            <div>
+                IN PROGRESS <img src="../../../assets/icons/arrow-repeat.svg">
+            </div>
+            <div>
+                {{inProgress.length}}
+            </div>
+        </section>
         <section class="data-section">
             <div class="data" [routerLink]="['/table', 'edit', task.id]" data-bs-toggle="modal"
                 data-bs-target="#editTaskModal" *ngFor="let task of inProgress">
@@ -54,7 +88,14 @@
         </section>
     </section>
     <section class="task-space">
-        <section class="header-section">DONE {{done.length}} <img src="../../assets/icons/check2.svg" /></section>
+        <section class="header-section d-flex">
+            <div>
+                DONE <img src="../../assets/icons/check2.svg" />
+            </div>
+            <div>
+                {{done.length}}
+            </div>
+        </section>
         <section class="data-section">
             <div class="data" [routerLink]="['/table', 'edit', task.id]" data-bs-toggle="modal"
                 data-bs-target="#editTaskModal" *ngFor="let task of done">

@@ -4,11 +4,12 @@
 
 .navbar-brand {
     font-size: 1.7rem;
+    color: #000059;
 }
 
 .navbar-tabs a{
   text-decoration: none;
-  color: black;
+  color: #000059;
 }
 
 .navbar li:not(:last-child) {

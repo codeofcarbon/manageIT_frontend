@@ -17,7 +17,7 @@
 }
 
 .button {
-    color: black;
+    color: #000059;
     margin-left: 10px;
     padding: 3px 6px;
     border: 1px solid rgb(224, 223, 223);
@@ -26,7 +26,6 @@
 }
 
 .button:hover {
-    color: black;
     margin-left: 10px;
     padding: 3px 6px;
     border: 1px solid rgb(209, 207, 207);
@@ -59,6 +58,7 @@ img {
 }
 
 .delete-task-button {
+    color: #000059;
     visibility: hidden;
     border: 1px solid whitesmoke;
     border-radius: 5px;

@@ -1,0 +1,16 @@
+.borderr {
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    width: 85%;
+    min-height: 90vh;
+}
+
+.login-wrapper {
+    margin-top: 100px;
+    justify-content: center;
+}
+
+.login-space {
+    height: 450px;
+    width: 350px;
+    border: 1px solid black;
+}

@@ -15,6 +15,7 @@ import { SprintFormComponent } from './forms/sprint-form/sprint-form.component';
 import { AddTaskFormComponent } from './forms/add-task-form/add-task-form.component';
 import { AddProjectFormComponent } from './forms/add-project-form/add-project-form.component';
 import { ProjectSettingsComponent } from './routes/project-settings/project-settings.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { ProjectSettingsComponent } from './routes/project-settings/project-sett
     SprintFormComponent,
     AddTaskFormComponent,
     AddProjectFormComponent,
-    ProjectSettingsComponent
+    ProjectSettingsComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

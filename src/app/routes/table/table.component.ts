@@ -8,7 +8,7 @@ import { Task, TaskService } from '../../services/task.service';
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.css']
 })
-export class TableComponent implements OnInit, OnDestroy {
+export class TableComponent implements OnInit {
 
   public sprint: Sprint = null
   public searchKey: FormControl = new FormControl('')
@@ -21,10 +21,6 @@ export class TableComponent implements OnInit, OnDestroy {
   public counter = 0;
 
   constructor(private taskService: TaskService, private sprintService: SprintService) {
-  }
-  ngOnDestroy(): void {
-    console.log('ZEGNAM')
-    this.sprint = null
   }
 
   checkProgress(task: Task) {
@@ -70,10 +66,7 @@ export class TableComponent implements OnInit, OnDestroy {
   getAllTasks(id: number) {
     this.taskService.getAllTasks().subscribe(val => {
       this.allTasks = val
-      console.log(this.allTasks)
-      console.log(this.sprint)
       this.tasksInSprint = this.allTasks.filter(e => e.sprintId == id)
-      console.log('DZIALA CZY NIE')
       console.log(this.tasksInSprint)
       this.tasksInSprint.forEach(e => this.checkProgress(e))
     })
@@ -81,22 +74,17 @@ export class TableComponent implements OnInit, OnDestroy {
 
   getAllSprints() {
     this.sprintService.getAllSprints().subscribe((val => {
-      
       const sprintId = this.checkWhichSprintIsActive(val).id
-      console.log(sprintId)
-
-        this.getAllTasks(sprintId);
-      
+      this.getAllTasks(sprintId);
     }))
   }
 
   checkWhichSprintIsActive(sprints): Sprint {
-    console.log(sprints)
     sprints.forEach(e => {
       if (e.active == true) {
         this.sprint = e
-        return 
-      } 
+        return
+      }
     })
 
     console.log(this.sprint)

@@ -24,7 +24,8 @@
             </div>
             <div>
                 <span>Story points: {{sprint.storyPointsToSpend}}</span>
-                <button class="button">Ukończ sprint</button>
+                <button class="button" [hidden]="sprint.active" (click)="changeSprintToActive(sprint.id)">Start sprint</button>
+                <button class="button" [hidden]="!sprint.active" (click)="changeSprintToFinish(sprint.id)">Finish sprint</button>
                 <button class="button" type="button" id="dropdownMenu1" data-bs-toggle="dropdown" aria-expanded="false">
                     <img src="../../assets/icons/list.svg">
                 </button>

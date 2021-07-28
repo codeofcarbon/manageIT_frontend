@@ -1,6 +1,7 @@
 import { i18nMetaToJSDoc } from '@angular/compiler/src/render3/view/i18n/meta';
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { connectableObservableDescriptor } from 'rxjs/internal/observable/ConnectableObservable';
 import { Sprint, SprintService } from '../../services/sprint.service';
 import { Task, TaskService } from '../../services/task.service';
 
@@ -44,7 +45,7 @@ export class BacklogComponent implements OnInit {
     }
 
     this.sprintService.addSprint(basicSprint).subscribe(val => {
-      console.log('Dodano nowy Sprint --')
+      console.log('---- Dodano nowy Sprint ----')
       console.log(val)
       this.getAllSprints()
       this.getAllTasks()
@@ -54,7 +55,7 @@ export class BacklogComponent implements OnInit {
   deleteSprint(id: number) {
     this.sprintService.deleteSprint(id).subscribe(() => {
       document.getElementById('close-button').click()
-      console.log('Sprint deleted')
+      console.log('---- Sprint deleted ----')
       this.getAllSprints()
       this.getAllTasks()
     })
@@ -63,6 +64,26 @@ export class BacklogComponent implements OnInit {
   deleteTask(id: number) {
     this.taskService.deleteTask(id).subscribe( () => {
       console.log('---- Task Deleted ----')
+      this.getAllSprints()
+      this.getAllTasks()
+    })
+  }
+  
+  changeSprintToActive(id: number) {
+    this.sprintService.updateToActive(id).subscribe(val => {
+      console.log('---- Changed Sprint to active')
+      console.log(val)
+      this.getAllSprints()
+      this.getAllTasks()
+    }, err => {
+      console.log(err.error);
+    })
+  }
+  
+  changeSprintToFinish(id: number) {
+    this.sprintService.changeToNoActive(id).subscribe(val => {
+      console.log('---- Finished Sprint')
+      console.log(val)
       this.getAllSprints()
       this.getAllTasks()
     })

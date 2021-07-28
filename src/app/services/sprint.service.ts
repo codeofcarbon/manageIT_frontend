@@ -30,6 +30,14 @@ export class SprintService {
     return this.http.delete<void>(`${this.url}/${id}`)
   }
 
+  updateToActive(id: number): Observable<Sprint> {
+    return this.http.put<Sprint>(`${this.url}/${id}`, this.httpOptions)
+  }
+
+  changeToNoActive(id: number): Observable<Sprint> {
+    return this.http.put<Sprint>(`${this.url}/finish/${id}`, this.httpOptions)
+  }
+
   updateSprint(sprint: Sprint): Observable<Sprint> {
     return this.http.put<Sprint>(`${this.url}`, sprint, this.httpOptions)
   }

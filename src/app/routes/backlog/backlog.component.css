@@ -1,13 +1,5 @@
-h2 {
-    padding: 10px 0px 0px 10px;
-}
-
-.wrapper {
-    margin-top: 100px;
-}
-
 .sprint-space {
-    margin: 50px 40px;
+    margin: 25px 40px;
     border: 1px solid lightgrey;
     border-radius: 5px;
     background-color: whitesmoke;
@@ -24,8 +16,12 @@ h2 {
     border: 1px solid rgb(209, 207, 207);
 }
 
+.dropdown-item {
+    color: #000059;
+}
+
 .button {
-    color: black;
+    color: #000059;
     margin-left: 10px;
     padding: 3px 6px;
     border: 1px solid rgb(224, 223, 223);
@@ -34,7 +30,6 @@ h2 {
 }
 
 .button:hover {
-    color: black;
     margin-left: 10px;
     padding: 3px 6px;
     border: 1px solid rgb(209, 207, 207);
@@ -56,15 +51,36 @@ img {
 }
 
 .task-space {
+    justify-content: space-between;
     padding-left: 3px;
-    margin: 3px 5px;
+    margin: 5px 15px;
     border-bottom: 0.25px solid transparent;
+}
+
+.task-space .edit-link-div {
+    width: 90%;
+}
+
+.delete-task-button {
+    color: #000059;
+    visibility: hidden;
+    border: 1px solid whitesmoke;
+    border-radius: 5px;
+}
+
+.delete-task-button:hover {
+    border: 1px solid #d9534f;
+   background-color: #d9534f;
+}
+
+.task-space:hover .delete-task-button {
+    visibility: visible;
 }
 
 .task-loop .task-space:hover {
     background-color: whitesmoke;
     border-radius: 5px;
-    border-bottom: 0.25px solid rgb(209, 207, 207) ;
+    border-bottom: 0.25px solid rgb(209, 207, 207);
 }
 
 .form-space {
@@ -73,9 +89,6 @@ img {
 }
 
 .modal-dialog {
-    margin-top: 50px; 
-     /* margin-right: 670px; */
- }
-
-
-
+    margin-top: 50px;
+    /* margin-right: 670px; */
+}

@@ -25,7 +25,7 @@ export class TaskFormComponent implements OnInit {
   }
   )
 
-  constructor(private taskService: TaskService, public route: ActivatedRoute) {
+  constructor(private taskService: TaskService, private route: ActivatedRoute) {
     this.route.params.subscribe( params => {
       this.params = params
       console.log(params)
@@ -37,7 +37,10 @@ export class TaskFormComponent implements OnInit {
     this.taskService.updateTask(task).subscribe(val => {
       this.task = val
       document.getElementById('close-button').click()
-      window.location.reload()
+      window.location.reload() 
+      // PO Wstrzyknieciu tableComponent do konstruktora ten component przestaje sie wyswietlac(do dalszej analizy)
+      // this.tableComp.getAllSprints()
+      // this.tableComp.getAllTasks()
     })
   }
 

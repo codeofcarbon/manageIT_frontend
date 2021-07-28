@@ -1,1 +1,15 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+    color: #000059;
+}
+
+input, textarea, select {
+    color: #000047;
+}
+
+.header-wrapper {
+    padding: 20px 0px 0px 35px;
+}
+
+.breadcrumb {
+    margin-bottom: 5px;
+}

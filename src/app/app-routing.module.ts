@@ -18,7 +18,7 @@ const routes: Routes = [
     {path: 'task/edit/:id', component: TaskFormComponent},
     {path: 'task/add/:id', component: AddTaskFormComponent}
   ]}, 
-  {path: 'project/settings', component: ProjectSettingsComponent}
+  {path: 'project/settings/:id', component: ProjectSettingsComponent}
 ]
 
 

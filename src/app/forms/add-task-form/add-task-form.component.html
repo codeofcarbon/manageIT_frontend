@@ -1,6 +1,6 @@
 <div class="modal-content">
   <div class="modal-header">
-    <h5 class="modal-title" id="exampleModalLabel">Edit Task</h5>
+    <h5 class="modal-title" id="exampleModalLabel">Save Task</h5>
     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
   </div>
   <div class="modal-body">
@@ -13,8 +13,10 @@
             <input type="text" name="name" id="name" formControlName="name">
           </div>
           <div>
-            <label for="description">description</label>
-            <input type="text" name="description" id="description" formControlName="description">
+            <label for="description">Description</label>
+            <br>
+            <textarea type="text" name="description" id="description" rows="7" cols="23" formControlName="description" style="resize: none;">
+            </textarea>
           </div>
 
         </section>
@@ -23,14 +25,15 @@
           <div class="up">
 
             <label for="storyPoints">Story points</label>
-            <input type="number" name="storyPoints" id="storyPoints" formControlName="storyPoints">
+            <br>
+            <input type="number" name="storyPoints" id="storyPoints" formControlName="storyPoints" min="0" max="10">
 
           </div>
 
           <div class="middle">
 
-            <div for="progress">progress</div>
-            <select formControlName="progress" id="progress">
+            <div for="progress">Progress</div>
+            <select style="color: #000059;" formControlName="progress" id="progress">
               <option [ngValue]="'TO_DO'">To do</option>
               <option [ngValue]="'IN_PROGRESS'">In progress</option>
               <option [ngValue]="'DONE'">Done</option>
@@ -40,8 +43,14 @@
 
           <div class="down">
 
-            <label for="priority">priority</label>
-            <input type="number" name="priority" id="priority" formControlName="priority">
+            <label for="priority">Priority</label>
+            <select style="color: #000059;" formControlName="priority" id="priority">
+              <option [ngValue]="'0'">Not at all</option>
+              <option [ngValue]="'1'">Kinda important</option>
+              <option [ngValue]="'2'">Important</option>
+              <option [ngValue]="'3'">Very important</option>
+              <option [ngValue]="'4'">ASAP</option>
+            </select>
 
           </div>
 

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import * as moment from 'moment';
+import { BacklogComponent } from 'src/app/routes/backlog/backlog.component';
 import { Sprint, SprintService } from '../../services/sprint.service';
 
 @Component({
@@ -21,7 +22,7 @@ export class SprintFormComponent implements OnInit {
     storyPointsToSpend: new FormControl('', { validators: [Validators.min(0), Validators.max(50)], updateOn: 'change' })
   })
 
-  constructor(private sprintService: SprintService, private route: ActivatedRoute) {
+  constructor(private backlogComp: BacklogComponent,private sprintService: SprintService, private route: ActivatedRoute) {
     this.route.params.subscribe(params => {
       this.params = params
       console.log(params)
@@ -32,6 +33,9 @@ export class SprintFormComponent implements OnInit {
   updateSprint(sprint: Sprint) {
     this.sprintService.updateSprint(sprint).subscribe(val => {
       this.sprint = val
+      document.getElementById('close-button').click()
+      this.backlogComp.getAllSprints()
+      this.backlogComp.getAllTasks()
       console.log(this.sprint)
       this.getSprint()
     })

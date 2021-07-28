@@ -1,19 +1,22 @@
 <section class="wrapper">
     <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Add Project</h5>
+        <h5 class="modal-title" [hidden]="params != null" id="exampleModalLabel">Add Project</h5>
+        <h5 class="modal-title" [hidden]="params == null" id="exampleModalLabel">Edit Project</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
     </div>
     <div class="modal-body">
-        <form method="post">
+        <form method="post" #form="ngForm" [formGroup]="projectForm">
             <div for="name">Name</div>
-            <input class="input-space" type="text" name="name" id="name" autocomplete="off">
+            <input class="input-space" type="text" name="name" id="name"  formControlName="name" autocomplete="off">
             <br>
             <div for="description">Description</div>
-            <input class="input-space" type="text" name="description" id="description" autocomplete="off">
+            <textarea class="input-space" type="text" rows="5" cols="40" name="description" formControlName="description" autocomplete="off">
+                </textarea>
         </form>
     </div>
     <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" id="close-button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" [disabled]="!form.valid" [hidden]="params != null" class="btn btn-primary" (click)="addNewProject(form.value)" >Create new</button>
+        <button type="button" [disabled]="!form.valid" [hidden]="params == null" class="btn btn-primary" (click)="updateProject(form.value)" >Save changes</button>
     </div>
 </section>

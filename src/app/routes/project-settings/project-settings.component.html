@@ -1,5 +1,18 @@
+<section class="header-wrapper">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item" aria-current="page">Project</li>
+            <li class="breadcrumb-item active" aria-current="page">Settings</li>
+        </ol>
+    </nav>
+    <h2>
+        Settings
+    </h2>
+</section>
+
 <section class="container d-flex">
     <div class="form-space">
-        <app-add-project-form></app-add-project-form>
+        <app-add-project-form [params]="params"></app-add-project-form>
     </div>
 </section>

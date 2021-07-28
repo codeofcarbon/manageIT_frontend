@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class TaskService {
 
-  private url = 'http://localhost:8000/api/v1/tasks'
+  private url = 'http://localhost:8080/api/v1/tasks'
   private httpOptions = {
     headers: new HttpHeaders({ 'Content-type': 'application/json' })
   }
@@ -31,7 +31,7 @@ export class TaskService {
   }
 
   updateTask(task: Task): Observable<Task> {
-    return this.http.put<Task>(`${this.url}/1`, task, this.httpOptions)
+    return this.http.put<Task>(`${this.url}`, task, this.httpOptions)
   }
 }
 

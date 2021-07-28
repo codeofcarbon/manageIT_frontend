@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Project, ProjectService } from '../services/project.service';
 
 @Component({
   selector: 'app-navbar',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+  projects: Project[]
+
+  constructor(private projectService: ProjectService) { }
+
+  getAllProjects() {
+    this.projectService.getAllProjects().subscribe(val => this.projects = val)
+  }
 
   ngOnInit(): void {
+    this.getAllProjects()
   }
 
 }

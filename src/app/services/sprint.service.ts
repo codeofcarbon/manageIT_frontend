@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class SprintService {
 
-  private url = 'http://localhost:8000/api/v1/sprints'
+  private url = 'http://localhost:8080/api/v1/sprints'
   private httpOptions = {
     headers: new HttpHeaders({ 'Content-type': 'application/json' })
   }
@@ -30,8 +30,16 @@ export class SprintService {
     return this.http.delete<void>(`${this.url}/${id}`)
   }
 
+  updateToActive(id: number): Observable<Sprint> {
+    return this.http.put<Sprint>(`${this.url}/${id}`, this.httpOptions)
+  }
+
+  changeToNoActive(id: number): Observable<Sprint> {
+    return this.http.put<Sprint>(`${this.url}/finish/${id}`, this.httpOptions)
+  }
+
   updateSprint(sprint: Sprint): Observable<Sprint> {
-    return this.http.put<Sprint>(`${this.url}/1`, sprint, this.httpOptions)
+    return this.http.put<Sprint>(`${this.url}`, sprint, this.httpOptions)
   }
 }
 
@@ -41,5 +49,6 @@ export interface Sprint {
   startDate: string
   endDate: string
   storyPointsToSpend: string,
-  tasksIds: number[]
+  tasksIds: number[],
+  active: boolean
 }

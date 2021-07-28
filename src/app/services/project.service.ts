@@ -39,5 +39,6 @@ export class ProjectService {
 export interface Project {
   id: number
   name: string
-  description: string
+  description: string,
+  ownerId: number
 }

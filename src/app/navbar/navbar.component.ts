@@ -10,12 +10,15 @@ import { User } from '../services/user.service';
 export class NavbarComponent implements OnInit {
 
   @Input() allUsers: User[]
+  @Input() user: User
   projects: Project[]
 
   constructor(private projectService: ProjectService) { }
 
   getAllProjects() {
-    this.projectService.getAllProjects().subscribe(val => this.projects = val)
+    this.projectService.getAllProjects().subscribe(val => {
+      this.projects = val.filter( e => e.ownerId == this.user.id )
+    })
   }
 
   ngOnInit(): void {

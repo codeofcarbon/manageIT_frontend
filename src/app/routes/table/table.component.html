@@ -5,8 +5,11 @@
             <li class="breadcrumb-item active" aria-current="page">Table</li>
         </ol>
     </nav>
-    <h2>
+    <h2 class="d-flex">
         {{sprint?.name}}
+        <div class="user-space" *ngFor="let user of sprint?.users">
+            {{user.username.slice(0,1) + user.username.slice(4,5)}}
+        </div>
     </h2>
     <form style="width: 200px;">
         <input type="search" name="key" id="search-task" class="form-control"

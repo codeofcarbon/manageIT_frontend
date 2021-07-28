@@ -2,7 +2,7 @@ body {
     color: #000059;
 }
 
-input {
+input, textarea, select {
     color: #000047;
 }
 

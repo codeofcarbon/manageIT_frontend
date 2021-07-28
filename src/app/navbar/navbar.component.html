@@ -28,8 +28,7 @@
                     Osoby
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <li><a class="dropdown-item" href="#">Action</a></li>
-                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                    <li *ngFor="let user of allUsers"><a class="dropdown-item" href="#">{{user.username}}</a></li>
                 </ul>
             </li>
             <li class="nav-item dropdown">

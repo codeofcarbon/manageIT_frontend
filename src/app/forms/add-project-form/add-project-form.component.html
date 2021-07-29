@@ -8,7 +8,7 @@
         <form method="post" #form="ngForm" [formGroup]="projectForm">
             <div [hidden]="params == null">Owner
                 <div>
-                     {{project?.ownerId}}
+                     {{project?.owner | json}}
                 </div>
             </div>
             <div for="name">Name</div>

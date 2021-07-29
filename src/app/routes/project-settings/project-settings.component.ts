@@ -8,6 +8,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ProjectSettingsComponent implements OnInit {
 
+  projectId: number
   params = null;
 
   constructor(private route: ActivatedRoute) {

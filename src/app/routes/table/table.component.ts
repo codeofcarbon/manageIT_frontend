@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Sprint, SprintService } from '../../services/sprint.service';
+import { ProjectService } from 'src/app/services/project.service';
+import { Sprint } from '../../services/sprint.service';
 import { Task, TaskService } from '../../services/task.service';
 
 @Component({
@@ -11,6 +12,7 @@ import { Task, TaskService } from '../../services/task.service';
 })
 export class TableComponent implements OnInit {
 
+  projectId = parseInt(this.router.url.split('/')[2])
   user
   public sprint: Sprint = null
   public searchKey: FormControl = new FormControl('')
@@ -22,7 +24,7 @@ export class TableComponent implements OnInit {
   public done: Task[] = []
   public counter = 0;
 
-  constructor(private taskService: TaskService, private sprintService: SprintService, private router: Router) {
+  constructor(private taskService: TaskService, private projectService: ProjectService, private router: Router) {
   }
 
   checkProgress(task: Task) {
@@ -75,8 +77,10 @@ export class TableComponent implements OnInit {
   }
 
   getAllSprints() {
-    this.sprintService.getAllSprints().subscribe((val => {
-      const sprintId = this.checkWhichSprintIsActive(val).id
+  
+    this.projectService.getProjectById(this.projectId).subscribe((val => {
+      console.log(val)
+      const sprintId = this.checkWhichSprintIsActive(val.sprints).id
       this.getAllTasks(sprintId);
     }))
   }

@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Sprint } from './sprint.service';
+import { User } from './user.service';
 
 @Injectable({
   providedIn: 'root'
@@ -40,5 +42,6 @@ export interface Project {
   id: number
   name: string
   description: string,
-  ownerId: number
+  owner: User,
+  sprints: Sprint[]
 }

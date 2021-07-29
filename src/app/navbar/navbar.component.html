@@ -9,13 +9,15 @@
                     Projects
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <li *ngFor="let project of projects"><a class="dropdown-item" href="#">{{project.name}}</a></li>
+                    <li *ngFor="let project of projects">
+                        <a class="dropdown-item" (click)="selectProject(project.id)" [routerLink]="['/' +  user.username, project.id, 'backlog']">{{project.name}}</a>
+                    </li>
                 </ul>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
                     data-bs-toggle="dropdown" aria-expanded="false">
-                    Filtrs
+                    Filters
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                     <li><a class="dropdown-item" href="#">Action</a></li>
@@ -44,6 +46,8 @@
             </li>
             <li class="nav-item">
                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addProjectModal">CREATE</button>
+
+                {{selectedProject?.name}}
             </li>
         </div>
         <div class="space">

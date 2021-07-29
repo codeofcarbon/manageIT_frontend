@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
     this.userService.login(user).subscribe(val => {
       this.user = val
       console.log(user)
-      this.router.navigateByUrl(`/${user.username}/table`)
+      this.router.navigateByUrl(`/${user.username}/1/table`)
     }, err => console.log(err.error.message)
     )
   }

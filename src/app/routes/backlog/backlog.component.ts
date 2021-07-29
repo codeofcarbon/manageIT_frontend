@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ProjectService } from 'src/app/services/project.service';
 import { Sprint, SprintService } from '../../services/sprint.service';
 import { Task, TaskService } from '../../services/task.service';
 
@@ -17,12 +18,27 @@ export class BacklogComponent implements OnInit {
   sprints: Sprint[] = []
   tasks: Task[] = []
   selectedSprint: Sprint
+   projectId = parseInt(this.router.url.split('/')[2])
 
-  constructor(private sprintService: SprintService, private taskService: TaskService, private router: Router) { }
+  constructor(private sprintService: SprintService, private taskService: TaskService, private projectService: ProjectService,  private router: Router) { }
 
   getAllSprints() {
-    this.sprintService.getAllSprints().subscribe(val => {
-      this.sprints = val
+    // this.sprintService.getAllSprints().subscribe(val => {
+    //   this.sprints = this.projectService.project.sprints
+    //   // this.sprints = val
+    //   console.log(this.sprints)
+    //   this.counter = this.sprints.length + 1
+    //   console.log(this.counter)
+    // })
+    
+
+    console.log(this.projectId)
+
+    this.projectService.getProjectById(this.projectId).subscribe(val => {
+      console.log(val)
+      this.sprints = val.sprints
+      // this.sprints = val
+      console.log(this.sprints)
       this.counter = this.sprints.length + 1
       console.log(this.counter)
     })

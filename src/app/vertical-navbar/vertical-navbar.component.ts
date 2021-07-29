@@ -8,12 +8,13 @@ import { Component, Input, OnInit } from '@angular/core';
 export class VerticalNavbarComponent implements OnInit {
 
   @Input() user
+  @Input() project
 
   constructor() {
   }
   
   ngOnInit(): void {
-    
+    console.log(this.project)
   }
 
 }

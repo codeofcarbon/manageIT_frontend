@@ -16,10 +16,10 @@ const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
   {path: ':id', component: HomeComponent, children: [
-      {path: 'table', component: TableComponent, children: [
+      {path: ':project/table', component: TableComponent, children: [
         {path: 'edit/:id', component: TaskFormComponent}
       ]},
-      {path: 'backlog', component: BacklogComponent, children: [
+      {path: ':project/backlog', component: BacklogComponent, children: [
         {path: 'sprint/edit/:id', component: SprintFormComponent},
         {path: 'task/edit/:id', component: TaskFormComponent},
         {path: 'task/add/:id', component: AddTaskFormComponent}

@@ -8,11 +8,13 @@ import { AddTaskFormComponent } from './forms/add-task-form/add-task-form.compon
 import { ProjectSettingsComponent } from './routes/project-settings/project-settings.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
+import { RegisterComponent } from './register/register.component';
 
 
 const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
   {path: 'login', component: LoginComponent},
+  {path: 'register', component: RegisterComponent},
   {path: ':id', component: HomeComponent, children: [
       {path: 'table', component: TableComponent, children: [
         {path: 'edit/:id', component: TaskFormComponent}

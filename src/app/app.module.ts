@@ -17,6 +17,7 @@ import { AddProjectFormComponent } from './forms/add-project-form/add-project-fo
 import { ProjectSettingsComponent } from './routes/project-settings/project-settings.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { HomeComponent } from './home/home.component';
     AddProjectFormComponent,
     ProjectSettingsComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,

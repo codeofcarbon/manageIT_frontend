@@ -9,11 +9,11 @@
 }
 
 .nav .nav-item a:hover {
-    background-color: whitesmoke;
+    background-color: rgb(218, 218, 218);
     /* color: black; */
 }
 
 .nav .nav-item a:focus {
     color: #0275d8;
-    background-color: whitesmoke;
+    background-color: rgb(218, 218, 218);
 }

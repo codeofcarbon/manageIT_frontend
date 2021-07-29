@@ -1,21 +1,33 @@
 <div class="wrapper" *ngIf="user != null; else elseBlock">
-   <router-outlet></router-outlet>
+    <router-outlet></router-outlet>
 </div>
 
 <ng-template #elseBlock>
     <section class="login-wrapper d-flex">
-        <form #form="ngForm" [formGroup]="userForm" class="login-space">
+
+        <section class="header-section">
+            <h2>LOGIN</h2>
+        </section>
+        <section class="form-section">
+            <form #form="ngForm" [formGroup]="userForm" class="login-space">
+                <span>
+                    <label for="username"></label>
+                    <br>
+                    <input type="text" name="username" id="username" formControlName="username" placeholder="Username" autocomplete="off" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Username'" />
+                </span>
+                <span>
+                    <label for="password"></label>
+                    <br>
+                    <input type="text" name="password" id="password" formControlName="password" placeholder="Password" autocomplete="off" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'" />
+                </span>
+                <button type="submit" class="btn btn-dark" (click)="login(form.value)">Log in</button>
+            </form>
+        </section>
+        <section class="register-section">
             <div>
-                <label for="username">Username</label>
-                <br>
-                <input type="text" name="username" id="username" formControlName="username">
+                Don't have an account?
             </div>
-            <div>
-                <label for="password">Password</label>
-                <br>
-                <input type="text" name="password" id="password" formControlName="password">
-            </div>
-            <button type="submit"  (click)="login(form.value)">Log in</button>
-        </form>
+            <button class="register-button"><b>Sign up now</b></button>
+        </section>
     </section>
 </ng-template>

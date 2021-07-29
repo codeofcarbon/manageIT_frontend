@@ -6,7 +6,7 @@
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
                     data-bs-toggle="dropdown" aria-expanded="false">
-                    Projekty
+                    Projects
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                     <li *ngFor="let project of projects"><a class="dropdown-item" href="#">{{project.name}}</a></li>
@@ -15,7 +15,7 @@
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
                     data-bs-toggle="dropdown" aria-expanded="false">
-                    Filtry
+                    Filtrs
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                     <li><a class="dropdown-item" href="#">Action</a></li>
@@ -25,7 +25,7 @@
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
                     data-bs-toggle="dropdown" aria-expanded="false">
-                    Osoby
+                    Users
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                     <li *ngFor="let user of allUsers"><a class="dropdown-item" href="#">{{user.username}}</a></li>
@@ -34,7 +34,7 @@
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
                     data-bs-toggle="dropdown" aria-expanded="false">
-                    Twoja praca
+                    Your history
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                     <li><a class="dropdown-item" href="#">Action</a></li>
@@ -43,8 +43,11 @@
                 </ul>
             </li>
             <li class="nav-item">
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addProjectModal">UTWÓRZ</button>
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addProjectModal">CREATE</button>
             </li>
+        </div>
+        <div class="space">
+            <button class="log-out-button btn btn-danger" [routerLink]="'/login'">LOG OUT</button>
         </div>
     </div>
 

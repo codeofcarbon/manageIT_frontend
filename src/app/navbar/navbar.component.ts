@@ -18,6 +18,8 @@ export class NavbarComponent implements OnInit {
   getAllProjects() {
     this.projectService.getAllProjects().subscribe(val => {
       this.projects = val.filter( e => e.ownerId == this.user.id )
+      console.log(this.allUsers)
+      console.log(this.user)
     })
   }
 

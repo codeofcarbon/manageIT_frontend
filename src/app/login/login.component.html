@@ -1,14 +1,5 @@
-<div class="wrapper" *ngIf="user == null; else elseBlock">
-    <app-navbar [allUsers]="allUsers" [user]="user"></app-navbar>
-    <div class="d-flex">
-        <app-vertical-navbar></app-vertical-navbar>
-        <div class="borderr" style="border-left: 0px black solid;">
-
-            <router-outlet></router-outlet>
-
-        </div>
-    </div>
-    <app-footer></app-footer>
+<div class="wrapper" *ngIf="user != null; else elseBlock">
+   <router-outlet></router-outlet>
 </div>
 
 <ng-template #elseBlock>
@@ -24,7 +15,7 @@
                 <br>
                 <input type="text" name="password" id="password" formControlName="password">
             </div>
-            <button type="submit" (click)="login(form.value)">Log in</button>
+            <button type="submit"  (click)="login(form.value)">Log in</button>
         </form>
     </section>
 </ng-template>

@@ -1,5 +1,6 @@
-import { Component, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Sprint, SprintService } from '../../services/sprint.service';
 import { Task, TaskService } from '../../services/task.service';
 
@@ -10,6 +11,7 @@ import { Task, TaskService } from '../../services/task.service';
 })
 export class TableComponent implements OnInit {
 
+  user
   public sprint: Sprint = null
   public searchKey: FormControl = new FormControl('')
   public allSprints: Sprint[] = []
@@ -20,7 +22,7 @@ export class TableComponent implements OnInit {
   public done: Task[] = []
   public counter = 0;
 
-  constructor(private taskService: TaskService, private sprintService: SprintService) {
+  constructor(private taskService: TaskService, private sprintService: SprintService, private router: Router) {
   }
 
   checkProgress(task: Task) {
@@ -92,6 +94,8 @@ export class TableComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    const username = this.router.url.split('/')[1]
+    this.user = username
     this.getAllSprints()
     console.log('HEJ TABLE')
   }

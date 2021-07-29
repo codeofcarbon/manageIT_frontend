@@ -1,0 +1,13 @@
+.borderr {
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    width: 85%;
+    min-height: 90vh;
+}
+
+.user-log {
+    margin-left: 15px;
+    padding: 5px 10px;
+    border: 1px solid whitesmoke;
+    border-radius: 5px;
+    background-color: whitesmoke;
+}

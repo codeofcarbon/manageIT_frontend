@@ -31,7 +31,7 @@
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
                     <li>
-                        <div [routerLink]="['/backlog', 'sprint', 'edit', sprint.id]" data-bs-toggle="modal"
+                        <div [routerLink]="['/' + user, 'backlog', 'sprint', 'edit', sprint.id]" data-bs-toggle="modal"
                             data-bs-target="#editTaskModal">
                             <button class="dropdown-item" type="button">Edytuj sprint</button>
                         </div>
@@ -51,7 +51,7 @@
                 <div *ngFor="let taskId of sprint.tasksIds">
 
                     <div class="task-space d-flex" *ngIf="task.id === taskId">
-                        <div class="edit-link-div" [routerLink]="['/backlog', 'task', 'edit', task.id]"
+                        <div class="edit-link-div" [routerLink]="['/' + user, 'backlog', 'task', 'edit', task.id]"
                         data-bs-toggle="modal" data-bs-target="#editTaskModal">
                             - {{task.name}}
                         </div>
@@ -65,7 +65,7 @@
 
         </section>
         <section class="lower-section">
-            <div class="create-task-button mx-2 my-2" [routerLink]="['/backlog', 'task', 'add', sprint.id]"
+            <div class="create-task-button mx-2 my-2" [routerLink]="['/' + user, 'backlog', 'task', 'add', sprint.id]"
                 data-bs-toggle="modal" data-bs-target="#editTaskModal">
                 <img src="../../assets/icons/plus (1).svg" alt=""><b>Utwórz zadanie</b>
             </div>

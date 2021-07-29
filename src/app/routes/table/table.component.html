@@ -47,10 +47,10 @@
                     You cannot do anything on your board because no sprint has started. Go to the backlog to plan and
                     start your sprint
                 </p>
-                <button class="to-backlog-button" [routerLink]="'/backlog'">To Backlog</button>
+                <button class="to-backlog-button" [routerLink]="['/' + user,'backlog']">To Backlog</button>
             </div>
 
-            <div class="data" [routerLink]="['/table', 'edit', task.id]" data-bs-toggle="modal"
+            <div class="data" [routerLink]="['/' + user, 'table', 'edit', task.id]" data-bs-toggle="modal"
                 data-bs-target="#editTaskModal" *ngFor="let task of toDo">
                 <div class="upper-data d-flex">
                     <span>
@@ -75,7 +75,7 @@
             </div>
         </section>
         <section class="data-section">
-            <div class="data" [routerLink]="['/table', 'edit', task.id]" data-bs-toggle="modal"
+            <div class="data" [routerLink]="['/' + user ,'table', 'edit', task.id]" data-bs-toggle="modal"
                 data-bs-target="#editTaskModal" *ngFor="let task of inProgress">
                 <div class="upper-data d-flex">
                     <span>
@@ -99,7 +99,7 @@
             </div>
         </section>
         <section class="data-section">
-            <div class="data" [routerLink]="['/table', 'edit', task.id]" data-bs-toggle="modal"
+            <div class="data" [routerLink]="['/' + user,'table', 'edit', task.id]" data-bs-toggle="modal"
                 data-bs-target="#editTaskModal" *ngFor="let task of done">
                 <div class="upper-data d-flex">
                     <span>

@@ -6,17 +6,26 @@
     </div>
     <div class="modal-body">
         <form method="post" #form="ngForm" [formGroup]="projectForm">
+            <div [hidden]="params == null">Owner
+                <div>
+                     {{project?.ownerId}}
+                </div>
+            </div>
             <div for="name">Name</div>
-            <input class="input-space" type="text" name="name" id="name"  formControlName="name" autocomplete="off">
+            <input class="input-space" type="text" name="name" id="name" formControlName="name" autocomplete="off">
             <br>
+
             <div for="description">Description</div>
-            <textarea class="input-space" type="text" rows="5" cols="40" name="description" formControlName="description" autocomplete="off">
+            <textarea class="input-space" type="text" rows="5" cols="40" name="description"
+                formControlName="description" autocomplete="off">
                 </textarea>
         </form>
     </div>
     <div class="modal-footer">
         <button type="button" id="close-button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" [disabled]="!form.valid" [hidden]="params != null" class="btn btn-primary" (click)="addNewProject(form.value)" >Create new</button>
-        <button type="button" [disabled]="!form.valid" [hidden]="params == null" class="btn btn-primary" (click)="updateProject(form.value)" >Save changes</button>
+        <button type="button" [disabled]="!form.valid" [hidden]="params != null" class="btn btn-primary"
+            (click)="addNewProject(form.value)">Create new</button>
+        <button type="button" [disabled]="!form.valid" [hidden]="params == null" class="btn btn-primary"
+            (click)="updateProject(form.value)">Save changes</button>
     </div>
 </section>

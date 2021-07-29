@@ -1,7 +1,6 @@
-import { i18nMetaToJSDoc } from '@angular/compiler/src/render3/view/i18n/meta';
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { connectableObservableDescriptor } from 'rxjs/internal/observable/ConnectableObservable';
+import { Router } from '@angular/router';
 import { Sprint, SprintService } from '../../services/sprint.service';
 import { Task, TaskService } from '../../services/task.service';
 
@@ -12,13 +11,14 @@ import { Task, TaskService } from '../../services/task.service';
 })
 export class BacklogComponent implements OnInit {
 
+  user
   public searchKey: FormControl = new FormControl('')
   private counter = null;
   sprints: Sprint[] = []
   tasks: Task[] = []
   selectedSprint: Sprint
 
-  constructor(private sprintService: SprintService, private taskService: TaskService) { }
+  constructor(private sprintService: SprintService, private taskService: TaskService, private router: Router) { }
 
   getAllSprints() {
     this.sprintService.getAllSprints().subscribe(val => {
@@ -117,6 +117,8 @@ export class BacklogComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    const username =this.router.url.split('/')[1]
+    this.user = username
     this.getAllSprints()
     this.getAllTasks()
   }

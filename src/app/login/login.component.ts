@@ -1,5 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { User, UserService } from '../services/user.service';
 
 @Component({
@@ -9,7 +10,6 @@ import { User, UserService } from '../services/user.service';
 })
 export class LoginComponent implements OnInit {
 
-  allUsers: User[]
   user: User = null
   userForm: FormGroup = this.fb.group({
     id: this.fb.control(''),
@@ -17,24 +17,18 @@ export class LoginComponent implements OnInit {
     password: this.fb.control('')
   })
 
-  constructor(private userService: UserService, private fb: FormBuilder) { }
-
-  getAllUsers() {
-    this.userService.getAllUsers().subscribe(val => {
-      this.allUsers = val
-    })
-  }
+  constructor(private userService: UserService, private fb: FormBuilder, private router: Router) { }
 
   login(user: User) {
     this.userService.login(user).subscribe(val => {
       this.user = val
       console.log(user)
+      this.router.navigateByUrl(`/${user.username}/table`)
     }, err => console.log(err.error.message)
     )
   }
 
   ngOnInit(): void {
-    this.getAllUsers()
   }
 
 }

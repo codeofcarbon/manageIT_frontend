@@ -56,8 +56,9 @@ export class BacklogComponent implements OnInit {
       startDate: null,
       endDate: null,
       storyPointsToSpend: '0',
-      tasksIds: [],
-      active: false
+      project: {
+        id: this.projectId
+      }
     }
 
     this.sprintService.addSprint(basicSprint).subscribe(val => {

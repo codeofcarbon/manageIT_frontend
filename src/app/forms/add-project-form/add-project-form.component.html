@@ -6,10 +6,7 @@
     </div>
     <div class="modal-body">
         <form method="post" #form="ngForm" [formGroup]="projectForm">
-            <div [hidden]="params == null">Owner
-                <div>
-                     {{project?.owner | json}}
-                </div>
+            <div class="mb-3" [hidden]="params == null">Owner:  {{project?.owner.username}}
             </div>
             <div for="name">Name</div>
             <input class="input-space" type="text" name="name" id="name" formControlName="name" autocomplete="off">
@@ -21,6 +18,8 @@
                 </textarea>
         </form>
     </div>
+
+    <!-- {{form.value | json}} -->
     <div class="modal-footer">
         <button type="button" id="close-button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
         <button type="button" [disabled]="!form.valid" [hidden]="params != null" class="btn btn-primary"

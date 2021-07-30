@@ -22,16 +22,7 @@ export class BacklogComponent implements OnInit {
 
   constructor(private sprintService: SprintService, private taskService: TaskService, private projectService: ProjectService,  private router: Router) { }
 
-  getAllSprints() {
-    // this.sprintService.getAllSprints().subscribe(val => {
-    //   this.sprints = this.projectService.project.sprints
-    //   // this.sprints = val
-    //   console.log(this.sprints)
-    //   this.counter = this.sprints.length + 1
-    //   console.log(this.counter)
-    // })
-    
-
+  getAllSprints() {   
     console.log(this.projectId)
 
     this.projectService.getProjectById(this.projectId).subscribe(val => {

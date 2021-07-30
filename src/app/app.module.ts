@@ -7,7 +7,7 @@ import { FooterComponent } from './footer/footer.component';
 import { VerticalNavbarComponent } from './vertical-navbar/vertical-navbar.component';
 import { HttpClientModule } from '@angular/common/http';
 import { TableComponent } from './routes/table/table.component';
-import { TaskFormComponent } from './forms/task-form/task-form.component';
+import { TaskFormTableComponent } from './forms/task-form-table/task-form-table.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { BacklogComponent } from './routes/backlog/backlog.component';
@@ -18,6 +18,8 @@ import { ProjectSettingsComponent } from './routes/project-settings/project-sett
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
+import { TaskFormBacklogComponent } from './forms/task-form-backlog/task-form-backlog.component';
+import { TaskFormComponent } from './forms/task-form/task-form.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,7 @@ import { RegisterComponent } from './register/register.component';
     FooterComponent,
     VerticalNavbarComponent,
     TableComponent,
-    TaskFormComponent,
+    TaskFormTableComponent,
     BacklogComponent,
     SprintFormComponent,
     AddTaskFormComponent,
@@ -34,7 +36,9 @@ import { RegisterComponent } from './register/register.component';
     ProjectSettingsComponent,
     LoginComponent,
     HomeComponent,
-    RegisterComponent
+    RegisterComponent,
+    TaskFormBacklogComponent,
+    TaskFormComponent
   ],
   imports: [
     BrowserModule,

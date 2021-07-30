@@ -72,12 +72,14 @@ export class TableComponent implements OnInit {
       this.allTasks = val
       this.tasksInSprint = this.allTasks.filter(e => e.sprintId == id)
       console.log(this.tasksInSprint)
+      this.toDo = []
+      this.inProgress = []
+      this.done = []
       this.tasksInSprint.forEach(e => this.checkProgress(e))
     })
   }
 
   getAllSprints() {
-  
     this.projectService.getProjectById(this.projectId).subscribe((val => {
       console.log(val)
       const sprintId = this.checkWhichSprintIsActive(val.sprints).id

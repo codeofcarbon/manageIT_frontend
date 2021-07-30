@@ -11,14 +11,14 @@ import { Task, TaskService } from '../../services/task.service';
   styleUrls: ['./backlog.component.css']
 })
 export class BacklogComponent implements OnInit {
-
+  
+  projectId = parseInt(this.router.url.split('/')[2])
   user
   public searchKey: FormControl = new FormControl('')
   private counter = null;
   sprints: Sprint[] = []
   tasks: Task[] = []
   selectedSprint: Sprint
-   projectId = parseInt(this.router.url.split('/')[2])
 
   constructor(private sprintService: SprintService, private taskService: TaskService, private projectService: ProjectService,  private router: Router) { }
 

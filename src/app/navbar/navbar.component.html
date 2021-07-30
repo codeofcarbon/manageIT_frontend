@@ -10,7 +10,7 @@
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                     <li *ngFor="let project of projects">
-                        <a class="dropdown-item" (click)="selectProject(project.id)" [routerLink]="['/' +  user.username, project.id, 'backlog']">{{project.name}}</a>
+                        <a class="dropdown-item" (click)="selectProject(project.id)" [routerLink]="['/' +  user.username, project.id, 'table']">{{project.name}}</a>
                     </li>
                 </ul>
             </li>
@@ -47,7 +47,7 @@
             <li class="nav-item">
                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addProjectModal">CREATE</button>
 
-                {{selectedProject?.name}}
+                <!-- {{selectedProject?.name}} -->
             </li>
         </div>
         <div class="space">

@@ -1,5 +1,5 @@
-import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
-import { BacklogComponent } from '../routes/backlog/backlog.component';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Router } from '@angular/router';
 import { Project, ProjectService } from '../services/project.service';
 import { User } from '../services/user.service';
 
@@ -16,14 +16,15 @@ export class NavbarComponent implements OnInit {
   @Output() projectEmitter: EventEmitter<Project> = new EventEmitter<Project>()
   selectedProject = null
 
-  constructor(private projectService: ProjectService) { }
+  constructor(private projectService: ProjectService, private router: Router) { }
 
   getAllProjects() {
     this.projectService.getAllProjects().subscribe(val => {
       this.projects = val.filter( e => e.owner.id == this.user.id )
-      if(this.selectedProject == null) {
-        this.selectProject(this.projects[0].id)
-    }
+      // if(this.selectedProject == null) {
+      //   this.selectProject(this.projects[0].id)
+      // }
+
       console.log(this.allUsers)
       console.log(this.user)
     })
@@ -33,8 +34,6 @@ export class NavbarComponent implements OnInit {
     this.projectService.getProjectById(id).subscribe(val => {
              this.selectedProject = val
              this.projectEmitter.emit(val)
-            //  this.backlogComp.getAllSprints()
-            //  this.backlogComp.getAllTasks()
              console.log(this.projectEmitter)
     })
   }

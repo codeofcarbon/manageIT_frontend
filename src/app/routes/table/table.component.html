@@ -5,8 +5,11 @@
             <li class="breadcrumb-item active" aria-current="page">Table</li>
         </ol>
     </nav>
-    <h2>
+    <h2 class="d-flex">
         {{sprint?.name}}
+        <div class="user-space" *ngFor="let user of sprint?.users">
+            {{user.username.slice(0,1) + user.username.slice(4,5)}}
+        </div>
     </h2>
     <form style="width: 200px;">
         <input type="search" name="key" id="search-task" class="form-control"
@@ -44,10 +47,10 @@
                     You cannot do anything on your board because no sprint has started. Go to the backlog to plan and
                     start your sprint
                 </p>
-                <button class="to-backlog-button" [routerLink]="'/backlog'">To Backlog</button>
+                <button class="to-backlog-button" [routerLink]="['/' + user, projectId,'backlog']">To Backlog</button>
             </div>
 
-            <div class="data" [routerLink]="['/table', 'edit', task.id]" data-bs-toggle="modal"
+            <div class="data" [routerLink]="['/' + user, projectId, 'table', 'edit', task.id]" data-bs-toggle="modal"
                 data-bs-target="#editTaskModal" *ngFor="let task of toDo">
                 <div class="upper-data d-flex">
                     <span>
@@ -72,7 +75,7 @@
             </div>
         </section>
         <section class="data-section">
-            <div class="data" [routerLink]="['/table', 'edit', task.id]" data-bs-toggle="modal"
+            <div class="data" [routerLink]="['/' + user, projectId,'table', 'edit', task.id]" data-bs-toggle="modal"
                 data-bs-target="#editTaskModal" *ngFor="let task of inProgress">
                 <div class="upper-data d-flex">
                     <span>
@@ -96,7 +99,7 @@
             </div>
         </section>
         <section class="data-section">
-            <div class="data" [routerLink]="['/table', 'edit', task.id]" data-bs-toggle="modal"
+            <div class="data" [routerLink]="['/' + user, projectId,'table', 'edit', task.id]" data-bs-toggle="modal"
                 data-bs-target="#editTaskModal" *ngFor="let task of done">
                 <div class="upper-data d-flex">
                     <span>

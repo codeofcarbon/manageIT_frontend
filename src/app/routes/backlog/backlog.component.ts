@@ -1,7 +1,7 @@
-import { i18nMetaToJSDoc } from '@angular/compiler/src/render3/view/i18n/meta';
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { connectableObservableDescriptor } from 'rxjs/internal/observable/ConnectableObservable';
+import { Router } from '@angular/router';
+import { ProjectService } from 'src/app/services/project.service';
 import { Sprint, SprintService } from '../../services/sprint.service';
 import { Task, TaskService } from '../../services/task.service';
 
@@ -11,18 +11,25 @@ import { Task, TaskService } from '../../services/task.service';
   styleUrls: ['./backlog.component.css']
 })
 export class BacklogComponent implements OnInit {
-
+  
+  projectId = parseInt(this.router.url.split('/')[2])
+  user
   public searchKey: FormControl = new FormControl('')
   private counter = null;
   sprints: Sprint[] = []
   tasks: Task[] = []
   selectedSprint: Sprint
 
-  constructor(private sprintService: SprintService, private taskService: TaskService) { }
+  constructor(private sprintService: SprintService, private taskService: TaskService, private projectService: ProjectService,  private router: Router) { }
 
-  getAllSprints() {
-    this.sprintService.getAllSprints().subscribe(val => {
-      this.sprints = val
+  getAllSprints() {   
+    console.log(this.projectId)
+
+    this.projectService.getProjectById(this.projectId).subscribe(val => {
+      console.log(val)
+      this.sprints = val.sprints
+      // this.sprints = val
+      console.log(this.sprints)
       this.counter = this.sprints.length + 1
       console.log(this.counter)
     })
@@ -40,8 +47,9 @@ export class BacklogComponent implements OnInit {
       startDate: null,
       endDate: null,
       storyPointsToSpend: '0',
-      tasksIds: [],
-      active: false
+      project: {
+        id: this.projectId
+      }
     }
 
     this.sprintService.addSprint(basicSprint).subscribe(val => {
@@ -117,6 +125,8 @@ export class BacklogComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    const username =this.router.url.split('/')[1]
+    this.user = username
     this.getAllSprints()
     this.getAllTasks()
   }

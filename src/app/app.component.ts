@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Task } from './services/task.service';
+import { User, UserService } from './services/user.service';
 
 @Component({
   selector: 'app-root',
@@ -8,11 +8,9 @@ import { Task } from './services/task.service';
 })
 export class AppComponent {
   title = 'ManageIT-front-end';
-  task = null;
 
-  getSelectedTask(taskFromEmit: Task) {
-    this.task = taskFromEmit;
-}
+  constructor() {
+  }
 }
 
 

@@ -1,20 +1,3 @@
 <div class="wrapper">
-  <app-navbar></app-navbar>
-  <div class="d-flex">
-    <app-vertical-navbar></app-vertical-navbar>
-    <div class="borderr" style="border-left: 0px black solid;">
-
-      <router-outlet ></router-outlet>
-
-    </div>
-  </div>
-  <app-footer></app-footer>
-</div>
-
-<div class="modal fade" id="addProjectModal" tabindex="-1" aria-labelledby="projectModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-       <app-add-project-form></app-add-project-form>
-    </div>
-  </div>
+  <router-outlet></router-outlet>
 </div>

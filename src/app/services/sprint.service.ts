@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { User } from './user.service';
 
 @Injectable({
   providedIn: 'root'
@@ -49,6 +50,8 @@ export interface Sprint {
   startDate: string
   endDate: string
   storyPointsToSpend: string,
-  tasksIds: number[],
-  active: boolean
+  tasksIds?: number[],
+  active?: boolean,
+  users?: User[],
+  project?
 }

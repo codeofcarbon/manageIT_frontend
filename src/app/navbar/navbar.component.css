@@ -7,6 +7,11 @@
     color: #000059;
 }
 
+.navbar-brand:hover {
+    cursor: pointer;
+    color: #000059;
+}
+
 .navbar-tabs a{
   text-decoration: none;
   color: #000059;
@@ -29,4 +34,9 @@
     width: 300px;
     /* border: 1px solid black; */
     border-radius: 5px;
+}
+
+.log-out-button {
+    margin-top: 10px;
+    margin-left: 675px;
 }

@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Project, ProjectService } from 'src/app/services/project.service';
 
 @Component({
@@ -13,12 +14,16 @@ export class AddProjectFormComponent implements OnInit {
   @Input() params = null
   projectForm = this.fb.group({
     id: this.fb.control(null, { updateOn: 'change' }),
-    name: this.fb.control('', { validators: [Validators.required, Validators.minLength(3), Validators.maxLength(55)], updateOn: 'change'}), description: this.fb.control('', { validators: [Validators.required, Validators.minLength(3), Validators.maxLength(255)], updateOn: 'change' })
+    name: this.fb.control('', { validators: [Validators.required, Validators.minLength(3), Validators.maxLength(55)], updateOn: 'change'}), description: this.fb.control('', { validators: [Validators.required, Validators.minLength(3), Validators.maxLength(255)], updateOn: 'change' }),
+    owner: this.fb.group({
+      username: this.fb.control(`${this.router.url.split('/')[1]}`, {validators: [Validators.required], updateOn: 'change'})
+    })
   })
 
   // Po ukończeniu podstawowych funkcjonalności zastanowić sie nad przerobieniem add-task-form i task-form na 
   // bardziej podobne do AddProjectComponent
-  constructor(private projectService: ProjectService, private fb: FormBuilder) { }
+  constructor(private projectService: ProjectService, private fb: FormBuilder,private router: Router) {
+   }
 
   addNewProject(project: Project) {
     this.projectService.addProject(project).subscribe(val => {
@@ -28,10 +33,11 @@ export class AddProjectFormComponent implements OnInit {
       console.log(val)
     })
   }
-
+  
   updateProject(project: Project) {
     this.projectService.updateProject(project).subscribe(val => {
       console.log('---- Project updated ----')
+      this.router.navigateByUrl(`/${project.owner.username}/${project.id}/backlog`)
       console.log(val)
     })
   }

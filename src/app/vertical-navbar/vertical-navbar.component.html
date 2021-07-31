@@ -7,12 +7,12 @@
                   </svg>
             </span>
             <span>
-                Harmonogram
+                Timetable
             </span>
         </a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" [routerLink]="'/backlog'">
+        <a class="nav-link" [routerLink]="['/' + user?.username, project?.id , 'backlog']">
             <span>
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-bricks" viewBox="-1 -1 20 20">
                     <path d="M0 .5A.5.5 0 0 1 .5 0h15a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-.5.5H14v2h1.5a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-.5.5H14v2h1.5a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-.5.5H.5a.5.5 0 0 1-.5-.5v-3a.5.5 0 0 1 .5-.5H2v-2H.5a.5.5 0 0 1-.5-.5v-3A.5.5 0 0 1 .5 6H2V4H.5a.5.5 0 0 1-.5-.5v-3zM3 4v2h4.5V4H3zm5.5 0v2H13V4H8.5zM3 10v2h4.5v-2H3zm5.5 0v2H13v-2H8.5zM1 1v2h3.5V1H1zm4.5 0v2h5V1h-5zm6 0v2H15V1h-3.5zM1 7v2h3.5V7H1zm4.5 0v2h5V7h-5zm6 0v2H15V7h-3.5zM1 13v2h3.5v-2H1zm4.5 0v2h5v-2h-5zm6 0v2H15v-2h-3.5z"/>
@@ -23,8 +23,9 @@
             </span>
         </a>
     </li>
-    <li class="nav-item">
-        <a class="nav-link" [routerLink]="'/table'">
+    <li class="nav-item" >
+        <!-- <a class="nav-link"  [routerLink]="'/login/{{user}}/table'"> -->
+        <a class="nav-link"  [routerLink]="['/' + user?.username, project?.id, 'table']">
             <span style="padding-right: 5px;">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
                     class="bi bi-layout-three-columns" viewBox="-1 -1 20 20">
@@ -33,19 +34,20 @@
                 </svg>
             </span>
             <span>
-                Tablica
+                Table
             </span>
         </a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" [routerLink]="'/project/settings/3'" >
+        <!-- <a class="nav-link" [routerLink]="'/login/{{user}}/project/settings/3'" > -->
+        <a class="nav-link" [routerLink]="['/' + user?.username, 'project', 'settings', project?.id]" >
             <span>
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-gear-wide" viewBox="-1 -1 20 20">
                     <path d="M8.932.727c-.243-.97-1.62-.97-1.864 0l-.071.286a.96.96 0 0 1-1.622.434l-.205-.211c-.695-.719-1.888-.03-1.613.931l.08.284a.96.96 0 0 1-1.186 1.187l-.284-.081c-.96-.275-1.65.918-.931 1.613l.211.205a.96.96 0 0 1-.434 1.622l-.286.071c-.97.243-.97 1.62 0 1.864l.286.071a.96.96 0 0 1 .434 1.622l-.211.205c-.719.695-.03 1.888.931 1.613l.284-.08a.96.96 0 0 1 1.187 1.187l-.081.283c-.275.96.918 1.65 1.613.931l.205-.211a.96.96 0 0 1 1.622.434l.071.286c.243.97 1.62.97 1.864 0l.071-.286a.96.96 0 0 1 1.622-.434l.205.211c.695.719 1.888.03 1.613-.931l-.08-.284a.96.96 0 0 1 1.187-1.187l.283.081c.96.275 1.65-.918.931-1.613l-.211-.205a.96.96 0 0 1 .434-1.622l.286-.071c.97-.243.97-1.62 0-1.864l-.286-.071a.96.96 0 0 1-.434-1.622l.211-.205c.719-.695.03-1.888-.931-1.613l-.284.08a.96.96 0 0 1-1.187-1.186l.081-.284c.275-.96-.918-1.65-1.613-.931l-.205.211a.96.96 0 0 1-1.622-.434L8.932.727zM8 12.997a4.998 4.998 0 1 1 0-9.995 4.998 4.998 0 0 1 0 9.996z"/>
                   </svg>
             </span>
         <span>
-            Ustawienia projektu
+            Project settings
         </span>
         </a>
     </li>

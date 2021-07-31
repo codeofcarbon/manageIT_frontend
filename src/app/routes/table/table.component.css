@@ -1,3 +1,16 @@
+.user-space {
+    height: 30px;
+    width: 30px;
+    margin-left: 20px;
+    margin-top: 6px;
+    padding-top: 5px;
+    border: 1px solid gray;
+    border-radius: 50%;
+    background-color: whitesmoke;
+    font-size: 0.8rem;
+    text-align: center;
+}
+
 .task-wrapper .task-space:first-child {
     margin-left: 2rem;
 }

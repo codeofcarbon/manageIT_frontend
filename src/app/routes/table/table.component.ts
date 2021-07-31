@@ -1,6 +1,8 @@
-import { Component, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { Sprint, SprintService } from '../../services/sprint.service';
+import { Router } from '@angular/router';
+import { ProjectService } from 'src/app/services/project.service';
+import { Sprint } from '../../services/sprint.service';
 import { Task, TaskService } from '../../services/task.service';
 
 @Component({
@@ -10,6 +12,8 @@ import { Task, TaskService } from '../../services/task.service';
 })
 export class TableComponent implements OnInit {
 
+  projectId = parseInt(this.router.url.split('/')[2])
+  user
   public sprint: Sprint = null
   public searchKey: FormControl = new FormControl('')
   public allSprints: Sprint[] = []
@@ -20,7 +24,7 @@ export class TableComponent implements OnInit {
   public done: Task[] = []
   public counter = 0;
 
-  constructor(private taskService: TaskService, private sprintService: SprintService) {
+  constructor(private taskService: TaskService, private projectService: ProjectService, private router: Router) {
   }
 
   checkProgress(task: Task) {
@@ -68,13 +72,17 @@ export class TableComponent implements OnInit {
       this.allTasks = val
       this.tasksInSprint = this.allTasks.filter(e => e.sprintId == id)
       console.log(this.tasksInSprint)
+      this.toDo = []
+      this.inProgress = []
+      this.done = []
       this.tasksInSprint.forEach(e => this.checkProgress(e))
     })
   }
 
   getAllSprints() {
-    this.sprintService.getAllSprints().subscribe((val => {
-      const sprintId = this.checkWhichSprintIsActive(val).id
+    this.projectService.getProjectById(this.projectId).subscribe((val => {
+      console.log(val)
+      const sprintId = this.checkWhichSprintIsActive(val.sprints).id
       this.getAllTasks(sprintId);
     }))
   }
@@ -92,6 +100,8 @@ export class TableComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    const username = this.router.url.split('/')[1]
+    this.user = username
     this.getAllSprints()
     console.log('HEJ TABLE')
   }

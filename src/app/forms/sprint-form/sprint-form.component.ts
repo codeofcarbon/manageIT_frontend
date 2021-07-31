@@ -47,24 +47,19 @@ export class SprintFormComponent implements OnInit {
 
       var momentStartDate = null
       var momentEndDate = null
-      var isoStartDate = null
-      var isoEndDate = null
 
       if(this.sprint.startDate != null) {
-        momentStartDate = moment(this.sprint.startDate)
-        momentEndDate = moment(this.sprint.endDate)
-        isoStartDate = momentStartDate.toDate().toISOString()
-        isoEndDate = momentEndDate.toDate().toISOString()
-        console.log(isoStartDate)
-        console.log(isoEndDate)
+        const format = "YYYY-MM-DDTHH:mm"
+        momentStartDate = moment(this.sprint.startDate).format(format)
+        momentEndDate = moment(this.sprint.endDate).format(format)
       }
 
       console.log(val)
       this.sprintForm.setValue({
         id: this.sprint.id,
         name: this.sprint.name,
-        startDate: isoStartDate != null ? isoStartDate : null,
-        endDate: isoEndDate != null ? isoEndDate : null,
+        startDate: momentStartDate != null ? momentStartDate : null,
+        endDate: momentEndDate != null ? momentEndDate : null,
         storyPointsToSpend: this.sprint.storyPointsToSpend
       })
     })

@@ -41,7 +41,7 @@ export class AddTaskFormComponent extends TaskFormComponent implements OnInit {
       description: null,
       storyPoints: 0,
       progress: 'TO_DO',
-      priority: '1',
+      priority: '0',
       sprint: {
         id: this.params.id
       },

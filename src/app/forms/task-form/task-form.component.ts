@@ -16,7 +16,7 @@ export class TaskFormComponent implements OnInit {
     description: new FormControl('', { validators: [Validators.required, Validators.minLength(3), Validators.maxLength(255)], updateOn: "change" }),
     storyPoints: new FormControl('', { validators: [Validators.max(10)], updateOn: "change" }),
     progress: new FormControl("TO_DO", { validators: [Validators.required], updateOn: "change" }),
-    priority: new FormControl('', { validators: [Validators.min(0), Validators.max(4)], updateOn: "change" }),
+    priority: new FormControl("NOT_AT_ALL", { validators: [Validators.min(0), Validators.max(4)], updateOn: "change" }),
     sprint: new FormGroup({
       id: new FormControl('', { validators: [Validators.required], updateOn: "change" })
     })

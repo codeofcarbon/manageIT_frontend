@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Project } from '../services/project.service';
-import { UserService } from '../services/user.service';
+import { Project, ProjectService } from '../services/project.service';
+import { User, UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-home',
@@ -10,33 +10,49 @@ import { UserService } from '../services/user.service';
 })
 export class HomeComponent implements OnInit {
 
-  userr
-  allUserss
-  selectedProject
+  userr: User
+  allUserss: User[]
+  selectedProject: Project
+  userProjects: Project[]
 
-  constructor(private userService: UserService, private router: Router) {
+  constructor(private userService: UserService,private projectService: ProjectService, private router: Router) {
     const urlTable = this.router.url.split('/')
     console.log(urlTable)
     
     this.getAllUsers()
     this.getUser(urlTable[1])
   }
-
-   getProjectFromEvent(project: Project) {
-         this.selectedProject = project;
-   }
   
+  getProjectFromEvent(project: Project) {
+    this.selectedProject = project;
+   }
+   
   getAllUsers() {
     this.userService.getAllUsers().subscribe(val => {
       this.allUserss = val
       console.log(this.allUserss)
     })
   }
-
+  
   getUser(username: string) {
     this.userService.getUserByUsername(username).subscribe(val => {
       this.userr = val
+      this.getUserProjects(this.userr)
       console.log(this.userr)
+    })
+  }
+  
+  getUserProjects(user: User) {
+    this.projectService.getAllProjects().subscribe(val => {
+      this.userProjects = val.filter( e => e.owner.username == user.username )
+      console.log(this.userr)
+    })
+  }
+
+  selectProject(id: number) {
+    this.projectService.getProjectById(id).subscribe(val => {
+             this.selectedProject = val
+             console.log(this.selectedProject)
     })
   }
 

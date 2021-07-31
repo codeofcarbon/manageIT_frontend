@@ -44,7 +44,6 @@ export class UserService {
 }
 
 export interface User {
-  id?: number
   username: string
   password: string
 }

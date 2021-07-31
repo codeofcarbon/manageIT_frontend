@@ -1,8 +1,14 @@
 <!-- As a heading -->
 <nav class="navbar navbar-light bg-light">
     <div class="d-flex">
-        <a class="navbar-brand h1 mx-2 my-2">ManageIT</a>
+        <a class="navbar-brand h1 mx-2 my-2" (click)="goToHome()">ManageIT</a>
         <div class="navbar-tabs d-flex align-items-center">
+            <li class="nav-item">
+                <a class="nav-link " role="button"
+                    aria-expanded="false" (click)="goToHome()">
+                    Home
+                </a>
+            </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
                     data-bs-toggle="dropdown" aria-expanded="false">
@@ -12,16 +18,6 @@
                     <li *ngFor="let project of projects">
                         <a class="dropdown-item" (click)="selectProject(project.id)" [routerLink]="['/' +  user.username, project.id, 'table']">{{project.name}}</a>
                     </li>
-                </ul>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
-                    data-bs-toggle="dropdown" aria-expanded="false">
-                    Filters
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <li><a class="dropdown-item" href="#">Action</a></li>
-                    <li><a class="dropdown-item" href="#">Another action</a></li>
                 </ul>
             </li>
             <li class="nav-item dropdown">
@@ -45,7 +41,7 @@
                 </ul>
             </li>
             <li class="nav-item">
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addProjectModal">CREATE</button>
+                <button type="button" class="btn btn-primary" style="background-color: #0275d8;" data-bs-toggle="modal" data-bs-target="#addProjectModal">CREATE</button>
 
                 <!-- {{selectedProject?.name}} -->
             </li>

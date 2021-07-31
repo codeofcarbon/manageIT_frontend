@@ -12,7 +12,6 @@ export class RegisterComponent implements OnInit {
 
   user: User = null
   userForm: FormGroup = this.fb.group({
-    id: this.fb.control(''),
     username: this.fb.control(''),
     password: this.fb.control('')
   })
@@ -23,7 +22,7 @@ export class RegisterComponent implements OnInit {
     this.userService.addUser(user).subscribe(val => {
       this.user = val
       console.log(user)
-      this.router.navigateByUrl(`/${user.username}/table`)
+      this.router.navigateByUrl(`/${user.username}/1/table`)
     }, err => console.log(err.error.message)
     )
   }

@@ -22,7 +22,7 @@ export class AddProjectFormComponent implements OnInit {
 
   // Po ukończeniu podstawowych funkcjonalności zastanowić sie nad przerobieniem add-task-form i task-form na 
   // bardziej podobne do AddProjectComponent
-  constructor(private projectService: ProjectService, private fb: FormBuilder,private router: Router ) {
+  constructor(private projectService: ProjectService, private fb: FormBuilder,private router: Router) {
    }
 
   addNewProject(project: Project) {
@@ -33,10 +33,11 @@ export class AddProjectFormComponent implements OnInit {
       console.log(val)
     })
   }
-
+  
   updateProject(project: Project) {
     this.projectService.updateProject(project).subscribe(val => {
       console.log('---- Project updated ----')
+      this.router.navigateByUrl(`/${project.owner.username}/${project.id}/backlog`)
       console.log(val)
     })
   }

@@ -20,7 +20,7 @@ export class NavbarComponent implements OnInit {
 
   getAllProjects() {
     this.projectService.getAllProjects().subscribe(val => {
-      this.projects = val.filter( e => e.owner.id == this.user.id )
+      this.projects = val.filter( e => e.owner.username == this.user.username )
       // if(this.selectedProject == null) {
       //   this.selectProject(this.projects[0].id)
       // }
@@ -36,6 +36,13 @@ export class NavbarComponent implements OnInit {
              this.projectEmitter.emit(val)
              console.log(this.projectEmitter)
     })
+  }
+
+  goToHome() {
+    this.selectedProject = null
+    console.log('nulnul')
+    this.projectEmitter.emit(null)
+    this.ngOnInit()
   }
 
   ngOnInit(): void {

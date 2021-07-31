@@ -4,7 +4,22 @@
         <app-vertical-navbar [user]="userr" [project]="selectedProject"></app-vertical-navbar>
         <div class="borderr" style="border-left: 0px black solid;">
 
-            <router-outlet *ngIf="selectedProject != null"></router-outlet>
+            <router-outlet *ngIf="selectedProject != null; else elseBlock"></router-outlet>
+
+            <ng-template #elseBlock>
+                <div class="home">
+                           
+                    <h1>
+                        SELECT PROJECT  <br> TO START
+                    </h1>
+
+                      <div class="projects-space" *ngFor="let project of userProjects">
+                          <button class="project btn-grad" (click)="selectProject(project.id)">
+                              {{project.name}}
+                          </button>
+                      </div>
+                </div>
+            </ng-template>
 
         </div>
     </div>

@@ -7,6 +7,11 @@
     color: #000059;
 }
 
+.navbar-brand:hover {
+    cursor: pointer;
+    color: #000059;
+}
+
 .navbar-tabs a{
   text-decoration: none;
   color: #000059;

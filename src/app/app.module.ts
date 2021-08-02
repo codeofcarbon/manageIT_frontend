@@ -20,6 +20,7 @@ import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
 import { TaskFormBacklogComponent } from './forms/task-form-backlog/task-form-backlog.component';
 import { TaskFormComponent } from './forms/task-form/task-form.component';
+import { httpInterceptorsProviders } from './http_interceptor';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,7 @@ import { TaskFormComponent } from './forms/task-form/task-form.component';
     ReactiveFormsModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [httpInterceptorsProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

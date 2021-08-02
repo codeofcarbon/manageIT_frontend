@@ -16,15 +16,20 @@ export class LoginComponent implements OnInit {
     password: this.fb.control('')
   })
 
-  constructor(private userService: UserService, private fb: FormBuilder, private router: Router) { }
+  constructor(private userService: UserService, private fb: FormBuilder, private router: Router) {
+   }
+  
+  authorize(user: User) {
+    localStorage.setItem('currentUser', JSON.stringify(user));
+    console.log(localStorage.getItem('currentUser'))
 
-  login(user: User) {
-    this.userService.login(user).subscribe(val => {
-      this.user = val
-      console.log(user)
+    this.userService.authenticate(user.username, user.password).subscribe(val => {
+      console.log(val)
+      console.log(val.principal)
+      this.user = val.principal
+      // this.login(val.principal)
       this.router.navigateByUrl(`/${user.username}/1/table`)
-    }, err => console.log(err.error.message)
-    )
+    })
   }
 
   ngOnInit(): void {

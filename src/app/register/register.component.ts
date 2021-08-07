@@ -22,7 +22,7 @@ export class RegisterComponent implements OnInit {
     this.userService.addUser(user).subscribe(val => {
       this.user = val
       console.log(user)
-      this.router.navigateByUrl(`/${user.username}/1/table`)
+      this.router.navigateByUrl(`/login`)
     }, err => console.log(err.error.message)
     )
   }

@@ -61,11 +61,44 @@ img {
     width: 90%;
 }
 
+.progress-space {
+    text-align: center;
+}
+
+.progresss {
+    font-size: small;
+    padding: 2px 5px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.to-do {
+  background-color: rgb(201, 201, 201);
+}
+.in-progress {
+    color: #17548a;
+  background-color: #7bacd8;
+}
+.done {
+    color: #127212;
+    background-color: #8ecf8e;
+}
+
 .delete-task-button {
     color: #000059;
     visibility: hidden;
     border: 1px solid whitesmoke;
     border-radius: 5px;
+}
+
+.assign-task-button {
+    color: #000059;
+    border: 1px solid whitesmoke;
+    border-radius: 5px;
+}
+.assign-task-button:hover {
+    border: 1px solid rgb(224, 223, 223);
+    background-color: rgb(224, 223, 223);
 }
 
 .delete-task-button:hover {
@@ -80,7 +113,7 @@ img {
 .task-space:hover {
     background-color: whitesmoke;
     border-radius: 5px;
-    border-bottom: 0.25px solid rgb(209, 207, 207);
+    border-bottom: 0.25px solid #0275d8;
 }
 
 .form-space {

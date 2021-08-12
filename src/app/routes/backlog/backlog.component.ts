@@ -1,9 +1,27 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Pipe } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ProjectService } from 'src/app/services/project.service';
 import { Sprint, SprintService } from '../../services/sprint.service';
 import { Task, TaskService } from '../../services/task.service';
+
+@Pipe({
+  name: "progress"
+}) 
+export class ProgressPipe {
+  transform(nazwa: string) {
+    if(nazwa === 'TO_DO') {
+      return 'TO DO'
+    }
+    if(nazwa === 'IN_PROGRESS') {
+      return 'IN PROGRESS'
+    }
+    if(nazwa === 'DONE') {
+      return 'DONE'
+    }
+    return 'UNKNOWN'
+  }
+}
 
 @Component({
   selector: 'app-backlog',
@@ -11,7 +29,7 @@ import { Task, TaskService } from '../../services/task.service';
   styleUrls: ['./backlog.component.css']
 })
 export class BacklogComponent implements OnInit {
-  
+
   projectId = parseInt(this.router.url.split('/')[2])
   user
   public searchKey: FormControl = new FormControl('')
@@ -20,9 +38,22 @@ export class BacklogComponent implements OnInit {
   tasks: Task[] = []
   selectedSprint: Sprint
 
-  constructor(private sprintService: SprintService, private taskService: TaskService, private projectService: ProjectService,  private router: Router) { }
+  constructor(private sprintService: SprintService, private taskService: TaskService, private projectService: ProjectService, private router: Router) { }
 
-  getAllSprints() {   
+  progressStyle(progress: string) {
+    if(progress === 'TO_DO') {
+      return 'to-do'
+    }
+    if(progress === 'IN_PROGRESS') {
+      return 'in-progress'
+    }
+    if(progress === 'DONE') {
+      return 'done'
+    }
+    return 'unknown'
+  }
+
+  getAllSprints() {
     console.log(this.projectId)
 
     this.projectService.getProjectById(this.projectId).subscribe(val => {
@@ -59,7 +90,7 @@ export class BacklogComponent implements OnInit {
       this.getAllTasks()
     })
   }
-  
+
   deleteSprint(id: number) {
     this.sprintService.deleteSprint(id).subscribe(() => {
       document.getElementById('close-button').click()
@@ -68,15 +99,15 @@ export class BacklogComponent implements OnInit {
       this.getAllTasks()
     })
   }
-  
+
   deleteTask(id: number) {
-    this.taskService.deleteTask(id).subscribe( () => {
+    this.taskService.deleteTask(id).subscribe(() => {
       console.log('---- Task Deleted ----')
       this.getAllSprints()
       this.getAllTasks()
     })
   }
-  
+
   changeSprintToActive(id: number) {
     this.sprintService.updateToActive(id).subscribe(val => {
       console.log('---- Changed Sprint to active')
@@ -87,7 +118,7 @@ export class BacklogComponent implements OnInit {
       console.log(err.error);
     })
   }
-  
+
   changeSprintToFinish(id: number) {
     this.sprintService.changeToNoActive(id).subscribe(val => {
       console.log('---- Finished Sprint')
@@ -98,7 +129,7 @@ export class BacklogComponent implements OnInit {
   }
 
   selectSprint(sprint: Sprint) {
-          this.selectedSprint = sprint;
+    this.selectedSprint = sprint;
   }
 
   public searchSprints(key: string): void {
@@ -111,12 +142,12 @@ export class BacklogComponent implements OnInit {
     }
 
     console.log(results)
-   
-    if(results.length == 0 && key) {
+
+    if (results.length == 0 && key) {
       this.sprints = []
       return
     }
-    if(results.length == 0 || !key) {
+    if (results.length == 0 || !key) {
       this.getAllSprints()
       return
     }
@@ -124,8 +155,30 @@ export class BacklogComponent implements OnInit {
     this.sprints = results
   }
 
+  assignTaskToSprint(task: Task, sprintId: number) {
+    const assignedTask = {
+      id: task.id,
+      name: task.name,
+      description: task.description,
+      storyPoints: task.storyPoints,
+      progress: task.progress,
+      priority: task.priority,
+      sprint: {
+        id: sprintId
+      },
+    }
+
+    console.log(assignedTask)
+
+    this.taskService.assignToSprint(assignedTask).subscribe(() => {
+      console.log('Przypisano do sprint ' + sprintId)
+      this.getAllSprints()
+      this.getAllTasks()
+    })
+  }
+
   ngOnInit(): void {
-    const username =this.router.url.split('/')[1]
+    const username = this.router.url.split('/')[1]
     this.user = username
     this.getAllSprints()
     this.getAllTasks()

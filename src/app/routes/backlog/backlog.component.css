@@ -5,7 +5,7 @@
     background-color: whitesmoke;
 }
 
-.sprint-space .upper-section {
+.upper-section {
     margin: 5px 10px;
     justify-content: space-between;
 }
@@ -77,7 +77,7 @@ img {
     visibility: visible;
 }
 
-.task-loop .task-space:hover {
+.task-space:hover {
     background-color: whitesmoke;
     border-radius: 5px;
     border-bottom: 0.25px solid rgb(209, 207, 207);
@@ -86,6 +86,15 @@ img {
 .form-space {
     text-align: right;
     padding-right: 40px;
+}
+
+.backlog-space {
+    margin: 25px 40px;
+}
+
+.backlog-space .middle-section {
+    border: 1px dotted #000059;
+    border-radius: 5px;
 }
 
 .modal-dialog {

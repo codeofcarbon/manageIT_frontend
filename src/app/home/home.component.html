@@ -4,7 +4,9 @@
         <app-vertical-navbar [user]="userr" [project]="selectedProject"></app-vertical-navbar>
         <div class="borderr" style="border-left: 0px black solid;">
 
-            <router-outlet *ngIf="selectedProject != null; else elseBlock"></router-outlet>
+            <router-outlet ></router-outlet>
+            <!-- Zakomentowane na czas dodawania nowej funkcjonalnosci -->
+            <!-- <router-outlet *ngIf="selectedProject != null; else elseBlock"></router-outlet> -->
 
             <ng-template #elseBlock>
                 <div class="home">

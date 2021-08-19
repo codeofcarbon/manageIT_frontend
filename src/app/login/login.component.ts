@@ -27,8 +27,8 @@ export class LoginComponent implements OnInit {
       console.log(val)
       console.log(val.principal)
       this.user = val.principal
-      // this.login(val.principal)
-      this.router.navigateByUrl(`/${user.username}/1/table`)
+      this.userService.authenticated = true
+      this.router.navigateByUrl(`/${user.username}/null/table`)
     })
   }
 

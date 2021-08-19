@@ -10,15 +10,18 @@ import { User, UserService } from '../services/user.service';
 })
 export class HomeComponent implements OnInit {
 
+  authenticated: boolean = false
   userr: User
   allUserss: User[]
   selectedProject: Project
   userProjects: Project[]
 
-  constructor(private userService: UserService,private projectService: ProjectService, private router: Router) {
+  constructor(private userService: UserService ,private projectService: ProjectService, private router: Router) {
     const urlTable = this.router.url.split('/')
     console.log(urlTable)
-    
+
+    this.authenticated = userService.authenticated
+
     this.getAllUsers()
     this.getUser(urlTable[1])
   }

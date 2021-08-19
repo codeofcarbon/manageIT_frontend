@@ -1,8 +1,4 @@
-<div class="wrapper" *ngIf="user != null; else elseBlock">
-    <router-outlet></router-outlet>
-</div>
-
-<ng-template #elseBlock>
+<div class="wrapper">
     <section class="login-wrapper d-flex">
 
         <section class="header-section">
@@ -32,4 +28,4 @@
             <button class="register-button" [routerLink]="'/register'"><b>Sign up now</b></button>
         </section>
     </section>
-</ng-template>
+</div>

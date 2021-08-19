@@ -7,6 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class UserService {
   
+  authenticated: boolean = false;
   private url = 'http://localhost:8080/api/v1/users'
   private httpOptions = {
     headers: new HttpHeaders({ 'Content-type': 'application/json' })

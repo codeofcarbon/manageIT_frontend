@@ -37,7 +37,7 @@ export class AddProjectFormComponent implements OnInit {
   updateProject(project: Project) {
     this.projectService.updateProject(project).subscribe(val => {
       console.log('---- Project updated ----')
-      this.router.navigateByUrl(`/${project.owner.username}/${project.id}/backlog`)
+      window.location.reload()
       console.log(val)
     })
   }

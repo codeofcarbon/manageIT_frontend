@@ -61,7 +61,12 @@
                         <div class="edit-link-div"
                             [routerLink]="['/' + user, projectId, 'backlog', 'task', 'edit', task.id]"
                             data-bs-toggle="modal" data-bs-target="#editTaskModal">
-                            - {{task.name}}
+                            - {{task.name}} 
+                        </div>
+                        <div style="width: 100px;" class="progress-space">
+                            <span class="progresss" [class]="progressStyle(task.progress)">
+                                {{task.progress | progress}}
+                            </span>
                         </div>
                         <div>
                             <button class="delete-task-button" (click)="deleteTask(task.id)">Delete</button>
@@ -76,12 +81,47 @@
             <div class="create-task-button mx-2 my-2"
                 [routerLink]="['/' + user, projectId,  'backlog', 'task', 'add', sprint.id]" data-bs-toggle="modal"
                 data-bs-target="#editTaskModal">
-                <img src="../../assets/icons/plus (1).svg" alt=""><b>Utwórz zadanie</b>
+                <img src="../../assets/icons/plus (1).svg" alt=""><b>Create task</b>
             </div>
         </section>
     </div>
     <div class="form-space">
-        <button class="btn btn-primary" (click)="createNewSprint()">Utwórz sprint</button>
+        <button class="btn btn-primary" (click)="createNewSprint()">Create sprint</button>
+    </div>
+    <div class="backlog-space">
+        <section class="upper-section">
+            <span>Backlog</span>
+        </section>
+        <section class="middle-section mx-2 my-2">
+            <div *ngFor="let task of tasks">
+
+                <div class="task-space d-flex" *ngIf="task.sprintId === null">
+                    <div class="edit-link-div"
+                        [routerLink]="['/' + user, projectId, 'backlog', 'task', 'edit', task.id]"
+                        data-bs-toggle="modal" data-bs-target="#editTaskModal">
+                        - {{task.name}}
+                    </div>
+                    <div class="mx-1">
+                        <button class="delete-task-button" (click)="deleteTask(task.id)">Delete</button>
+                    </div>
+                    <div class="dropdown">
+                        <button class="dropdown-toggle assign-task-button" id="dropdownAssignSprintButton"
+                            data-bs-toggle="dropdown" aria-expanded="false">Assign to sprint</button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownAssignSprintButton">
+                            <li *ngFor="let sprint of sprints"><a class="dropdown-item" style="cursor: pointer;"
+                                    (click)="assignTaskToSprint(task, sprint.id)">{{sprint.name}}</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="lower-section">
+            <div class="create-task-button mx-2 my-2" style="border: 1px solid transparent;"
+                [routerLink]="['/' + user, projectId,  'backlog', 'task', 'add', 0]" data-bs-toggle="modal"
+                data-bs-target="#editTaskModal">
+                <img src="../../assets/icons/plus (1).svg" alt=""><b>Create task</b>
+            </div>
+        </section>
     </div>
 </section>
 

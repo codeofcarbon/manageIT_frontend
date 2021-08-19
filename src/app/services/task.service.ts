@@ -30,6 +30,10 @@ export class TaskService {
     return this.http.delete<void>(`${this.url}/${id}`)
   }
 
+  assignToSprint(task): Observable<void> {
+        return this.http.put<void>(`${this.url}/assign/sprint`, task, this.httpOptions)
+  }
+
   updateTask(task: Task): Observable<Task> {
     return this.http.put<Task>(`${this.url}`, task, this.httpOptions)
   }

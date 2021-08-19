@@ -1,7 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Router } from '@angular/router';
 import { Project, ProjectService } from '../services/project.service';
-import { User } from '../services/user.service';
+import { User, UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-navbar',
@@ -16,7 +15,7 @@ export class NavbarComponent implements OnInit {
   @Output() projectEmitter: EventEmitter<Project> = new EventEmitter<Project>()
   selectedProject = null
 
-  constructor(private projectService: ProjectService, private router: Router) { }
+  constructor(private projectService: ProjectService, private userService: UserService) { }
 
   getAllProjects() {
     this.projectService.getAllProjects().subscribe(val => {
@@ -43,6 +42,11 @@ export class NavbarComponent implements OnInit {
     console.log('nulnul')
     this.projectEmitter.emit(null)
     this.ngOnInit()
+  }
+
+  logout() {
+        this.userService.authenticated = false
+        localStorage.removeItem('isLogged')
   }
 
   ngOnInit(): void {

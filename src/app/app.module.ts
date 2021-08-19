@@ -10,7 +10,7 @@ import { TableComponent } from './routes/table/table.component';
 import { TaskFormTableComponent } from './forms/task-form-table/task-form-table.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
-import { BacklogComponent } from './routes/backlog/backlog.component';
+import { BacklogComponent, ProgressPipe } from './routes/backlog/backlog.component';
 import { SprintFormComponent } from './forms/sprint-form/sprint-form.component';
 import { AddTaskFormComponent } from './forms/add-task-form/add-task-form.component';
 import { AddProjectFormComponent } from './forms/add-project-form/add-project-form.component';
@@ -20,6 +20,7 @@ import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
 import { TaskFormBacklogComponent } from './forms/task-form-backlog/task-form-backlog.component';
 import { TaskFormComponent } from './forms/task-form/task-form.component';
+import { httpInterceptorsProviders } from './http_interceptor';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { TaskFormComponent } from './forms/task-form/task-form.component';
     HomeComponent,
     RegisterComponent,
     TaskFormBacklogComponent,
-    TaskFormComponent
+    TaskFormComponent,
+    ProgressPipe
   ],
   imports: [
     BrowserModule,
@@ -46,7 +48,7 @@ import { TaskFormComponent } from './forms/task-form/task-form.component';
     ReactiveFormsModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [httpInterceptorsProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

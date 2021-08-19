@@ -1,8 +1,4 @@
-<div class="wrapper" *ngIf="user != null; else elseBlock">
-    <router-outlet></router-outlet>
-</div>
-
-<ng-template #elseBlock>
+<div class="wrapper">
     <section class="login-wrapper d-flex">
 
         <section class="header-section">
@@ -20,9 +16,11 @@
                     <br>
                     <input type="password" name="password" id="password" formControlName="password" placeholder="Password" autocomplete="off" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'" />
                 </span>
-                <button type="submit" class="btn btn-dark" (click)="login(form.value)">Log in</button>
+                <button type="submit" class="btn btn-dark" (click)="authorize(form.value)">Log in</button>
             </form>
         </section>
+
+        <!-- {{form.value | json}} -->
         <section class="register-section">
             <div>
                 Don't have an account?
@@ -30,4 +28,4 @@
             <button class="register-button" [routerLink]="'/register'"><b>Sign up now</b></button>
         </section>
     </section>
-</ng-template>
+</div>

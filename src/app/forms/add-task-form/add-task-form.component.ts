@@ -35,17 +35,32 @@ export class AddTaskFormComponent extends TaskFormComponent implements OnInit {
   }
 
   getSprintId() {
-    this.taskForm.setValue({
-      id: null,
-      name: null,
-      description: null,
-      storyPoints: 0,
+    if(this.params.id == 0) {
+      this.taskForm.setValue({
+        id: null,
+        name: null,
+        description: null,
+        storyPoints: 0,
+        progress: 'TO_DO',
+        priority: '0',
+        sprint: {
+          id: null
+        }
+      })
+    } else {
+
+      this.taskForm.setValue({
+        id: null,
+        name: null,
+        description: null,
+        storyPoints: 0,
       progress: 'TO_DO',
       priority: '0',
       sprint: {
         id: this.params.id
       },
     })
+  }
   }
 
   ngOnInit(): void {

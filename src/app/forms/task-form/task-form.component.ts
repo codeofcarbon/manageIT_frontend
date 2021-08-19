@@ -18,7 +18,7 @@ export class TaskFormComponent implements OnInit {
     progress: new FormControl("TO_DO", { validators: [Validators.required], updateOn: "change" }),
     priority: new FormControl("NOT_AT_ALL", { validators: [Validators.min(0), Validators.max(4)], updateOn: "change" }),
     sprint: new FormGroup({
-      id: new FormControl('', { validators: [Validators.required], updateOn: "change" })
+      id: new FormControl('', { updateOn: "change" })
     })
   }
   )

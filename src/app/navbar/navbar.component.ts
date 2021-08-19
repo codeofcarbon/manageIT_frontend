@@ -46,6 +46,7 @@ export class NavbarComponent implements OnInit {
 
   logout() {
         this.userService.authenticated = false
+        localStorage.removeItem('isLogged')
   }
 
   ngOnInit(): void {

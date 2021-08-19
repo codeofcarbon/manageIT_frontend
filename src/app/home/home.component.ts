@@ -20,8 +20,10 @@ export class HomeComponent implements OnInit {
     const urlTable = this.router.url.split('/')
     console.log(urlTable)
 
-    this.authenticated = userService.authenticated
+    const isLogged = JSON.parse(localStorage.getItem('isLogged')).isLogged
+    this.authenticated = isLogged
 
+    console.log(this.authenticated)
     this.getAllUsers()
     this.getUser(urlTable[1])
   }

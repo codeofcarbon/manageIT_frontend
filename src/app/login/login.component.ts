@@ -27,7 +27,14 @@ export class LoginComponent implements OnInit {
       console.log(val)
       console.log(val.principal)
       this.user = val.principal
+     
+      const logged = {
+        isLogged: true
+      }
+
+      localStorage.setItem('isLogged', JSON.stringify(logged))
       this.userService.authenticated = true
+    
       this.router.navigateByUrl(`/${user.username}/null/table`)
     })
   }

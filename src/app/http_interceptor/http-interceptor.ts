@@ -8,10 +8,10 @@ import { Observable } from "rxjs";
 export class BasicAuthInterceptor implements HttpInterceptor {
     
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-        if( req.url === 'http://localhost:8080/api/v1/users/authenticate' && req.method === 'GET') {
-            console.log('Nothing to intercept')
-            return next.handle(req)
-        }
+        // if( req.url === 'http://localhost:8080/api/v1/users/authenticate' && req.method === 'GET') {
+        //     console.log('Nothing to intercept')
+        //     return next.handle(req)
+        // }
         req = req.clone({
             withCredentials: true
         });

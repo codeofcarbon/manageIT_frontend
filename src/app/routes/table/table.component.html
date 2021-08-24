@@ -50,7 +50,7 @@
                 <button class="to-backlog-button" [routerLink]="['/' + user, projectId,'backlog']">To Backlog</button>
             </div>
 
-            <div class="data" [routerLink]="['/' + user, projectId, 'table', 'edit', task.id]" data-bs-toggle="modal"
+            <div id="data" [class]="priority(task.priority)" [routerLink]="['/' + user, projectId, 'table', 'edit', task.id]" data-bs-toggle="modal"
                 data-bs-target="#editTaskModal" *ngFor="let task of toDo">
                 <div class="upper-data d-flex">
                     <span>
@@ -75,7 +75,7 @@
             </div>
         </section>
         <section class="data-section">
-            <div class="data" [routerLink]="['/' + user, projectId,'table', 'edit', task.id]" data-bs-toggle="modal"
+            <div id="data" [class]="priority(task.priority)" [routerLink]="['/' + user, projectId,'table', 'edit', task.id]" data-bs-toggle="modal"
                 data-bs-target="#editTaskModal" *ngFor="let task of inProgress">
                 <div class="upper-data d-flex">
                     <span>
@@ -99,7 +99,7 @@
             </div>
         </section>
         <section class="data-section">
-            <div class="data" [routerLink]="['/' + user, projectId,'table', 'edit', task.id]" data-bs-toggle="modal"
+            <div id="data" [class]="priority(task.priority)" [routerLink]="['/' + user, projectId,'table', 'edit', task.id]" data-bs-toggle="modal"
                 data-bs-target="#editTaskModal" *ngFor="let task of done">
                 <div class="upper-data d-flex">
                     <span>

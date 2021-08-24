@@ -29,6 +29,9 @@ export class TaskFormBacklogComponent extends TaskFormComponent implements OnIni
       document.getElementById('close-button').click()
       this.location.back()
       this.backlogComp.ngOnInit()
+    }, err => {
+      this.error = err.error.message
+      console.log(err.error)
     })
   }
 

@@ -31,6 +31,9 @@ export class AddTaskFormComponent extends TaskFormComponent implements OnInit {
             this.location.go('/backlog')
             this.backlogComp.getAllSprints()
             this.backlogComp.getAllTasks()
+          }, err => {
+            this.error = err.error.message
+            console.log(err.error)
           })
   }
 

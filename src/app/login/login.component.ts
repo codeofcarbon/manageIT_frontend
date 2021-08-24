@@ -36,6 +36,8 @@ export class LoginComponent implements OnInit {
       this.userService.authenticated = true
     
       this.router.navigateByUrl(`/${user.username}/null/table`)
+    }, err => {
+          console.log(err)
     })
   }
 

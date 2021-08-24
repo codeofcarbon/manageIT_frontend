@@ -12,6 +12,7 @@ import { Sprint, SprintService } from '../../services/sprint.service';
 })
 export class SprintFormComponent implements OnInit {
 
+  error
   private params
   public sprint: Sprint
   public sprintForm: FormGroup = new FormGroup({
@@ -29,7 +30,7 @@ export class SprintFormComponent implements OnInit {
       this.getSprint()
     })
   }
-
+  
   updateSprint(sprint: Sprint) {
     this.sprintService.updateSprint(sprint).subscribe(val => {
       this.sprint = val
@@ -38,22 +39,25 @@ export class SprintFormComponent implements OnInit {
       this.backlogComp.getAllTasks()
       console.log(this.sprint)
       this.getSprint()
+    }, err => {
+      this.error = err.error.message
+      console.log(err.error)
     })
   }
-
+  
   getSprint() {
     this.sprintService.getSprintById(this.params.id).subscribe(val => {
       this.sprint = val
-
+      
       var momentStartDate = null
       var momentEndDate = null
-
+      
       if(this.sprint.startDate != null) {
         const format = "YYYY-MM-DDTHH:mm"
         momentStartDate = moment(this.sprint.startDate).format(format)
         momentEndDate = moment(this.sprint.endDate).format(format)
       }
-
+      
       console.log(val)
       this.sprintForm.setValue({
         id: this.sprint.id,
@@ -64,9 +68,8 @@ export class SprintFormComponent implements OnInit {
       })
     })
   }
-
+  
   ngOnInit(): void {
     // this.getSprint()
   }
-
 }

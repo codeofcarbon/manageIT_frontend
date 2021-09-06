@@ -1,7 +1,7 @@
 import { Location } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { BacklogComponent } from 'src/app/routes/backlog/backlog.component';
+import { BacklogComponent } from 'src/app/home/routes/backlog/backlog.component';
 import { Task, TaskService } from 'src/app/services/task.service';
 import { TaskFormComponent } from '../task-form/task-form.component';
 

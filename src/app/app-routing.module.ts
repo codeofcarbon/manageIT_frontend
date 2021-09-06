@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { TableComponent } from './routes/table/table.component';
-import { BacklogComponent } from './routes/backlog/backlog.component';
+import { TableComponent } from './home/routes/table/table.component';
+import { BacklogComponent } from './home/routes/backlog/backlog.component';
 import { TaskFormTableComponent } from './forms/task-form-table/task-form-table.component';
 import { SprintFormComponent } from './forms/sprint-form/sprint-form.component';
 import { AddTaskFormComponent } from './forms/add-task-form/add-task-form.component';
-import { ProjectSettingsComponent } from './routes/project-settings/project-settings.component';
+import { ProjectSettingsComponent } from './home/routes/project-settings/project-settings.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';

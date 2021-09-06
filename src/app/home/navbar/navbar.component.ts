@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Project, ProjectService } from '../services/project.service';
-import { User, UserService } from '../services/user.service';
+import { Project, ProjectService } from '../../services/project.service';
+import { User, UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-navbar',

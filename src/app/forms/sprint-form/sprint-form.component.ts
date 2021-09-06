@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import * as moment from 'moment';
-import { BacklogComponent } from 'src/app/routes/backlog/backlog.component';
+import { BacklogComponent } from 'src/app/home/routes/backlog/backlog.component';
 import { Sprint, SprintService } from '../../services/sprint.service';
 
 @Component({

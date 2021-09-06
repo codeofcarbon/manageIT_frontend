@@ -1,7 +1,7 @@
 import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { TableComponent } from 'src/app/routes/table/table.component';
+import { TableComponent } from 'src/app/home/routes/table/table.component';
 import { Task, TaskService } from '../../services/task.service';
 import { TaskFormComponent } from '../task-form/task-form.component';
 

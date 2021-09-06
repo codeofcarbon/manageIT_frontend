@@ -2,7 +2,7 @@ import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { BacklogComponent } from 'src/app/home/routes/backlog/backlog.component';
-import { Task, TaskService } from '../../services/task.service';
+import { Task, TaskService } from '../../../services/task.service';
 import { TaskFormComponent } from '../task-form/task-form.component';
 
 @Component({

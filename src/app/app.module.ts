@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './home/navbar/navbar.component';
-import { FooterComponent } from './footer/footer.component';
+import { FooterComponent } from './home/footer/footer.component';
 import { VerticalNavbarComponent } from './home/vertical-navbar/vertical-navbar.component';
 import { HttpClientModule } from '@angular/common/http';
 import { TableComponent } from './home/routes/table/table.component';

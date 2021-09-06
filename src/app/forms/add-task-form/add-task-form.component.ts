@@ -7,8 +7,8 @@ import { TaskFormComponent } from '../task-form/task-form.component';
 
 @Component({
   selector: 'app-add-task-form',
-  templateUrl: './add-task-form.component.html',
-  styleUrls: ['./add-task-form.component.css']
+  templateUrl: '../task-form/task-form.component.html',
+  styleUrls: ['../task-form/task-form.component.css']
 })
 export class AddTaskFormComponent extends TaskFormComponent implements OnInit {
 

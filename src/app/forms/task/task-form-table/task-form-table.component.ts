@@ -1,20 +1,20 @@
 import { Location } from '@angular/common';
-import { Component, Input, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { BacklogComponent } from 'src/app/routes/backlog/backlog.component';
-import { Task, TaskService } from 'src/app/services/task.service';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { TableComponent } from 'src/app/home/routes/table/table.component';
+import { Task, TaskService } from '../../../services/task.service';
 import { TaskFormComponent } from '../task-form/task-form.component';
 
 @Component({
-  selector: 'app-task-form-backlog',
-  templateUrl: '../add-task-form/add-task-form.component.html',
-  styleUrls: ['../add-task-form/add-task-form.component.css']
+  selector: 'app-task-form',
+  templateUrl: '../task-form/task-form.component.html',
+  styleUrls: ['../task-form/task-form.component.css']
 })
-export class TaskFormBacklogComponent extends TaskFormComponent implements OnInit {
+export class TaskFormTableComponent extends TaskFormComponent implements OnInit {
 
   task: Task = null
 
-  constructor(protected taskService: TaskService, protected route: ActivatedRoute, protected location: Location, private backlogComp: BacklogComponent, protected router: Router) {
+  constructor(protected taskService: TaskService, protected route: ActivatedRoute, protected location: Location, private tableComp: TableComponent) {
     super()
     this.route.params.subscribe( params => {
       this.params = params
@@ -23,13 +23,12 @@ export class TaskFormBacklogComponent extends TaskFormComponent implements OnIni
     })
    }
 
-   saveTask(task: Task) {
+  saveTask(task: Task) {
     this.taskService.updateTask(task).subscribe(val => {
       this.task = val
       document.getElementById('close-button').click()
-      this.location.back()
-      this.backlogComp.ngOnInit()
-    }, err => {
+      this.tableComp.ngOnInit()
+    },  err => {
       this.error = err.error.message
       console.log(err.error)
     })
@@ -56,5 +55,4 @@ export class TaskFormBacklogComponent extends TaskFormComponent implements OnIni
   ngOnInit(): void {
     this.getTask()
   }
-
 }

@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ProjectService } from 'src/app/services/project.service';
-import { Sprint } from '../../services/sprint.service';
-import { Task, TaskService } from '../../services/task.service';
+import { Sprint } from '../../../services/sprint.service';
+import { Task, TaskService } from '../../../services/task.service';
 
 @Component({
   selector: 'app-table',

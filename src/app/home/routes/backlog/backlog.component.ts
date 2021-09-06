@@ -2,8 +2,8 @@ import { Component, OnInit, Pipe } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ProjectService } from 'src/app/services/project.service';
-import { Sprint, SprintService } from '../../services/sprint.service';
-import { Task, TaskService } from '../../services/task.service';
+import { Sprint, SprintService } from '../../../services/sprint.service';
+import { Task, TaskService } from '../../../services/task.service';
 
 @Pipe({
   name: "progress"

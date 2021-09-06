@@ -1,13 +1,8 @@
 .login-wrapper {
-    margin-top: 100px;
+    margin-top: 13vh;
     flex-direction: column;
     align-items: center;
 }
-
-.form-section {
-    display: flex;
-}
-
 
 .login-space {
     display: flex;
@@ -16,7 +11,7 @@
 }
 
 input {
-    padding: 10px 20px;
+    padding: 1.4vh 2.8vh;
     border-radius: 25px;
     border: 1px solid whitesmoke;
 }
@@ -33,11 +28,19 @@ input:focus {
 
 .btn {
     border-radius: 25px;
-    margin-top: 25px;
+    margin-top: 3vh;
+}
+
+.error-section {
+    height: 5vh;
+}
+
+.error-alert {
+    visibility: hidden;
 }
 
 .register-section {
-    margin-top: 300px;
+    margin-top: 38vh;
     display: flex;
     flex-direction: column;
     align-items: center;

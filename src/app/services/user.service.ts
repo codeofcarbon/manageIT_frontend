@@ -26,7 +26,8 @@ export class UserService {
   authenticate(username, password): Observable<any> {
     this.httpOptions = {
       headers: new HttpHeaders({ 'Content-type': 'application/json', 
-                                 'Authorization': 'Basic ' + btoa(`${username}:${password}`) })
+                                 'Authorization': 'Basic ' + btoa(`${username}:${password}`),
+                                 'X-Requested-With': 'XMLHttpRequest' })
     }
     return this.http.get<User>(`${this.url}/authenticate`, this.httpOptions)
   }

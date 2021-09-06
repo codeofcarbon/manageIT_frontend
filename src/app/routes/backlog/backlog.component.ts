@@ -129,6 +129,8 @@ export class BacklogComponent implements OnInit {
       this.getAllSprints()
       this.getAllTasks()
     }, err => {
+      this.error = 'There must be a date in the future';
+      document.getElementById('errorAlert').style.visibility = "visible"
       console.log(err.error)
     })
   }

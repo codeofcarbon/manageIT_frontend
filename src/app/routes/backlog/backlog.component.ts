@@ -30,6 +30,7 @@ export class ProgressPipe {
 })
 export class BacklogComponent implements OnInit {
 
+  error: string = null
   projectId = parseInt(this.router.url.split('/')[2])
   user
   public searchKey: FormControl = new FormControl('')
@@ -115,6 +116,8 @@ export class BacklogComponent implements OnInit {
       this.getAllSprints()
       this.getAllTasks()
     }, err => {
+      this.error = err.error.message;
+      document.getElementById('errorAlert').style.visibility = "visible"
       console.log(err.error);
     })
   }
@@ -125,6 +128,10 @@ export class BacklogComponent implements OnInit {
       console.log(val)
       this.getAllSprints()
       this.getAllTasks()
+    }, err => {
+      this.error = 'There must be a date in the future';
+      document.getElementById('errorAlert').style.visibility = "visible"
+      console.log(err.error)
     })
   }
 
@@ -174,6 +181,10 @@ export class BacklogComponent implements OnInit {
       console.log('Przypisano do sprint ' + sprintId)
       this.getAllSprints()
       this.getAllTasks()
+    }, err => {
+      this.error = err.error.message;
+      document.getElementById('errorAlert').style.visibility = "visible"
+      console.log(err.error);
     })
   }
 

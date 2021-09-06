@@ -9,6 +9,7 @@ import { Task } from 'src/app/services/task.service';
 })
 export class TaskFormComponent implements OnInit {
 
+  error
   params
   taskForm: FormGroup = new FormGroup({
     id: new FormControl('', { validators: [], updateOn: 'change' }),

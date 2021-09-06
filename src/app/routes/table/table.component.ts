@@ -27,10 +27,23 @@ export class TableComponent implements OnInit {
   constructor(private taskService: TaskService, private projectService: ProjectService, private router: Router) {
   }
 
+  priority(state: string) {
+    if (state == "0") {
+      return "not-at-all"
+    }
+    if (state == "1") {
+      return "kinda-important"
+    }
+    if (state == "2") {
+      return "important"
+    }
+    if (state == "3") {
+      return "very-important"
+    }
+    else return "asap"
+  }
+
   checkProgress(task: Task) {
-
-    // console.log(task)
-
     if (task.progress === 'TO_DO') {
       this.toDo.push(task)
       return
@@ -76,6 +89,8 @@ export class TableComponent implements OnInit {
       this.inProgress = []
       this.done = []
       this.tasksInSprint.forEach(e => this.checkProgress(e))
+    }, err => {
+      console.log(err.error)
     })
   }
 
@@ -84,12 +99,14 @@ export class TableComponent implements OnInit {
       console.log(val)
       const sprintId = this.checkWhichSprintIsActive(val.sprints).id
       this.getAllTasks(sprintId);
-    }))
+    }), err => {
+      console.log(err.error)
+    })
   }
 
   checkWhichSprintIsActive(sprints): Sprint {
     sprints.forEach(e => {
-      if (e.active == true) {
+      if (e.active) {
         this.sprint = e
         return
       }

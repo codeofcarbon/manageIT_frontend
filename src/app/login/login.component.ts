@@ -10,6 +10,7 @@ import { User, UserService } from '../services/user.service';
 })
 export class LoginComponent implements OnInit {
 
+  error
   user: User = null
   userForm: FormGroup = this.fb.group({
     username: this.fb.control(''),
@@ -20,8 +21,8 @@ export class LoginComponent implements OnInit {
    }
   
   authorize(user: User) {
-    localStorage.setItem('currentUser', JSON.stringify(user));
-    console.log(localStorage.getItem('currentUser'))
+    // localStorage.setItem('currentUser', JSON.stringify(user));
+    // console.log(localStorage.getItem('currentUser'))
 
     this.userService.authenticate(user.username, user.password).subscribe(val => {
       console.log(val)
@@ -36,6 +37,11 @@ export class LoginComponent implements OnInit {
       this.userService.authenticated = true
     
       this.router.navigateByUrl(`/${user.username}/null/table`)
+    }, err => {
+          this.error = "Bad credentials"
+          document.getElementById('error').style.visibility = 'visible'
+          console.log(err)
+          console.log(this.error)
     })
   }
 

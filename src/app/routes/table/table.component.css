@@ -55,21 +55,42 @@
     background-color: rgb(209, 207, 207);
 }
 
-.data-section .data{
+.data-section #data{
     margin: 5px 5px;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
     border-radius: 5px;
-    background-color: white;
+    /* background-color: white; */
 }
-.data-section .data .btn{
+
+.not-at-all {
+    background-color: #b7ce85;
+}
+
+.kinda-important {
+    background-color: #e6e66f;
+}
+
+.important {
+    background-color: #f5c884;
+}
+
+.very-important { 
+    background-color: #fdab7f;
+}
+
+.asap {
+    background-color: #e66d6d;
+}
+
+.data-section #data .btn{
     visibility: hidden;
 }
 
-.data-section .data:hover {
+.data-section #data:hover {
     background-color: whitesmoke;
 }
 
-.data-section .data:hover .btn{
+.data-section #data:hover .btn{
     visibility: visible;
     background-color: lightgrey;
     border: 1px solid lightgrey; 

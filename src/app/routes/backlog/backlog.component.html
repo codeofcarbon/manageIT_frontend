@@ -1,18 +1,29 @@
 <section class="header-wrapper">
-    <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="#">Home</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Backlog</li>
-        </ol>
-    </nav>
-    <h2>
-        Backlog
-    </h2>
-    <form style="width: 200px;">
-        <input type="search" name="key" id="search-task" class="form-control"
-            (ngModelChange)="searchSprints(searchKey.value)" [formControl]="searchKey"
-            placeholder="Search from all sprints..." required autocomplete="off">
-    </form>
+
+    <section class="left-section">
+
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Backlog</li>
+            </ol>
+        </nav>
+        <h2>
+            Backlog
+        </h2>
+        <form style="width: 200px;">
+            <input type="search" name="key" id="search-task" class="form-control"
+                (ngModelChange)="searchSprints(searchKey.value)" [formControl]="searchKey"
+                placeholder="Search from all sprints..." required autocomplete="off">
+        </form>
+
+    </section>
+    <section class="right-section" id="errorAlert" *ngIf="error" onclick="this.style.visibility='hidden'">
+
+        {{error}}
+
+    </section>
+
 </section>
 
 <section class="wrapper">
@@ -61,7 +72,7 @@
                         <div class="edit-link-div"
                             [routerLink]="['/' + user, projectId, 'backlog', 'task', 'edit', task.id]"
                             data-bs-toggle="modal" data-bs-target="#editTaskModal">
-                            - {{task.name}} 
+                            - {{task.name}}
                         </div>
                         <div style="width: 100px;" class="progress-space">
                             <span class="progresss" [class]="progressStyle(task.progress)">

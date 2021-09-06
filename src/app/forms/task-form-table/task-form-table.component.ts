@@ -28,6 +28,9 @@ export class TaskFormTableComponent extends TaskFormComponent implements OnInit 
       this.task = val
       document.getElementById('close-button').click()
       this.tableComp.ngOnInit()
+    },  err => {
+      this.error = err.error.message
+      console.log(err.error)
     })
   }
 

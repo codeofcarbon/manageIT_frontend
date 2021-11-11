@@ -1,0 +1,58 @@
+.login-wrapper {
+    margin-top: 100px;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-section {
+    display: flex;
+}
+
+
+.login-space {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+input {
+    padding: 10px 20px;
+    border-radius: 25px;
+    border: 1px solid whitesmoke;
+}
+
+input::placeholder {
+    color: #000059;
+    font-weight: 600;
+}
+
+input:focus {
+    outline: none;
+     border: 1px solid whitesmoke;
+}
+
+.btn {
+    border-radius: 25px;
+    margin-top: 25px;
+}
+
+.register-section {
+    margin-top: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.register-button {
+    border: 1px solid transparent;
+    background-color: whitesmoke;
+    color: #000059;
+    text-decoration: underline;
+    text-decoration-color: #000059;
+}
+
+.register-button:hover {
+    color: black;
+    text-decoration-color: black;
+    
+}

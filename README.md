@@ -1,27 +1,45 @@
-# ManageITFrontEnd
+# ManageIT
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.5.
+Jira alike app to help with projects management
 
-## Development server
+## TABLE OF CONTENTS
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+* [Screenshots from app](#screenshots-from-app)
+* [Progress](#progress)
+* [How to start](#how-to-start)
+* [Technologies](#technologies)
+* [Further help](#further-help)
 
-## Code scaffolding
+## Screenshots from app 
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+ #### Login view
+![Alt text](./src/assets/img/login-view.PNG)
 
-## Build
+#### Home view
+![Alt text](./src/assets/img/home-page-view.PNG)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+#### Backlog view
+![Alt text](./src/assets/img/backlog-view.PNG)
 
-## Running unit tests
+#### Table view
+![Alt text](./src/assets/img/table-view.PNG)
+#### Form view
+![Alt text](./src/assets/img/form-view.PNG)
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Progress 
 
-## Running end-to-end tests
+:heavy_check_mark::heavy_check_mark::heavy_check_mark::heavy_check_mark::heavy_check_mark::heavy_check_mark::heavy_check_mark::x::x::x: - 70%
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+## How to start 
 
+ * First you have to make sure you run this(https://github.com/igor-on/manageit-demo) on your computer
+ * To install all needed node_modules use the command `npm ci` on the command line from this application directory
+ * Then run `ng serve` for a dev server. Navigate to `http://localhost:4200/` where the application will run
+
+ ## Technologies 
+
+#### This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.5.
+ 
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.

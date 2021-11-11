@@ -1,0 +1,40 @@
+<div class="wrapper" *ngIf="authenticated">
+    <app-navbar [allUsers]="allUserss" [user]="userr" (projectEmitter)="getProjectFromEvent($event)"></app-navbar>
+    <div class="d-flex">
+        <app-vertical-navbar [user]="userr" [project]="selectedProject"></app-vertical-navbar>
+        <div class="borderr" style="border-left: 0px black solid;">
+
+            <router-outlet *ngIf="selectedProject != null; else elseBlock"></router-outlet>
+
+            <ng-template #elseBlock>
+                <div class="home">
+                           
+                    <h1>
+                        SELECT PROJECT  <br> TO START
+                    </h1>
+
+                      <div class="projects-space" *ngFor="let project of userProjects">
+                          <button class="project btn-grad" (click)="selectProject(project.id)">
+                              {{project.name}}
+                          </button>
+                      </div>
+                </div>
+            </ng-template>
+
+        </div>
+    </div>
+    <app-footer></app-footer>
+</div>
+
+<div class="user-log position-fixed bottom-0 start-0 user-log mb-3 text-center">
+    Logged as: {{userr.username}}
+</div>
+
+
+<div class="modal fade" id="addProjectModal" tabindex="-1" aria-labelledby="projectModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+         <app-add-project-form></app-add-project-form>
+      </div>
+    </div>
+  </div>

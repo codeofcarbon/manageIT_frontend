@@ -1,0 +1,54 @@
+<!-- As a heading -->
+<nav class="navbar navbar-light bg-light">
+    <div class="d-flex">
+        <a class="navbar-brand h1 mx-2 my-2" (click)="goToHome()">ManageIT</a>
+        <div class="navbar-tabs d-flex align-items-center">
+            <li class="nav-item">
+                <a class="nav-link " role="button"
+                    aria-expanded="false" (click)="goToHome()">
+                    Home
+                </a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    Projects
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <li *ngFor="let project of projects">
+                        <a class="dropdown-item" (click)="selectProject(project.id)" [routerLink]="['/' +  user.username, project.id, 'table']">{{project.name}}</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    Users
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <li *ngFor="let user of allUsers"><a class="dropdown-item" href="#">{{user.username}}</a></li>
+                </ul>
+            </li>
+            <!-- <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    Your history
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <li><a class="dropdown-item" href="#">Action</a></li>
+                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                </ul>
+            </li> -->
+            <li class="nav-item">
+                <button type="button" class="btn btn-primary" style="background-color: #0275d8;" data-bs-toggle="modal" data-bs-target="#addProjectModal">CREATE</button>
+
+                <!-- {{selectedProject?.name}} -->
+            </li>
+        </div>
+        <div class="space">
+            <button class="log-out-button btn btn-danger" [routerLink]="'/login'" (click)="logout()">LOG OUT</button>
+        </div>
+    </div>
+
+</nav>

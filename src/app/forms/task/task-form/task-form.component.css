@@ -1,0 +1,48 @@
+.modal-content {
+    height: 450px;
+    /* width: 800px; */
+}
+
+.form-section {
+    justify-content: space-around;
+}
+
+.form-section label {
+    width: 100px;
+    /* padding: 5px 10px; */
+}
+
+input, select, textarea {
+    background-color: rgba(245, 245, 245, 0.452);
+    border: 2px solid rgba(122, 122, 122, 0.568);
+    border-radius: 5px;
+    padding: 3px 5px;
+    margin-bottom: 5px;
+}
+
+input, select:hover {
+    background-color: rgba(231, 227, 227, 0.452);
+}
+
+input:focus {
+    outline: none;
+    border: 2px solid #0275d8;
+}
+
+select:focus {
+    outline: none;
+    border: 2px solid #0275d8;
+}
+
+.error-alert {
+    margin-left: 20px;
+    padding-top: 7px;
+    font-size:larger;
+    width: 30vw;
+    height: 7vh;
+    text-align: center;
+    border: 1px solid #d9534f;
+    border-radius: 5px;
+    background-color: #d9534f;
+    color: white;
+}

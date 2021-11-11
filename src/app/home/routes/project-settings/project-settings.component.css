@@ -1,0 +1,14 @@
+.container {
+    justify-content: center;
+}
+
+.form-space {
+    margin-top: 20px;
+    margin-right: 100px;
+    height: 60vh;
+    width: 370px;
+    border: 1px solid black;
+    border-radius: 5px;
+    flex-direction: column;
+    justify-content: space-between;
+}

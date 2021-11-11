@@ -1,0 +1,35 @@
+<div class="wrapper">
+    <section class="login-wrapper d-flex">
+
+        <section class="header-section">
+            <h2>LOGIN</h2>
+        </section>
+        <section class="form-section">
+            <form #form="ngForm" [formGroup]="userForm" class="login-space">
+                <span>
+                    <label for="username"></label>
+                    <br>
+                    <input type="text" name="username" id="username" formControlName="username" placeholder="Username" autocomplete="off" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Username'" />
+                </span>
+                <span>
+                    <label for="password"></label>
+                    <br>
+                    <input type="password" name="password" id="password" formControlName="password" placeholder="Password" autocomplete="off" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'" />
+                </span>
+                <button type="submit" class="btn btn-dark" (click)="authorize(form.value)">Log in</button>
+            </form>
+
+            <div class="error-section text-center">
+                    <div  id="error" class="error-alert btn btn-danger" onclick="this.style.visibility='hidden'">{{error}}</div>
+            </div>
+        </section>
+
+        <!-- {{form.value | json}} -->
+        <section class="register-section">
+            <div>
+                Don't have an account?
+            </div>
+            <button class="register-button" [routerLink]="'/register'"><b>Sign up now</b></button>
+        </section>
+    </section>
+</div>

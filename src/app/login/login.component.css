@@ -1,0 +1,61 @@
+.login-wrapper {
+    margin-top: 13vh;
+    flex-direction: column;
+    align-items: center;
+}
+
+.login-space {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+input {
+    padding: 1.4vh 2.8vh;
+    border-radius: 25px;
+    border: 1px solid whitesmoke;
+}
+
+input::placeholder {
+    color: #000059;
+    font-weight: 600;
+}
+
+input:focus {
+    outline: none;
+     border: 1px solid whitesmoke;
+}
+
+.btn {
+    border-radius: 25px;
+    margin-top: 3vh;
+}
+
+.error-section {
+    height: 5vh;
+}
+
+.error-alert {
+    visibility: hidden;
+}
+
+.register-section {
+    margin-top: 38vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.register-button {
+    border: 1px solid transparent;
+    background-color: whitesmoke;
+    color: #000059;
+    text-decoration: underline;
+    text-decoration-color: #000059;
+}
+
+.register-button:hover {
+    color: black;
+    text-decoration-color: black;
+    
+}

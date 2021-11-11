@@ -1,0 +1,163 @@
+<section class="header-wrapper">
+
+    <section class="left-section">
+
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Backlog</li>
+            </ol>
+        </nav>
+        <h2>
+            Backlog
+        </h2>
+        <form style="width: 200px;">
+            <input type="search" name="key" id="search-task" class="form-control"
+                (ngModelChange)="searchSprints(searchKey.value)" [formControl]="searchKey"
+                placeholder="Search from all sprints..." required autocomplete="off">
+        </form>
+
+    </section>
+    <section class="right-section" id="errorAlert" *ngIf="error" onclick="this.style.visibility='hidden'">
+
+        {{error}}
+
+    </section>
+
+</section>
+
+<section class="wrapper">
+    <div class="sprint-space" *ngFor="let sprint of sprints">
+        <section class="upper-section d-flex">
+            <div>
+                <span>{{sprint.name}} -> </span>
+                <span *ngIf="sprint?.startDate != null; else elseBlock">
+                    <b class="mx-3">from</b> {{sprint.startDate}} <b class="mx-3">to</b> {{sprint.endDate}}
+                </span>
+                <ng-template #elseBlock>
+                    <b class="mx-3">from</b> ... <b class="mx-3">to</b> ...
+                </ng-template>
+            </div>
+            <div>
+                <span>Story points: {{sprint.storyPointsToSpend}}</span>
+                <button class="button" [hidden]="sprint.active" (click)="changeSprintToActive(sprint.id)">Start
+                    sprint</button>
+                <button class="button" [hidden]="!sprint.active" (click)="changeSprintToFinish(sprint.id)">Finish
+                    sprint</button>
+                <button class="button" type="button" id="dropdownMenu1" data-bs-toggle="dropdown" aria-expanded="false">
+                    <img src="../../assets/icons/list.svg">
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                    <li>
+                        <div [routerLink]="['/' + user, projectId, 'backlog', 'sprint', 'edit', sprint.id]"
+                            data-bs-toggle="modal" data-bs-target="#editTaskModal">
+                            <button class="dropdown-item" type="button">Edytuj sprint</button>
+                        </div>
+                    </li>
+                    <li>
+                        <button class="dropdown-item" type="button" (click)="selectSprint(sprint)"
+                            data-bs-toggle="modal" data-bs-target="#deleteSprintModal">Usuń
+                            sprint</button>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        <section class="middle-section mx-2 my-2">
+
+            <div class="task-loop" *ngFor="let task of tasks">
+
+                <div *ngFor="let taskId of sprint.tasksIds">
+
+                    <div class="task-space d-flex" *ngIf="task.id === taskId">
+                        <div class="edit-link-div"
+                            [routerLink]="['/' + user, projectId, 'backlog', 'task', 'edit', task.id]"
+                            data-bs-toggle="modal" data-bs-target="#editTaskModal">
+                            - {{task.name}}
+                        </div>
+                        <div style="width: 100px;" class="progress-space">
+                            <span class="progresss" [class]="progressStyle(task.progress)">
+                                {{task.progress | progress}}
+                            </span>
+                        </div>
+                        <div>
+                            <button class="delete-task-button" (click)="deleteTask(task.id)">Delete</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+        <section class="lower-section">
+            <div class="create-task-button mx-2 my-2"
+                [routerLink]="['/' + user, projectId,  'backlog', 'task', 'add', sprint.id]" data-bs-toggle="modal"
+                data-bs-target="#editTaskModal">
+                <img src="../../assets/icons/plus (1).svg" alt=""><b>Create task</b>
+            </div>
+        </section>
+    </div>
+    <div class="form-space">
+        <button class="btn btn-primary" (click)="createNewSprint()">Create sprint</button>
+    </div>
+    <div class="backlog-space">
+        <section class="upper-section">
+            <span>Backlog</span>
+        </section>
+        <section class="middle-section mx-2 my-2">
+            <div *ngFor="let task of tasks">
+
+                <div class="task-space d-flex" *ngIf="task.sprintId === null">
+                    <div class="edit-link-div"
+                        [routerLink]="['/' + user, projectId, 'backlog', 'task', 'edit', task.id]"
+                        data-bs-toggle="modal" data-bs-target="#editTaskModal">
+                        - {{task.name}}
+                    </div>
+                    <div class="mx-1">
+                        <button class="delete-task-button" (click)="deleteTask(task.id)">Delete</button>
+                    </div>
+                    <div class="dropdown">
+                        <button class="dropdown-toggle assign-task-button" id="dropdownAssignSprintButton"
+                            data-bs-toggle="dropdown" aria-expanded="false">Assign to sprint</button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownAssignSprintButton">
+                            <li *ngFor="let sprint of sprints"><a class="dropdown-item" style="cursor: pointer;"
+                                    (click)="assignTaskToSprint(task, sprint.id)">{{sprint.name}}</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="lower-section">
+            <div class="create-task-button mx-2 my-2" style="border: 1px solid transparent;"
+                [routerLink]="['/' + user, projectId,  'backlog', 'task', 'add', 0]" data-bs-toggle="modal"
+                data-bs-target="#editTaskModal">
+                <img src="../../assets/icons/plus (1).svg" alt=""><b>Create task</b>
+            </div>
+        </section>
+    </div>
+</section>
+
+<!-- EDIT TASK MODAL -->
+<div class="modal fade" id="editTaskModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog sample">
+        <router-outlet></router-outlet>
+    </div>
+</div>
+
+<!-- DELETE SPRINT MODAL -->
+<div class="modal fade" id="deleteSprintModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Delete Sprint</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Are you sure you want to delete this sprint and all tasks it contains?
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="close-button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-danger" (click)="deleteSprint(selectedSprint.id)">Delete</button>
+            </div>
+        </div>
+    </div>
+</div>

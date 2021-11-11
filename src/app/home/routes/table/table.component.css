@@ -1,0 +1,132 @@
+.user-space {
+    height: 30px;
+    width: 30px;
+    margin-left: 20px;
+    margin-top: 6px;
+    padding-top: 5px;
+    border: 1px solid gray;
+    border-radius: 50%;
+    background-color: whitesmoke;
+    font-size: 0.8rem;
+    text-align: center;
+}
+
+.task-wrapper .task-space:first-child {
+    margin-left: 2rem;
+}
+
+.task-wrapper .task-space:not(:last-child){
+    margin-right: 2rem;
+}
+
+.task-wrapper .task-space {
+    width: 280px;
+    min-height: 300px;
+    border-radius: 5px;
+    background-color: whitesmoke;
+}
+
+.header-section {
+    justify-content: space-between;
+    padding: 10px 20px 0px 10px;
+    height: 4rem;
+}
+
+.no-sprint-log {
+    margin-bottom: 30px;
+    flex-direction: column;
+    align-items: center;
+}
+
+.no-sprint-log .extended-message{
+    width: 200px;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+.no-sprint-log .to-backlog-button {
+    padding: 5px 10px;
+    border: 1px solid rgb(221, 221, 221);
+    background-color: rgb(221, 221, 221);
+    border-radius: 5px;
+}
+.no-sprint-log .to-backlog-button:hover {
+    border: 1px solid rgb(209, 207, 207);
+    background-color: rgb(209, 207, 207);
+}
+
+.data-section #data{
+    margin: 5px 5px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    border-radius: 5px;
+    /* background-color: white; */
+}
+
+.not-at-all {
+    background-color: #b7ce85;
+}
+
+.kinda-important {
+    background-color: #e6e66f;
+}
+
+.important {
+    background-color: #f5c884;
+}
+
+.very-important { 
+    background-color: #fdab7f;
+}
+
+.asap {
+    background-color: #e66d6d;
+}
+
+.data-section #data .btn{
+    visibility: hidden;
+}
+
+.data-section #data:hover {
+    background-color: whitesmoke;
+}
+
+.data-section #data:hover .btn{
+    visibility: visible;
+    background-color: lightgrey;
+    border: 1px solid lightgrey; 
+}
+
+.upper-data {
+    /* margin: 5px 5px 0px 5px;  */
+    /* margin: 5px 5px; */
+    padding: 5px 5px;
+    justify-content: space-between;
+}
+
+.lower-data {
+    /* margin: 3px 0px 3px 20px; */
+    padding: 1px 0px 5px 10px;
+    /* padding-bottom: 5px; */
+    font-size: 0.7rem;
+}
+
+.btn {
+    width: 30px;
+    height: 30px;
+    padding: 3px 3px;
+    font-size: 0.7rem;
+}
+
+span {
+    width: 230px;
+}
+
+.task-svg {
+    margin-left: 205px;
+}
+
+.modal-dialog {
+    margin-top: 50px;
+    /* margin-right: 670px; */
+ }
+

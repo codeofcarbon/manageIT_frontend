@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { User } from './user.service';
@@ -10,7 +10,7 @@ export class SprintService {
 
   private url = 'http://localhost:8080/api/v1/sprints'
   private httpOptions = {
-    headers: new HttpHeaders({ 'Content-type': 'application/json' })
+    headers: new HttpHeaders({ 'Content-type': 'application/json' }),
   }
 
   constructor(private http: HttpClient) { }

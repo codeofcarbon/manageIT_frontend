@@ -32,7 +32,7 @@ Jira alike app to help with projects management
 
 ## How to start 
 
- * First you have to make sure you run this(https://github.com/igor-on/manageit-demo) on your computer
+ * First you have to make sure you run this(https://github.com/CodeOfCarbon/manageIT_backend) on your computer
  * To install all needed node_modules use the command `npm ci` on the command line from this application directory
  * Then run `ng serve` for a dev server. Navigate to `http://localhost:4200/` where the application will run
 

@@ -1,14 +1,19 @@
 # ManageIT
 
-Jira alike app to help with projects management
+A project management tool that supports the agile methodology (modeled on Jira).
 
-## TABLE OF CONTENTS
+## Table of contents
 
+* [For what?](#for-what)
 * [Screenshots from app](#screenshots-from-app)
 * [Progress](#progress)
 * [How to start](#how-to-start)
 * [Technologies](#technologies)
 * [Further help](#further-help)
+
+## For what?
+
+It is a group graduate project carried out at the final stage of the SDA course. Working on a group project, and thus the opportunity to work in a team while creating the application allowed us to take a broader look at the problems being solved, and above all, it allowed us to learn more about working in the gitflow system.
 
 ## Screenshots from app 
 
